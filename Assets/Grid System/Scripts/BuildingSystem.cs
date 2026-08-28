@@ -83,7 +83,7 @@ public class BuildingSystem : MonoBehaviour
         {
             preview.ChangeState(BuildingPreview.BuildingPreviewState.NEGATIVE);
         }
-        if (rotateBuilding.IsPressed())
+        if (rotateBuilding.WasPressedThisFrame())
         {
             preview.Rotate(90);
         }
