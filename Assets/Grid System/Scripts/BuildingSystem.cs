@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class BuildingSystem : MonoBehaviour
 {
     public const float CellSize = 1f;
+    public WorldVariables world;
     [SerializeField] private BuildingData buildingData1;
     [SerializeField] private BuildingData buildingData2;
     [SerializeField] private BuildingData buildingData3;
@@ -20,7 +21,7 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding3;
     InputAction rotateBuilding; 
     InputAction buildInput;
-
+     
     void Start()
     {
         selectBuilding1 = InputSystem.actions["SelectBuilding1"];
@@ -91,11 +92,19 @@ public class BuildingSystem : MonoBehaviour
     
     private void PlaceBuilding(List<Vector3> buildingPositions)
     {
-        Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
-        building.Setup(preview.Data, preview.BuildingModel.Rotation);
-        grid.SetBuilding(building, buildingPositions);
-        Destroy(preview.gameObject);
-        preview = null;
+        int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
+        int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost;
+        if (currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost) {
+            Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
+            building.Setup(preview.Data, preview.BuildingModel.Rotation);
+            grid.SetBuilding(building, buildingPositions);
+            Destroy(preview.gameObject);
+            preview = null;
+            world.wood -= woodCost;
+            world.stone -= stoneCost;
+            world.food -= foodCost;
+            world.fuel -= fuelCost;
+        }
     }
 
     private Vector3 GetSnappedCenterPosition(List<Vector3> allBuildingPositions)
