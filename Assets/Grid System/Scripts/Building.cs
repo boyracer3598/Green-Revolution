@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public int StoneCost => data.StoneCost;
     public int FoodCost => data.FoodCost;
     public int FuelCost => data.FuelCost;
+    public string SpMats => data.SpMats;
 
     private BuildingModel model;
     private BuildingData data;

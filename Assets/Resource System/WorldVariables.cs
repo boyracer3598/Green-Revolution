@@ -16,6 +16,7 @@ public class WorldVariables : MonoBehaviour
         wood = 100;
         stone = 100;
         fuel = 0;
+        changeSpMats(true, "Wool");
     }
     public void changeSpMats(bool Add, string Material)
     {
@@ -27,6 +28,10 @@ public class WorldVariables : MonoBehaviour
         {
             this.SpecialMaterials.Remove(Material);
         }
+    }
+    public bool hasSpMat(string Material)
+    {
+        return SpecialMaterials.Contains(Material);
     }
     // Update is called once per frame
     void Update()
