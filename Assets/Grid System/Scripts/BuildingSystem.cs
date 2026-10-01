@@ -124,6 +124,9 @@ public class BuildingSystem : MonoBehaviour
             Destroy(preview.gameObject);
             preview = null;
             SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
+        } else
+        {
+            Debug.Log("Not enough resources to place the building.");
         }
     }
 
