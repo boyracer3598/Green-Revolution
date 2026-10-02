@@ -70,7 +70,8 @@ public class BuildingSystem : MonoBehaviour
     {
         preview.transform.position = mouseWorldPosition;
         List<Vector3> buildPositions = preview.BuildingModel.GetAllBuildingPosition();
-        bool canBuild = grid.CanBuild(buildPositions);
+        bool canBuild = grid.CanBuild(buildPositions) && CanPlaceBuilding();
+
         if (canBuild)
         {
             preview.transform.position = GetSnappedCenterPosition(buildPositions);
@@ -93,41 +94,36 @@ public class BuildingSystem : MonoBehaviour
     {
         int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
         int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost;
-        string[] requiredMaterials = preview.Data.SpMats.Split(", ");
-        int matsCount = requiredMaterials.Length;
         int matsAvailable = 0;
-        foreach (string item in requiredMaterials)
+        int matsCount = 0;
+        if (!string.IsNullOrEmpty(preview.Data.SpMats))
         {
-            if (world.hasSpMat(item)) matsAvailable++;
+            string[] requiredMaterials = preview.Data.SpMats.Split(", ");
+            matsCount = requiredMaterials.Length;
+            foreach (string item in requiredMaterials)
+            {
+                if (world.hasSpMat(item)) matsAvailable++;
+            }
         }
         return matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
     }
     private void SpendMaterials(int woodCost, int stoneCost, int foodCost, int fuelCost)
     {
-        int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
-        if (currentWood < woodCost || currentStone < stoneCost || currentFood < foodCost || currentFuel < fuelCost      )
-        {
-            throw new InvalidOperationException("Not enough resources to place the building.");
-        } else { 
-            world.wood -= woodCost;
-            world.stone -= stoneCost;
-            world.food -= foodCost;
-            world.fuel -= fuelCost;
-        }
+        // int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
+        world.wood -= woodCost;
+        world.stone -= stoneCost;
+        world.food -= foodCost;
+        world.fuel -= fuelCost;
     }
     private void PlaceBuilding(List<Vector3> buildingPositions)
     {
-        if (CanPlaceBuilding()) {
-            Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
-            building.Setup(preview.Data, preview.BuildingModel.Rotation);
-            grid.SetBuilding(building, buildingPositions);
-            Destroy(preview.gameObject);
-            preview = null;
-            SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
-        } else
-        {
-            Debug.Log("Not enough resources to place the building.");
-        }
+        Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
+        building.Setup(preview.Data, preview.BuildingModel.Rotation);
+        grid.SetBuilding(building, buildingPositions);
+        Debug.Log($"Placed building: {preview.Data.name} at {preview.transform.position}");
+        SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
+        Destroy(preview.gameObject);
+        preview = null;
     }
 
     private Vector3 GetSnappedCenterPosition(List<Vector3> allBuildingPositions)
@@ -155,6 +151,7 @@ public class BuildingSystem : MonoBehaviour
     {
         BuildingPreview buildingPreview = Instantiate(previewPrefab, position, Quaternion.identity);
         buildingPreview.Setup(data);
+        buildingPreview.ChangeState(BuildingPreview.BuildingPreviewState.NEGATIVE);
         return buildingPreview;
     }
     
