@@ -35,7 +35,7 @@ public class BuildingSystem : MonoBehaviour
     private void Update()
     {
         Vector3 mousePos = GetMousePosition();
-
+        Debug.Log($"Mouse Position: {mousePos}");
         if (preview != null)
         {
             HandlePreview(mousePos);
