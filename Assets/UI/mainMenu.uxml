@@ -3,9 +3,9 @@
     <ui:VisualElement name="Body" style="flex-grow: 1; margin-right: 20px; margin-bottom: 20px; -unity-background-image-tint-color: rgb(196, 196, 196); align-items: center;">
         <ui:Button text="&#10;" style="background-image: url(&quot;project://database/Assets/UI/Icons/quitIcon.png?fileID=2800000&amp;guid=e5bc5cd880964204d851837bcbaa1930&amp;type=3#quitIcon&quot;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(188, 188, 188, 0); position: absolute; height: 59px; width: 58px; top: auto; left: auto; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(117, 200, 147);"/>
         <ui:VisualElement name="Buttons" style="left: auto; right: auto; top: auto; width: 1274px; align-items: center; position: relative; height: auto; justify-content: flex-start; align-self: auto; align-content: auto; bottom: auto;">
-            <ui:Button text="New Game" class="button" style="-unity-text-align: middle-center;"/>
-            <ui:Button text="Load Game" class="button" style="-unity-text-align: middle-center;"/>
-            <ui:Button text="Settings" class="button" style="-unity-text-align: middle-center;"/>
+            <ui:Button text="New Game" name="newGame" class="button" style="-unity-text-align: middle-center;"/>
+            <ui:Button text="Load Game" name="loadGame" class="button" style="-unity-text-align: middle-center;"/>
+            <ui:Button text="Settings" name="settings" class="button" style="-unity-text-align: middle-center;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
