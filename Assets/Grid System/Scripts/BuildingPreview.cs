@@ -26,7 +26,7 @@ public class BuildingPreview : MonoBehaviour
       {
          col.enabled = false;
       }
-   }
+    }
 
    public void ChangeState(BuildingPreviewState newState)
    {
@@ -43,7 +43,15 @@ public class BuildingPreview : MonoBehaviour
    
    private void SetPreviewMaterial(BuildingPreviewState newState)
    {
-      Material previewMat= newState == BuildingPreviewState.POSITIVE ? positiveMaterial : negativeMaterial;
+        Material previewMat;
+        if(newState == BuildingPreviewState.POSITIVE)
+        {
+            previewMat = positiveMaterial;
+        }
+        else
+        {
+            previewMat = negativeMaterial;
+        }
       foreach (var rend in renderers)
       {
          Material[] mats = new Material[rend.sharedMaterials.Length];

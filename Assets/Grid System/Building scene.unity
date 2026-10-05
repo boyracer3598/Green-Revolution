@@ -310,9 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f1e2b41807bd847a410b32bb61ee68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSystem
-  buildingData1: {fileID: 11400000, guid: 9b22b4712eb38c64ab486b4f2b660ad0, type: 2}
-  buildingData2: {fileID: 11400000, guid: b0527989a1c0dc44e96733775143ba3a, type: 2}
-  buildingData3: {fileID: 11400000, guid: 9c0962feb329f0d4eae5b70c6d5308ec, type: 2}
+  world: {fileID: 1480190924}
+  buildingData1: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
+  buildingData2: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
+  buildingData3: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
   previewPrefab: {fileID: 7485645782993581721, guid: 4c55f67ad826d0241ad509d6f0b5879c, type: 3}
   buildingPrefab: {fileID: 4179078616871795822, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
   grid: {fileID: 1320099256}
@@ -375,6 +376,7 @@ GameObject:
   - component: {fileID: 1480190923}
   - component: {fileID: 1480190922}
   - component: {fileID: 1480190921}
+  - component: {fileID: 1480190924}
   m_Layer: 2
   m_Name: Floor
   m_TagString: Untagged
@@ -476,6 +478,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480190919}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1480190924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480190919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
+  food: 0
+  wood: 0
+  stone: 0
+  fuel: 0
+  SpecialMaterials: []
 --- !u!1001 &1484744718
 PrefabInstance:
   m_ObjectHideFlags: 0
