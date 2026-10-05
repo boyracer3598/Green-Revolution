@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
-  m_Name: Building 2
+  m_Name: buildingTest1
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
-  <Description>k__BackingField: 
-  <Cost>k__BackingField: 0
-  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 6dd87875d8ba647478deec363f6ad1f9, type: 3}
+  <Description>k__BackingField: Evil Scary building@!!
+  <WoodCost>k__BackingField: 50
+  <FoodCost>k__BackingField: 0
+  <StoneCost>k__BackingField: 30
+  <FuelCost>k__BackingField: 0
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: fa1029a9550d64547bd572fa37f02c67, type: 3}
+  <SpMats>k__BackingField: 

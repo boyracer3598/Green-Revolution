@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class BuildingSystem : MonoBehaviour
 {
     public const float CellSize = 1f;
+    public WorldVariables world;
     [SerializeField] private BuildingData buildingData1;
     [SerializeField] private BuildingData buildingData2;
     [SerializeField] private BuildingData buildingData3;
@@ -20,7 +21,7 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding3;
     InputAction rotateBuilding; 
     InputAction buildInput;
-
+     
     void Start()
     {
         selectBuilding1 = InputSystem.actions["SelectBuilding1"];
@@ -34,7 +35,7 @@ public class BuildingSystem : MonoBehaviour
     private void Update()
     {
         Vector3 mousePos = GetMousePosition();
-
+        Debug.Log($"Mouse Position: {mousePos}");
         if (preview != null)
         {
             HandlePreview(mousePos);
@@ -69,13 +70,16 @@ public class BuildingSystem : MonoBehaviour
     {
         preview.transform.position = mouseWorldPosition;
         List<Vector3> buildPositions = preview.BuildingModel.GetAllBuildingPosition();
-        bool canBuild = grid.CanBuild(buildPositions);
+        // Checks whether the building can be placed in that spot on the grid, and also checks if they have the correct resources available
+        bool canBuild = grid.CanBuild(buildPositions) && CanPlaceBuilding();
+
         if (canBuild)
         {
             preview.transform.position = GetSnappedCenterPosition(buildPositions);
             preview.ChangeState(BuildingPreview.BuildingPreviewState.POSITIVE);
             if (buildInput.IsPressed())
             {
+                // this places the building on the grid and uses up the spendable resources
                 PlaceBuilding(buildPositions);
             }
         }
@@ -85,15 +89,46 @@ public class BuildingSystem : MonoBehaviour
         }
         if (rotateBuilding.IsPressed())
         {
+            // rotates the building preview by 90 degrees
             preview.Rotate(90);
         }
     }
-    
+    private bool CanPlaceBuilding()
+    {
+        // puts all the current resources and the required resources into variables to check if the player has enough resources to place the building
+        int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
+        int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost;
+        int matsAvailable = 0;
+        int matsCount = 0;
+        // makes sure the player is able to produce all the special materials
+        if (!string.IsNullOrEmpty(preview.Data.SpMats))
+        {
+            string[] requiredMaterials = preview.Data.SpMats.Split(", ");
+            matsCount = requiredMaterials.Length;
+            // iterates over the required materials and checks if they are all available to the player
+            foreach (string item in requiredMaterials)
+            {
+                if (world.HasSpMat(item)) matsAvailable++;
+            }
+        }
+        return matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
+    }
+    private void SpendMaterials(int woodCost, int stoneCost, int foodCost, int fuelCost)
+    {
+        // subtracts the required resources from the player's current resources
+        world.wood -= woodCost;
+        world.stone -= stoneCost;
+        world.food -= foodCost;
+        world.fuel -= fuelCost;
+    }
     private void PlaceBuilding(List<Vector3> buildingPositions)
     {
+        // creates the building at the preview's position and gives it the required data and rotation
         Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
         building.Setup(preview.Data, preview.BuildingModel.Rotation);
         grid.SetBuilding(building, buildingPositions);
+        // deducts the resources from the player and destroys the preview object
+        SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
         Destroy(preview.gameObject);
         preview = null;
     }
@@ -109,7 +144,7 @@ public class BuildingSystem : MonoBehaviour
     }
     private Vector3 GetMousePosition()
     {
-        //Ray ray = Camera.main.ScreenPointToRay(new Vector3(0,0,0));
+        // grabs where the mouse is pointing to on the ground plane
         Ray ray = mainCamera.ScreenPointToRay(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y,0));
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         if (groundPlane.Raycast(ray, out float distance))
@@ -123,6 +158,7 @@ public class BuildingSystem : MonoBehaviour
     {
         BuildingPreview buildingPreview = Instantiate(previewPrefab, position, Quaternion.identity);
         buildingPreview.Setup(data);
+        buildingPreview.ChangeState(BuildingPreview.BuildingPreviewState.NEGATIVE);
         return buildingPreview;
     }
     
