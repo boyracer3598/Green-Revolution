@@ -55,3 +55,50 @@
 #unity-drag-container {
     top: 30px;
 }
+
+.unity-toggle {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&guid=7c681b37a040a5f4baf060aa6e9c08a5&type=3#CherryBombOne-Regular");
+    font-size: 30px;
+    color: rgb(181, 228, 140);
+    margin-right: -77px;
+    align-self: auto;
+    align-items: auto;
+    align-content: auto;
+    -unity-text-align: upper-left;
+}
+
+.unity-toggle__input {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(147, 173, 123, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    margin-top: 0;
+    margin-bottom: 3px;
+    align-self: flex-end;
+    align-items: auto;
+    transform-origin: center;
+    -unity-text-align: upper-left;
+    padding-right: 0;
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+.unity-toggle__checkmark {
+    background-color: rgb(181, 228, 140);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 40px;
+    height: 40px;
+    -unity-text-align: upper-left;
+    align-items: auto;
+    align-self: flex-end;
+}
