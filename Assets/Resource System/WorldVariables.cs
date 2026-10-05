@@ -10,14 +10,12 @@ public class WorldVariables : MonoBehaviour
     public int stone;
     public int fuel;
     public List<string> SpecialMaterials;
+    public int AirPollution { get; set; }
+    public int WaterPollution { get; set; }
+    public int LandPollution { get; set; }
     void Start()
     {
-        // just testing values
-        food = 0;
-        wood = 100;
-        stone = 100;
-        fuel = 0;
-        ChangeSpMats(true, "Wool");
+
     }
     public void ChangeSpMats(bool Add, string Material)
     {
