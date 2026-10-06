@@ -6,31 +6,48 @@ public class BaseObject : MonoBehaviour
     public WorldVariables world;
     public string ObjectName;
     public string Description;
-    public enum ProduceTypes
+    public int populationHappiness;
+    public enum PolProduceTypes
     {
         WATER,
         AIR,
         LAND
     }
-    public ProduceTypes ProduceType;
+    public enum produceTypes
+    {
+        WOOD,
+        STONE,
+        FOOD,
+        FUEL,
+        NONE
+    }  
+    public produceTypes produceType;
+    public int produceAmount;
+    public PolProduceTypes PolProduceType;
     public int PolProduce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         world = GameObject.FindFirstObjectByType<WorldVariables>();
     }
+    public void RemoveObject()
+    {
+        world.PopulationHappiness -= world.calculateHappiness(this.populationHappiness);
+        UpdatePollution(false);
+        Destroy(this.gameObject);
+    }
     void UpdatePollution(bool pos)
     {
         int polChange = pos ? PolProduce : -PolProduce;
-        switch (ProduceType)
+        switch (PolProduceType)
         {
-            case ProduceTypes.WATER:
+            case PolProduceTypes.WATER:
                 world.WaterPollution += polChange;
                 break;
-            case ProduceTypes.AIR:
+            case PolProduceTypes.AIR:
                 world.AirPollution += polChange;
                 break;
-            case ProduceTypes.LAND:
+            case PolProduceTypes.LAND:
                 world.LandPollution += polChange;
                 break;
             default:

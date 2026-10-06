@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2533855006742502784}
   - component: {fileID: 4179078616871795822}
+  - component: {fileID: 4986859312755710594}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -44,3 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cc2b9c796519a43a06f2534175f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Building
+--- !u!114 &4986859312755710594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799650190819025292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d198dfc803d04db29e44f1d73f82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingObject
+  world: {fileID: 0}
+  ObjectName: 
+  Description: 
+  ProduceType: 0
+  PolProduce: 0
