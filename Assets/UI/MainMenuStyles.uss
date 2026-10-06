@@ -102,3 +102,26 @@
     align-items: auto;
     align-self: flex-end;
 }
+
+.label {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&guid=7c681b37a040a5f4baf060aa6e9c08a5&type=3#CherryBombOne-Regular");
+    color: rgb(181, 228, 140);
+    align-items: auto;
+    top: auto;
+    position: relative;
+    left: auto;
+    font-size: 37px;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-text-align: upper-center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.resourceBorder {
+    height: 80px;
+    width: 80px;
+    align-self: flex-start;
+    position: absolute;
+    top: 12px;
+    left: 146px;
+}

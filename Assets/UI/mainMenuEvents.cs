@@ -12,7 +12,8 @@ public class mainMenuEvents : MonoBehaviour
     private Button settingsButton;
     public GameObject SettingsPanel;
 
-    private void Awake()
+    
+    private void OnEnable()
     {
         SettingsPanel.SetActive(false);
         
@@ -28,6 +29,9 @@ public class mainMenuEvents : MonoBehaviour
         loadGameButton.RegisterCallback<ClickEvent>(onLoadGameClick);
         settingsButton.RegisterCallback<ClickEvent>(onSettingsClick);
     }
+
+    
+
 
     private void onNewGameClick(ClickEvent evt)
     {
@@ -49,6 +53,6 @@ public class mainMenuEvents : MonoBehaviour
         //Hides mainmenu and show the settings panel
         SettingsPanel.SetActive(true);
         gameObject.SetActive(false);
-        Debug.Log("it will got to settings");
+        
     }
 }

@@ -7,7 +7,7 @@ public class settingsEvents : MonoBehaviour
     private UIDocument UIDoc;
     private Button backButton; 
     public GameObject prevPanel;
-    void Start()
+    void OnEnable()
     {
         UIDoc = GetComponent<UIDocument>();
         
