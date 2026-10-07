@@ -125,3 +125,13 @@
     top: 12px;
     left: 146px;
 }
+
+.statLabel {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
+    height: 8px;
+    width: auto;
+    margin-left: 0;
+    margin-top: 12px;
+    -unity-text-align: lower-left;
+    color: rgb(158, 101, 25);
+}
