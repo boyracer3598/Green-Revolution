@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSystem
   world: {fileID: 1480190924}
-  buildingData1: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
-  buildingData2: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
-  buildingData3: {fileID: 11400000, guid: 095630829b1d9a24b905ca9aa00d3770, type: 2}
+  buildingData1: {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
+  buildingData2: {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
+  buildingData3: {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
   previewPrefab: {fileID: 7485645782993581721, guid: 4c55f67ad826d0241ad509d6f0b5879c, type: 3}
   buildingPrefab: {fileID: 4179078616871795822, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
   grid: {fileID: 1320099256}

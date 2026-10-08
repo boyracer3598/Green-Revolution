@@ -30,10 +30,10 @@ public class BaseObject : MonoBehaviour
     {
         world = GameObject.FindFirstObjectByType<WorldVariables>();
     }
-    public void RemoveObject()
+    public void RemoveObject(bool pos)
     {
         world.PopulationHappiness -= world.calculateHappiness(this.populationHappiness);
-        UpdatePollution(false);
+        UpdatePollution(pos);
         Destroy(this.gameObject);
     }
     void UpdatePollution(bool pos)

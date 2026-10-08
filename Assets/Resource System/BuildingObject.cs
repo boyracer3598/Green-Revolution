@@ -56,7 +56,7 @@ public class BuildingObject : BaseObject
         }
         if (destroy)
         {
-            RemoveObject();
+            RemoveObject(world.safeDestroy); // removes it and negatively affects (increases) pollution
         }
     }
     void Start()

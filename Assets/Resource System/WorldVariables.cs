@@ -13,7 +13,10 @@ public class WorldVariables : MonoBehaviour
     public int AirPollution { get; set; }
     public int WaterPollution { get; set; }
     public int LandPollution { get; set; }
-    public float PopulationHappiness { get; set; } = 0.5f;
+    public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
+    public float baseDamage;
+    public float basePermDamage;
+    public bool safeDestroy = false;
     void Start()
     {
 
