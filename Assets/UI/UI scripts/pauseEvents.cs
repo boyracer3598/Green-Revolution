@@ -8,26 +8,32 @@ public class pauseEvents : MonoBehaviour
     private Button resumeButton;
     private Button settingsButton;
     private Button loadButton;
+
+
+    private void Start()
+    {
+        
+    }
+
     void OnEnable()
     {
         //hides panels
-        gameObject.SetActive(false);
         settingsPanel.SetActive(false);
-        
+
         //button setup
         UIDoc = gameObject.GetComponent<UIDocument>();
-        //resumeButton = UIDoc.rootVisualElement.Q<Button>("resumeGame");
+        resumeButton = UIDoc.rootVisualElement.Q<Button>("resumeGame");
         settingsButton = UIDoc.rootVisualElement.Q<Button>("settings");
         loadButton = UIDoc.rootVisualElement.Q<Button>("loadGame");
         //event setup
         resumeButton.RegisterCallback<ClickEvent>(onResumeClick);
-        settingsButton.RegisterCallback<ClickEvent>(onSettingsClik);
+        settingsButton.RegisterCallback<ClickEvent>(onSettingsClick);
         loadButton.RegisterCallback<ClickEvent>(onLoadClick);
-        
-        
+
+
     }
 
-    private void onSettingsClik(ClickEvent evt)
+    private void onSettingsClick(ClickEvent evt)
     {
         settingsPanel.SetActive(true);
         gameObject.SetActive(false);
@@ -43,11 +49,8 @@ public class pauseEvents : MonoBehaviour
     {
         Debug.Log("Load game");
     }
-    
-    
-    
-    void Update()
-    {
-        
-    }
+
+
+
+
 }
