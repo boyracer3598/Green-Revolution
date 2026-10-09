@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Building")]
-public class BuildingData : ScriptableObject
+[CreateAssetMenu(menuName = "Data/World Object")]
+public class WorldObjData : ScriptableObject
 {
     public enum ProduceTypes
     {
@@ -10,15 +10,14 @@ public class BuildingData : ScriptableObject
         FOOD,
         FUEL
     }
-    [field: SerializeField] public string Name { get; private set; }
+    [field: SerializeField] public string Name { get; private set; } 
     [field: SerializeField] public string Description { get; private set; }
     [field: SerializeField] public string SpMats { get; private set; } = string.Empty;
-    [field: SerializeField] public int WoodCost { get; private set; }
-    [field: SerializeField] public int FoodCost { get; private set; }
-    [field: SerializeField] public int StoneCost { get; private set; }
-    [field: SerializeField] public int FuelCost { get; private set; }
     [field: SerializeField] public float PopulationHappiness { get; private set; }
     [field: SerializeField] public int ProduceAmount { get; private set; }
     [field: SerializeField] public string ProduceType { get; private set; }
+    [field: SerializeField] public float BaseHP { get; private set; }
+    [field: SerializeField] public float HPVariableLow { get; private set; }
+    [field: SerializeField] public float HPVariableHigh { get; private set; }
     [field: SerializeField] public BuildingModel Model { get; private set; }
 }

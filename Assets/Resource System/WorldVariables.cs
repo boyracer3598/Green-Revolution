@@ -10,14 +10,16 @@ public class WorldVariables : MonoBehaviour
     public int stone;
     public int fuel;
     public List<string> SpecialMaterials;
+    public int AirPollution { get; set; }
+    public int WaterPollution { get; set; }
+    public int LandPollution { get; set; }
+    public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
+    public float baseDamage;
+    public float basePermDamage;
+    public bool safeDestroy = false;
     void Start()
     {
-        // just testing values
-        food = 0;
-        wood = 100;
-        stone = 100;
-        fuel = 0;
-        ChangeSpMats(true, "Wool");
+
     }
     public void ChangeSpMats(bool Add, string Material)
     {
@@ -32,6 +34,11 @@ public class WorldVariables : MonoBehaviour
             this.SpecialMaterials.Remove(Material);
         }
     }
+    public float calculateHappiness(float input)
+    {
+        // calculates the happiness as a float between 0 and 1, based on the input value, which is clamped between 0 and 100.
+        return Mathf.Clamp(input, 0, 100) / 100f;
+    }
     public bool HasSpMat(string Material)
     {
         // checks if the material is in the list of special materials
@@ -40,6 +47,13 @@ public class WorldVariables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (PopulationHappiness < 0)
+        {
+            PopulationHappiness = 0;
+        }
+        else if (PopulationHappiness > 1)
+        {
+            PopulationHappiness = 1;
+        }
     }
 }

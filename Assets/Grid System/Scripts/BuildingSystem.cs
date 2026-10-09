@@ -126,6 +126,8 @@ public class BuildingSystem : MonoBehaviour
         // creates the building at the preview's position and gives it the required data and rotation
         Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
         building.Setup(preview.Data, preview.BuildingModel.Rotation);
+        BuildingObject buildingObject = building.GetComponent<BuildingObject>();
+        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType);
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object
         SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
