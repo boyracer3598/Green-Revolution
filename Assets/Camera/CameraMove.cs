@@ -78,19 +78,23 @@ public class CameraMove : MonoBehaviour
         switch (currentCamDir)
         {
             case cameraDirection.NORTH:
-                Debug.Log("cam is east");
+                mainCamera.transform.position=northCameraPos.transform.position;
+                mainCamera.transform.rotation=northCameraPos.transform.rotation;
                 currentCamDir = cameraDirection.EAST;
                 break;
             case cameraDirection.EAST:
-                Debug.Log("cam is south");
+                mainCamera.transform.position=eastCameraPos.transform.position;
+                mainCamera.transform.rotation=eastCameraPos.transform.rotation;
                 currentCamDir = cameraDirection.SOUTH;
                 break;
             case cameraDirection.SOUTH:
-                Debug.Log("cam is west");
+                mainCamera.transform.position=southCameraPos.transform.position;
+                mainCamera.transform.rotation=southCameraPos.transform.rotation;
                 currentCamDir= cameraDirection.WEST;
                 break;
             case cameraDirection.WEST:
-                Debug.Log("cam is north");
+                mainCamera.transform.position=westCameraPos.transform.position;
+                mainCamera.transform.rotation=westCameraPos.transform.rotation;
                 currentCamDir=cameraDirection.NORTH;
                 break;
         }
