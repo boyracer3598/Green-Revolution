@@ -50,32 +50,44 @@ public class CameraMove : MonoBehaviour
         //zoom camera
         mainCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
 
-        //pan camera with mouse
+        
+        // reads input for camera pan(mouse and WASD)
         mousePosition = mouseMove.ReadValue<Vector2>();
+        Vector2 cameraInputKeyboard = cameraMove.ReadValue<Vector2>();
         switch (currentCamDir)
         {
             case cameraDirection.NORTH:
-                mousePositionVec3 = new Vector3(mousePosition.x, 0, mousePosition.y);
+                
                 if (mouseClick.IsPressed())
                 {
-                    this.transform.Translate(mousePositionVec3 * CameraMoveSpeed, Space.Self);
-                }
-
-                // move camera with keyboard
-                if (cameraMove.IsPressed())
-                {
-                    Vector2 cameraMoveV2 = cameraMove.ReadValue<Vector2>();
-                    this.transform.Translate(new Vector3(cameraMoveV2.x, 0, cameraMoveV2.y) * CameraMoveSpeed, Space.Self);
+                    CameraPan(mousePosition.x, mousePosition.y);
+                } else if (cameraMove.IsPressed()){
+                    CameraPan(cameraInputKeyboard.x, cameraInputKeyboard.y);
                 }
                 break;
             case cameraDirection.EAST:
-                
+                if (mouseClick.IsPressed())
+                {
+                    CameraPan(mousePosition.y, -mousePosition.x);
+                } else if (cameraMove.IsPressed()){
+                    CameraPan(cameraInputKeyboard.y, -cameraInputKeyboard.x);
+                }
                 break;
             case cameraDirection.SOUTH:
-                
+                if (mouseClick.IsPressed())
+                {
+                    CameraPan(-mousePosition.x, -mousePosition.y);
+                } else if (cameraMove.IsPressed()){
+                    CameraPan(-cameraInputKeyboard.x, -cameraInputKeyboard.y);
+                }
                 break;
             case cameraDirection.WEST:
-                
+                if (mouseClick.IsPressed())
+                {
+                    CameraPan(-mousePosition.y, mousePosition.x);
+                } else if (cameraMove.IsPressed()){
+                    CameraPan(-cameraInputKeyboard.y, cameraInputKeyboard.x);
+                }
                 break;
         }
        
@@ -85,36 +97,43 @@ public class CameraMove : MonoBehaviour
         {
             switchCameraAngle();
         }
-
-
-    }
-
-
-    public void cameraPan(float posX,float posY){
         
+        
+        //dedug drawray
+        Debug.DrawRay(northCameraPos.transform.position,northCameraPos.transform.forward*1000,Color.coral,1);
+        Debug.DrawRay(southCameraPos.transform.position,southCameraPos.transform.forward*1000,Color.pink,1);
+        Debug.DrawRay(eastCameraPos.transform.position,eastCameraPos.transform.forward*1000,Color.green,1);
+        Debug.DrawRay(westCameraPos.transform.position,westCameraPos.transform.forward*1000,Color.blue,1);
+
+
     }
-    //chnages the agnle by 90 degress
+
+
+    public void CameraPan(float posX,float posY){
+        this.transform.Translate(new Vector3(posX,0,posY) * CameraMoveSpeed, Space.Self);
+    }
+    //changes the agile by 90 degrees
     public void switchCameraAngle() {
         switch (currentCamDir)
         {
             case cameraDirection.NORTH:
-                mainCamera.transform.position=northCameraPos.transform.position;
-                mainCamera.transform.rotation=northCameraPos.transform.rotation;
+                mainCamera.transform.position=eastCameraPos.transform.position;
+                mainCamera.transform.rotation=eastCameraPos.transform.rotation;
                 currentCamDir = cameraDirection.EAST;
                 break;
             case cameraDirection.EAST:
-                mainCamera.transform.position=eastCameraPos.transform.position;
-                mainCamera.transform.rotation=eastCameraPos.transform.rotation;
+                mainCamera.transform.position=southCameraPos.transform.position;
+                mainCamera.transform.rotation=southCameraPos.transform.rotation;
                 currentCamDir = cameraDirection.SOUTH;
                 break;
             case cameraDirection.SOUTH:
-                mainCamera.transform.position=southCameraPos.transform.position;
-                mainCamera.transform.rotation=southCameraPos.transform.rotation;
+                mainCamera.transform.position=westCameraPos.transform.position;
+                mainCamera.transform.rotation=westCameraPos.transform.rotation;
                 currentCamDir= cameraDirection.WEST;
                 break;
             case cameraDirection.WEST:
-                mainCamera.transform.position=westCameraPos.transform.position;
-                mainCamera.transform.rotation=westCameraPos.transform.rotation;
+                mainCamera.transform.position=northCameraPos.transform.position;
+                mainCamera.transform.rotation=northCameraPos.transform.rotation;
                 currentCamDir=cameraDirection.NORTH;
                 break;
         }

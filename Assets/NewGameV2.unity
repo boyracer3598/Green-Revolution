@@ -176,8 +176,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485286216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18301274, y: 0.6830127, z: -0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: -66.2, y: 0.099999905, z: 85.4}
+  m_LocalRotation: {x: 0.18301274, y: 0.6830127, z: -0.18301272, w: 0.6830127}
+  m_LocalPosition: {x: -46.8, y: -10.1, z: 73.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -207,8 +207,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931052977}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -1.7, y: 0.099999905, z: 19.5}
+  m_LocalRotation: {x: 0.25881913, y: -0, z: -0, w: 0.9659259}
+  m_LocalPosition: {x: -3.6, y: -10.1, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,8 +238,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049513187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18301274, y: -0.6830127, z: 0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: 51.4, y: 0.099998474, z: 80.4}
+  m_LocalRotation: {x: 0.18301272, y: -0.6830127, z: 0.18301274, w: 0.6830127}
+  m_LocalPosition: {x: 39.23, y: -10.1, z: 73.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,6 +652,18 @@ PrefabInstance:
       propertyPath: southCameraPos
       value: 
       objectReference: {fileID: 2136281854}
+    - target: {fileID: 5019354277651961797, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019354277651961797, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019354277651961797, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7486229834290179455, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_Name
       value: Camera Rig
@@ -901,8 +913,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136281854}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.9659258, z: 0.2588191, w: 0}
-  m_LocalPosition: {x: -3.7, y: 0.099999905, z: 149}
+  m_LocalRotation: {x: -0, y: -0.9659259, z: 0.25881913, w: 0}
+  m_LocalPosition: {x: -3.6, y: -10.1, z: 117.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
