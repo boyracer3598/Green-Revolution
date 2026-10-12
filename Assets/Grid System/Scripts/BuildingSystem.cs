@@ -127,7 +127,7 @@ public class BuildingSystem : MonoBehaviour
         Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
         building.Setup(preview.Data, preview.BuildingModel.Rotation);
         BuildingObject buildingObject = building.GetComponent<BuildingObject>();
-        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType);
+        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split(','), int.Parse));
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object
         SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);

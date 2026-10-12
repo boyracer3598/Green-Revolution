@@ -38,10 +38,6 @@
       },
       "url": "https://packages.unity.com"
     },
-      "depth": 2,
-      "source": "builtin",
-      "dependencies": {}
-    },
     "com.unity.ide.visualstudio": {
       "version": "2.0.28",
       "depth": 0,

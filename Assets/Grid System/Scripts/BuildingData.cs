@@ -20,5 +20,7 @@ public class BuildingData : ScriptableObject
     [field: SerializeField] public float PopulationHappiness { get; private set; }
     [field: SerializeField] public int ProduceAmount { get; private set; }
     [field: SerializeField] public string ProduceType { get; private set; }
+    [field: SerializeField] public int PopHap { get; private set; }
+    [field: SerializeField] public string Inspiration { get; private set; }
     [field: SerializeField] public BuildingModel Model { get; private set; }
 }

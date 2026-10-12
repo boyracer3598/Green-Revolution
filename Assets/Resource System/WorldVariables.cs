@@ -14,6 +14,9 @@ public class WorldVariables : MonoBehaviour
     public int WaterPollution { get; set; }
     public int LandPollution { get; set; }
     public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
+    public int Population { get; set; } = 0;
+    public int EmployedPopulation { get; set; } = 0;
+    public int Inspiration { get; set; } = 0;
     public float baseDamage;
     public float basePermDamage;
     public bool safeDestroy = false;
@@ -44,6 +47,34 @@ public class WorldVariables : MonoBehaviour
         // checks if the material is in the list of special materials
         return SpecialMaterials.Contains(Material);
     }
+    public void UpdateInspiration()
+    {
+        BuildingObject[] buildings = GetComponents<BuildingObject>().ToArray();
+        int totalInspiration = 0;
+        string[] buildingNames = new string[buildings.Length];
+        Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            buildingNames[i] = buildings[i].name;
+            if (buildings[i].Inspiration != null)
+            {
+                if (buildingCounts.ContainsKey(buildings[i].name))
+                {
+                    buildingCounts[buildings[i].name] += 1;
+                }
+                else
+                {
+                    buildingCounts[buildings[i].name] = 1;
+                }
+            }
+            foreach (var kvp in buildingCounts)
+            {
+                //int thisBuildingsInspiration = buildings.Where(b => b.name == kvp.Key).FirstOrDefault()?.Inspiration[kvp.Value] ?? 0;
+                //totalInspiration += thisBuildingsInspiration;
+            }
+        }
+        this.Inspiration = totalInspiration;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,5 +86,6 @@ public class WorldVariables : MonoBehaviour
         {
             PopulationHappiness = 1;
         }
+        Debug.Log(this.Inspiration);
     }
 }

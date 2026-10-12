@@ -20,4 +20,8 @@ MonoBehaviour:
   <StoneCost>k__BackingField: 0
   <FuelCost>k__BackingField: 0
   <PopulationHappiness>k__BackingField: -1
+  <ProduceAmount>k__BackingField: 0
+  <ProduceType>k__BackingField: 
+  <PopHap>k__BackingField: 0
+  <Inspiration>k__BackingField: 2,1,0
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 6dd87875d8ba647478deec363f6ad1f9, type: 3}
