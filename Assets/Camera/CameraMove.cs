@@ -52,18 +52,33 @@ public class CameraMove : MonoBehaviour
 
         //pan camera with mouse
         mousePosition = mouseMove.ReadValue<Vector2>();
-        mousePositionVec3 = new Vector3(mousePosition.x, 0, mousePosition.y);
-        if (mouseClick.IsPressed())
+        switch (currentCamDir)
         {
-            this.transform.Translate(mousePositionVec3*CameraMoveSpeed,Space.Self);
-        }
+            case cameraDirection.NORTH:
+                mousePositionVec3 = new Vector3(mousePosition.x, 0, mousePosition.y);
+                if (mouseClick.IsPressed())
+                {
+                    this.transform.Translate(mousePositionVec3 * CameraMoveSpeed, Space.Self);
+                }
 
-        // move camera with keyboard
-        if (cameraMove.IsPressed())
-        {
-            Vector2 cameraMoveV2= cameraMove.ReadValue<Vector2>();
-            this.transform.Translate(new Vector3(cameraMoveV2.x,0,cameraMoveV2.y)*CameraMoveSpeed, Space.Self);
+                // move camera with keyboard
+                if (cameraMove.IsPressed())
+                {
+                    Vector2 cameraMoveV2 = cameraMove.ReadValue<Vector2>();
+                    this.transform.Translate(new Vector3(cameraMoveV2.x, 0, cameraMoveV2.y) * CameraMoveSpeed, Space.Self);
+                }
+                break;
+            case cameraDirection.EAST:
+                
+                break;
+            case cameraDirection.SOUTH:
+                
+                break;
+            case cameraDirection.WEST:
+                
+                break;
         }
+       
 
         //rotate camera
         if (cameraRotate.WasPressedThisFrame())
@@ -72,6 +87,11 @@ public class CameraMove : MonoBehaviour
         }
 
 
+    }
+
+
+    public void cameraPan(float posX,float posY){
+        
     }
     //chnages the agnle by 90 degress
     public void switchCameraAngle() {
