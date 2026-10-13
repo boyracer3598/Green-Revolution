@@ -100,10 +100,10 @@ public class CameraMove : MonoBehaviour
         
         
         //dedug drawray
-        Debug.DrawRay(northCameraPos.transform.position,northCameraPos.transform.forward*1000,Color.coral,1);
-        Debug.DrawRay(southCameraPos.transform.position,southCameraPos.transform.forward*1000,Color.pink,1);
-        Debug.DrawRay(eastCameraPos.transform.position,eastCameraPos.transform.forward*1000,Color.green,1);
-        Debug.DrawRay(westCameraPos.transform.position,westCameraPos.transform.forward*1000,Color.blue,1);
+        //Debug.DrawRay(northCameraPos.transform.position,northCameraPos.transform.forward*1000,Color.coral,1);
+        //Debug.DrawRay(southCameraPos.transform.position,southCameraPos.transform.forward*1000,Color.pink,1);
+        //Debug.DrawRay(eastCameraPos.transform.position,eastCameraPos.transform.forward*1000,Color.green,1);
+        //Debug.DrawRay(westCameraPos.transform.position,westCameraPos.transform.forward*1000,Color.blue,1);
 
 
     }
