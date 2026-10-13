@@ -156,7 +156,6 @@ public class BuildingSystem : MonoBehaviour
         
         if (Physics.Raycast(ray,out hit,100))
         {
-            Debug.Log("im here");
             return hit.point;
         }
         return Vector3.zero;

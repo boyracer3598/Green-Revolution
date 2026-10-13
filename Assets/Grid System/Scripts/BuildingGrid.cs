@@ -41,13 +41,15 @@ public class BuildingGrid : MonoBehaviour
 
     private (int x, int y) WorldToGridPositon(Vector3 worldPosition)
     {
-        int x = Mathf.FloorToInt((worldPosition - transform.position).x / BuildingSystem.CellSize);
-        int y = Mathf.FloorToInt((worldPosition - transform.position).y / BuildingSystem.CellSize);
+        //converts world position to where it is on th grid
+        int x = Mathf.FloorToInt((worldPosition.x - transform.position.x)/ BuildingSystem.CellSize);
+        int y = Mathf.FloorToInt((worldPosition.z - transform.position.z) / BuildingSystem.CellSize);
         return (x, y);
     }
 
     void OnDrawGizmos()
     {
+        //draws lines in the scene view 
         Gizmos.color = Color.yellow;
         if(BuildingSystem.CellSize <=0||width<=0||height<=0) return;
         Vector3 origin = transform.position;
