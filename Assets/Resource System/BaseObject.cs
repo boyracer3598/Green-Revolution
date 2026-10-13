@@ -13,15 +13,16 @@ public class BaseObject : MonoBehaviour
         AIR,
         LAND
     }
-    public enum produceTypes
+    public enum ProduceTypes
     {
         WOOD,
         STONE,
         FOOD,
         FUEL,
+        CROPS,
         NONE
     }  
-    public produceTypes produceType;
+    public ProduceTypes produceType;
     public int produceAmount;
     public PolProduceTypes PolProduceType;
     public int PolProduce;
@@ -32,7 +33,7 @@ public class BaseObject : MonoBehaviour
     }
     public void RemoveObject(bool pos)
     {
-        world.PopulationHappiness -= world.calculateHappiness(this.populationHappiness);
+        world.PopulationHappiness -= world.CalculateHappiness(this.populationHappiness);
         UpdatePollution(pos);
         Destroy(this.gameObject);
     }

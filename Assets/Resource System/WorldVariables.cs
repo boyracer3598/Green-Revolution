@@ -9,6 +9,7 @@ public class WorldVariables : MonoBehaviour
     public int wood;
     public int stone;
     public int fuel;
+    public int crops;
     public List<string> SpecialMaterials;
     public int AirPollution { get; set; }
     public int WaterPollution { get; set; }
@@ -16,14 +17,12 @@ public class WorldVariables : MonoBehaviour
     public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
     public int Population { get; set; } = 0;
     public int EmployedPopulation { get; set; } = 0;
-    public int Inspiration { get; set; } = 0;
+    [SerializeField] public int Inspiration = 0;
     public float baseDamage;
     public float basePermDamage;
     public bool safeDestroy = false;
-    void Start()
-    {
+    public float TimeSinceLastUpkeep = 0;
 
-    }
     public void ChangeSpMats(bool Add, string Material)
     {
         // If Add is true, adds the material to the list of special materials, if it isn't, it removes it.
@@ -37,7 +36,7 @@ public class WorldVariables : MonoBehaviour
             this.SpecialMaterials.Remove(Material);
         }
     }
-    public float calculateHappiness(float input)
+    public float CalculateHappiness(float input)
     {
         // calculates the happiness as a float between 0 and 1, based on the input value, which is clamped between 0 and 100.
         return Mathf.Clamp(input, 0, 100) / 100f;
@@ -49,31 +48,69 @@ public class WorldVariables : MonoBehaviour
     }
     public void UpdateInspiration()
     {
-        BuildingObject[] buildings = GetComponents<BuildingObject>().ToArray();
+        // Get all BuildingObject components in the scene (or adjust as needed)
+        BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
+
         int totalInspiration = 0;
-        string[] buildingNames = new string[buildings.Length];
+
+        // Count how many buildings of each name have inspiration
         Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
-        for (int i = 0; i < buildings.Length; i++)
+
+        // Cache inspiration arrays for each building name to avoid repeated queries
+        Dictionary<string, int[]> inspirationCache = new Dictionary<string, int[]>();
+
+        // Count buildings with inspiration
+        foreach (var building in buildings)
         {
-            buildingNames[i] = buildings[i].name;
-            if (buildings[i].Inspiration != null)
+            if (building.Inspiration != null && building.Inspiration.Length > 0 && building.canProvide)
             {
-                if (buildingCounts.ContainsKey(buildings[i].name))
+                if (buildingCounts.ContainsKey(building.name))
                 {
-                    buildingCounts[buildings[i].name] += 1;
+                    buildingCounts[building.name]++;
                 }
                 else
                 {
-                    buildingCounts[buildings[i].name] = 1;
+                    buildingCounts[building.name] = 1;
+                    inspirationCache[building.name] = building.Inspiration;
                 }
             }
-            foreach (var kvp in buildingCounts)
+        }
+
+        // Calculate total inspiration based on counts and inspiration arrays
+        foreach (var kvp in buildingCounts)
+        {
+            string buildingName = kvp.Key;
+            int count = kvp.Value;
+            int[] inspirationArray = inspirationCache[buildingName];
+
+            // Loop up to the minimum of count and inspiration array length
+            int loops = Mathf.Min(count, inspirationArray.Length);
+
+            for (int i = 0; i < loops; i++)
             {
-                //int thisBuildingsInspiration = buildings.Where(b => b.name == kvp.Key).FirstOrDefault()?.Inspiration[kvp.Value] ?? 0;
-                //totalInspiration += thisBuildingsInspiration;
+                totalInspiration += inspirationArray[i];
             }
         }
+
         this.Inspiration = totalInspiration;
+    }
+    void TriggerUpkeep()
+    {
+        BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
+        foreach (var building in buildings)
+        {
+            building.PayUpkeepCosts();
+            if (building.canProvide)
+            {
+                building.Harvest(false);
+                ChangeSpMats(true, building.SpMats);
+            }
+            else
+            {
+                ChangeSpMats(false, building.SpMats);
+            }
+        }
+        UpdateInspiration();
     }
     // Update is called once per frame
     void Update()
@@ -86,6 +123,14 @@ public class WorldVariables : MonoBehaviour
         {
             PopulationHappiness = 1;
         }
-        Debug.Log(this.Inspiration);
+        if (TimeSinceLastUpkeep >= 10f)
+        {
+            TriggerUpkeep();
+            TimeSinceLastUpkeep = 0;
+        }
+        else
+        {
+            TimeSinceLastUpkeep += Time.deltaTime;
+        }
     }
 }

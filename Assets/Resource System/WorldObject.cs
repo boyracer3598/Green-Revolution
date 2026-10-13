@@ -25,16 +25,16 @@ public class WorldObject : BaseObject
         objectHp -= damage;
         switch (produceType)
         {
-            case produceTypes.WOOD:
+            case ProduceTypes.WOOD:
                 world.wood += produceAmount;
                 break;
-            case produceTypes.STONE:
+            case ProduceTypes.STONE:
                 world.stone += produceAmount;
                 break;
-            case produceTypes.FOOD:
+            case ProduceTypes.FOOD:
                 world.food += produceAmount;
                 break;
-            case produceTypes.FUEL:
+            case ProduceTypes.FUEL:
                 world.fuel += produceAmount;
                 break;
         }
@@ -42,16 +42,5 @@ public class WorldObject : BaseObject
         {
             RemoveObject(true); // removes it and negatively affects (increases) pollution
         }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
