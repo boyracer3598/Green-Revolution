@@ -134,8 +134,9 @@ public class BuildingSystem : MonoBehaviour
         }
         else
         {
-            Type specialBuildingType = Type.GetType(preview.Data.SpecialBuilding.ToString());
+            Type specialBuildingType = preview.Data.SpecialBuilding.GetType();
             BuildingObject buildingSpecial = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
+            Destroy(building.gameObject.GetComponent<BuildingObject>());
             buildingSpecial.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
         }
         Debug.Log(preview.Data.SpecialBuilding.ToString());
