@@ -15,13 +15,20 @@ MonoBehaviour:
   <Name>k__BackingField: Lookout Tower
   <Description>k__BackingField: Look out!!!!
   <SpMats>k__BackingField: 
+  <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 0
   <FoodCost>k__BackingField: 0
   <StoneCost>k__BackingField: 0
   <FuelCost>k__BackingField: 0
+  <WoodUpkeep>k__BackingField: 0
+  <FoodUpkeep>k__BackingField: 0
+  <StoneUpkeep>k__BackingField: 0
+  <FuelUpkeep>k__BackingField: 0
+  <CropUpkeep>k__BackingField: 0
   <PopulationHappiness>k__BackingField: -1
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <PopHap>k__BackingField: 0
   <Inspiration>k__BackingField: 2/1/0
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 6dd87875d8ba647478deec363f6ad1f9, type: 3}
+  <SpecialBuilding>k__BackingField: {fileID: 3609284665910568140, guid: dff7c445a914e8c4d867372a40d7113c, type: 3}

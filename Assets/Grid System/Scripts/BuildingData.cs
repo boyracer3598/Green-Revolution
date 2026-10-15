@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Building")]
@@ -29,4 +30,5 @@ public class BuildingData : ScriptableObject
     [field: SerializeField] public int PopHap { get; private set; }
     [field: SerializeField] public string Inspiration { get; private set; }
     [field: SerializeField] public BuildingModel Model { get; private set; }
+    [field: SerializeField] public BuildingObject SpecialBuilding { get; private set; }
 }

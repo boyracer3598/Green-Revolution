@@ -99,16 +99,7 @@ public class WorldVariables : MonoBehaviour
         BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
         foreach (var building in buildings)
         {
-            building.PayUpkeepCosts();
-            if (building.canProvide)
-            {
-                building.Harvest(false);
-                ChangeSpMats(true, building.SpMats);
-            }
-            else
-            {
-                ChangeSpMats(false, building.SpMats);
-            }
+            building.Upkeep();
         }
         UpdateInspiration();
     }

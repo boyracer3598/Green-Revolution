@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 public class BuildingObject : BaseObject
 {
     [SerializeField] private int WoodCost = 0;
@@ -11,7 +12,6 @@ public class BuildingObject : BaseObject
     [SerializeField] private int FuelCost = 0;
     public string SpMats = string.Empty;
     [SerializeField] private string SpMatsNeeds = string.Empty;
-    [SerializeField] public int PopHap = 0;
     [SerializeField] private int WoodUpkeep = 0;
     [SerializeField] private int StoneUpkeep = 0;
     [SerializeField] private int FoodUpkeep = 0;
@@ -109,6 +109,19 @@ public class BuildingObject : BaseObject
         else
         {
             canProvide = false;
+        }
+    }
+    public virtual void Upkeep()
+    {
+        this.PayUpkeepCosts();
+        if (this.canProvide)
+        {
+            this.Harvest(false);
+            world.ChangeSpMats(true, this.SpMats);
+        }
+        else
+        {
+            world.ChangeSpMats(false, this.SpMats);
         }
     }
 }
