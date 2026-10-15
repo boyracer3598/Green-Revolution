@@ -161,10 +161,6 @@
     border-bottom-left-radius: 8px;
 }
 
-
-
-
-
 .StatLabel {
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
     color: rgb(101, 60, 5);
@@ -181,4 +177,20 @@
     align-items: stretch;
     justify-content: space-between;
     margin-top: -10px;
+}
+
+.BuildingButton {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 70px;
+    height: 70px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-left-color: rgba(149, 149, 149, 0.45);
+    border-right-color: rgba(149, 149, 149, 0.45);
+    border-top-color: rgba(149, 149, 149, 0.45);
+    border-bottom-color: rgba(149, 149, 149, 0.45);
+    background-color: rgba(26, 117, 159, 0.5);
+    margin-top: 0;
 }

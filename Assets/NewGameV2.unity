@@ -849,6 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUD_Events
   pausePanel: {fileID: 1118981879}
   settingsPanel: {fileID: 1065056952}
+  styleSheet: {fileID: 7433441132597879392, guid: f2a936d679f84cf44b3d3dc98680c531, type: 3}
 --- !u!20 &1653509740 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5365437890275104799, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
