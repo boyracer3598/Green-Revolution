@@ -481,6 +481,10 @@ MonoBehaviour:
   grid: {fileID: 1320099256}
   mainCamera: {fileID: 1653509740}
   clickableDistance: 0
+  buildings:
+  - {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
+  - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
+  - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
 --- !u!1 &1320099254
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,11 +661,14 @@ MonoBehaviour:
   wood: 1000
   stone: 1000
   fuel: 0
+  crops: 0
   SpecialMaterials:
   - Wool
+  Inspiration: 0
   baseDamage: 0
   basePermDamage: 0
   safeDestroy: 0
+  TimeSinceLastUpkeep: 0
 --- !u!1001 &1484744718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,6 +857,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1118981879}
   settingsPanel: {fileID: 1065056952}
   styleSheet: {fileID: 7433441132597879392, guid: f2a936d679f84cf44b3d3dc98680c531, type: 3}
+  buildingSystem: {fileID: 1212099179}
 --- !u!20 &1653509740 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5365437890275104799, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}

@@ -10,6 +10,7 @@ public class HUD_Events : MonoBehaviour
     public GameObject settingsPanel;
 
     public StyleSheet styleSheet;
+    [SerializeField] BuildingSystem buildingSystem;
     
     void OnEnable()
     {     
@@ -42,17 +43,16 @@ public class HUD_Events : MonoBehaviour
     {
         foreach (Button buttons in tabs.Children())
         {
-            buttons.RegisterCallback<ClickEvent>(selectBuilding);
+            buttons.RegisterCallback<ClickEvent>(selectBuildingUI);
         }
     }
 
 
     // calls the selectBuilding function in building system
-    private void selectBuilding(ClickEvent evt)
+    private void selectBuildingUI(ClickEvent evt)
     {
         Button clickedButton = evt.target as Button;
-        Debug.Log("the which is clicked: " + clickedButton.name);
-        //calls a function 
+        buildingSystem.SelectBuilding(clickedButton.name);
     }
 
 

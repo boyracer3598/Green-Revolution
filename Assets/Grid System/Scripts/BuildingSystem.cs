@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,8 +25,12 @@ public class BuildingSystem : MonoBehaviour
     InputAction buildInput;
     Plane groundPlane;
     [SerializeField] private float clickableDistance;
-    
-     
+    Vector3 mousePos;
+    [SerializeField] BuildingData[] buildings; 
+
+
+
+
     void Start()
     {
         selectBuilding1 = InputSystem.actions["SelectBuilding1"];
@@ -38,8 +43,11 @@ public class BuildingSystem : MonoBehaviour
     
     private void Update()
     {
-        Vector3 mousePos = GetMousePosition();
-        //Debug.Log($"Mouse Position: {mousePos}");
+        mousePos = GetMousePosition();
+        
+
+
+
         if (preview != null)
         {
             HandlePreview(mousePos);
@@ -68,6 +76,35 @@ public class BuildingSystem : MonoBehaviour
             preview = CreatePreview(buildingData3, mousePos);
         }
     }
+
+    public void SelectBuilding(string buildingName) {
+        Debug.Log("builing: "+buildingName);
+        if(preview != null)
+        {
+            Destroy(preview.gameObject);
+        }
+        BuildingData selectedBuilding = null;
+        foreach (BuildingData building in buildings) {
+            if (building.Name.Replace(" ",string.Empty)== buildingName)
+            {
+                selectedBuilding = building;
+            }
+
+        }
+        Debug.Log(selectedBuilding);
+        if (selectedBuilding != null) {
+            preview = CreatePreview(selectedBuilding, mousePos);
+        }
+        else
+        {
+            
+        }
+
+
+        
+    }
+
+
 
     private void HandlePreview(Vector3 mouseWorldPosition)
     {
