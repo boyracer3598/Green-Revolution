@@ -2,6 +2,16 @@ using UnityEngine;
 using System.Collections;
 using Newtonsoft.Json;
 
+public class Articles
+{
+    public string[] firstNames;
+    public string[] lastNames;
+    public string[] sources;
+    public string[] jobs;
+    public string[] historicalEvents;
+    public string[] years;
+    public string[] articles;
+}
 public class NewsBuilding : BuildingObject
 {
     public string[] firstNames;
@@ -11,13 +21,18 @@ public class NewsBuilding : BuildingObject
     public string[] historicalEvents;
     public string[] years;
     public string[] articles;
-    private void Start()
+    bool hasPlaced = false;
+    private void Update()
     {
-        articles[0] = "{name} found dead at {age}";
+        if (hasPlaced)
+        {
+            hasPlaced = true;
+            
+        }
     }
     private string ArticleCreation()
     {
-        return articles[(int)Random.Range(0, articles.Length)];
+        return articles[Random.Range(0, articles.Length)];
     }
 
     public override void Upkeep()
