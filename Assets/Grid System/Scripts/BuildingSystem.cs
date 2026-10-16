@@ -22,6 +22,9 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding3;
     InputAction rotateBuilding; 
     InputAction buildInput;
+    Plane groundPlane;
+    [SerializeField] private float clickableDistance;
+    
      
     void Start()
     {
@@ -58,7 +61,6 @@ public class BuildingSystem : MonoBehaviour
             preview = CreatePreview(buildingData2, mousePos);
         }else if (selectBuilding3.IsPressed())
         {
-            print("press 3");
             if (preview != null)
             {
                 Destroy(preview.gameObject);
@@ -88,7 +90,7 @@ public class BuildingSystem : MonoBehaviour
         {
             preview.ChangeState(BuildingPreview.BuildingPreviewState.NEGATIVE);
         }
-        if (rotateBuilding.IsPressed())
+        if (rotateBuilding.WasPressedThisFrame())
         {
             // rotates the building preview by 90 degrees
             preview.Rotate(90);
@@ -159,11 +161,14 @@ public class BuildingSystem : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         // grabs where the mouse is pointing to on the ground plane
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y,0));
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        if (groundPlane.Raycast(ray, out float distance))
+        Vector3 mousePosition = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0);
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        
+        
+        if (Physics.Raycast(ray,out hit,100))
         {
-            return ray.GetPoint(distance);
+            return hit.point;
         }
         return Vector3.zero;
     }
