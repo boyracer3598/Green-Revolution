@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Building")]
@@ -13,12 +14,21 @@ public class BuildingData : ScriptableObject
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public string Description { get; private set; }
     [field: SerializeField] public string SpMats { get; private set; } = string.Empty;
+    [field: SerializeField] public string SpMatsNeeds { get; private set; } = string.Empty;
     [field: SerializeField] public int WoodCost { get; private set; }
     [field: SerializeField] public int FoodCost { get; private set; }
     [field: SerializeField] public int StoneCost { get; private set; }
     [field: SerializeField] public int FuelCost { get; private set; }
+    [field: SerializeField] public int WoodUpkeep { get; private set; }
+    [field: SerializeField] public int FoodUpkeep { get; private set; }
+    [field: SerializeField] public int StoneUpkeep { get; private set; }
+    [field: SerializeField] public int FuelUpkeep { get; private set; }
+    [field: SerializeField] public int CropUpkeep { get; private set; }
     [field: SerializeField] public float PopulationHappiness { get; private set; }
     [field: SerializeField] public int ProduceAmount { get; private set; }
     [field: SerializeField] public string ProduceType { get; private set; }
+    [field: SerializeField] public int PopHap { get; private set; }
+    [field: SerializeField] public string Inspiration { get; private set; }
     [field: SerializeField] public BuildingModel Model { get; private set; }
+    [field: SerializeField] public BuildingObject SpecialBuilding { get; private set; }
 }

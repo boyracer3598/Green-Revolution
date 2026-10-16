@@ -6,22 +6,23 @@ public class BaseObject : MonoBehaviour
     public WorldVariables world;
     public string ObjectName;
     public string Description;
-    public int populationHappiness;
+    public int populationHappiness = 0;
     public enum PolProduceTypes
     {
         WATER,
         AIR,
         LAND
     }
-    public enum produceTypes
+    public enum ProduceTypes
     {
         WOOD,
         STONE,
         FOOD,
         FUEL,
+        CROPS,
         NONE
     }  
-    public produceTypes produceType;
+    public ProduceTypes produceType;
     public int produceAmount;
     public PolProduceTypes PolProduceType;
     public int PolProduce;
@@ -32,7 +33,7 @@ public class BaseObject : MonoBehaviour
     }
     public void RemoveObject(bool pos)
     {
-        world.PopulationHappiness -= world.calculateHappiness(this.populationHappiness);
+        world.PopulationHappiness -= world.CalculateHappiness(this.populationHappiness);
         UpdatePollution(pos);
         Destroy(this.gameObject);
     }

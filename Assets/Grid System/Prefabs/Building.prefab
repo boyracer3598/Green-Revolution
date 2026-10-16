@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2533855006742502784}
   - component: {fileID: 4179078616871795822}
-  - component: {fileID: 4986859312755710594}
+  - component: {fileID: 1084248209476445525}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cc2b9c796519a43a06f2534175f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Building
---- !u!114 &4986859312755710594
+--- !u!114 &1084248209476445525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,5 +60,21 @@ MonoBehaviour:
   world: {fileID: 0}
   ObjectName: 
   Description: 
-  ProduceType: 0
+  populationHappiness: 0
+  produceType: 0
+  produceAmount: 0
+  PolProduceType: 0
   PolProduce: 0
+  WoodCost: 0
+  StoneCost: 0
+  FoodCost: 0
+  FuelCost: 0
+  SpMats: 
+  SpMatsNeeds: 
+  WoodUpkeep: 0
+  StoneUpkeep: 0
+  FoodUpkeep: 0
+  FuelUpkeep: 0
+  CropUpkeep: 0
+  canProvide: 1
+  Inspiration: 
