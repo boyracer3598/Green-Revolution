@@ -9,6 +9,20 @@ public class HUD_Events : MonoBehaviour
     public GameObject pausePanel;
     public GameObject settingsPanel;
 
+    //staus bar variables
+    private ProgressBar waterPollutionStatus;
+    private ProgressBar airPollutionStatus;
+    private ProgressBar powerStatus;
+    private ProgressBar happinessStatus;
+    private ProgressBar inspirationStatus;
+    
+    // resource variables
+    private Label woodAmount;
+    private Label foodAmount;
+    private Label stoneAmount;
+    private Label fuelAmount;
+    private Label cropsAmountS;
+    
     public StyleSheet styleSheet;
     [SerializeField] BuildingSystem buildingSystem;
     
@@ -20,6 +34,17 @@ public class HUD_Events : MonoBehaviour
         pauseButton= UIDoc.rootVisualElement.Q<Button>("pauseButton");
         settingsButton.RegisterCallback<ClickEvent>(onSettingClick);
         pauseButton.RegisterCallback<ClickEvent>(onPauseClick);
+        
+        //status bars setup
+        waterPollutionStatus = UIDoc.rootVisualElement.Q<ProgressBar>("WaterPollutionStatus");
+        airPollutionStatus = UIDoc.rootVisualElement.Q<ProgressBar>("AirPollutionStatus");
+        powerStatus = UIDoc.rootVisualElement.Q<ProgressBar>("PowerStatus");
+        happinessStatus = UIDoc.rootVisualElement.Q<ProgressBar>("HappinessStatus");
+        inspirationStatus= UIDoc.rootVisualElement.Q<ProgressBar>("InspirationStatus");
+        
+        //resource amount setup
+        woodAmount = UIDoc.rootVisualElement.Q<Label>("WoodAmount");
+        woodAmount.text = "23";
 
         //tab setup
         tabSetup(UIDoc.rootVisualElement.Q<GroupBox>("buildingButtons"));
@@ -35,9 +60,20 @@ public class HUD_Events : MonoBehaviour
     
     void Update()
     {
-        
+        UpdateStatusBar(airPollutionStatus,20);
+
     }
 
+    
+    
+    //update status bar
+    private void UpdateStatusBar(ProgressBar statusBar, float value)
+    {
+        statusBar.title = value.ToString();
+        statusBar.value = value;
+    }
+    
+    
     //give all the buttons in a tab the funtion 
     private void tabSetup(GroupBox tabs)
     {

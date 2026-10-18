@@ -169,6 +169,15 @@
 .statBar {
     height: 21px;
     width: 180px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
+    -unity-text-align: upper-left;
+    white-space: normal;
+    color: rgb(101, 60, 5);
+    text-overflow: clip;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
 }
 
 .statGroup {
@@ -193,4 +202,9 @@
     border-bottom-color: rgba(149, 149, 149, 0.45);
     background-color: rgba(26, 117, 159, 0.5);
     margin-top: 0;
+}
+
+.unity-progress-bar__title {
+    position: relative;
+    left: -72px;
 }
