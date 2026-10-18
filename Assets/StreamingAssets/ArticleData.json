@@ -1,0 +1,27 @@
+{
+  "firstNames": [
+    "Alex",
+    "John"
+  ],
+  "lastNames": [
+    "Jameson",
+    "Porter"
+  ],
+  "sources": [
+    "Experts",
+    "{name}, leading expert on the matter,"
+  ],
+  "jobs": [
+    "grape farmer",
+    "financier"
+  ],
+  "culprits": [
+    "ten thousand bees",
+    "ravenous tree-huggers"
+  ],
+  "articles": [
+    "{source} states in press meeting this morning stated that we may be in a {job} shortage due to {culprit}.",
+    "{name}, beloved {job}, mysteriously found dead in their apartment.",
+    "{culprit} are coming..."
+  ]
+}
