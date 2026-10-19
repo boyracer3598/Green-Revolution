@@ -52,10 +52,15 @@ public class NewsBuilding : BuildingObject
             string source = sources[UnityEngine.Random.Range(0, sources.Length)];
             string job = jobs[UnityEngine.Random.Range(0, jobs.Length)];
             string culprit = culprits[UnityEngine.Random.Range(0, culprits.Length)];
+            int age = UnityEngine.Random.Range(5, 59);
+            if (age < 20) age = UnityEngine.Random.Range(5, 59);
             newArticle = newArticle.Replace("{name}", newName);
             newArticle = newArticle.Replace("{source}", source);
             newArticle = newArticle.Replace("{job}", job);
             newArticle = newArticle.Replace("{culprit}", culprit);
+            newArticle = newArticle.Replace("{age}", age.ToString());
+            newArticle = newArticle.Replace("{number}", UnityEngine.Random.Range(1, 15).ToString());
+            newArticle = newArticle.Replace("2}", "}");
         }
         return newArticle;
     }
