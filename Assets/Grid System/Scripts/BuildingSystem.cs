@@ -23,6 +23,7 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding3;
     InputAction rotateBuilding; 
     InputAction buildInput;
+    InputAction cancelBuilding;
     Plane groundPlane;
     [SerializeField] private float clickableDistance;
     Vector3 mousePos;
@@ -38,19 +39,22 @@ public class BuildingSystem : MonoBehaviour
         selectBuilding3 = InputSystem.actions["SelectBuilding3"];
         rotateBuilding = InputSystem.actions["rotateBuilding"];
         buildInput = InputSystem.actions["build"];
+        cancelBuilding = InputSystem.actions["RightMouseClick"];
     }
     
     
     private void Update()
     {
         mousePos = GetMousePosition();
+       
         
-
-
-
         if (preview != null)
         {
             HandlePreview(mousePos);
+            if (cancelBuilding.IsPressed())
+            {
+                Destroy(preview.gameObject);
+            }
         }
         
         if (selectBuilding1.IsPressed())
