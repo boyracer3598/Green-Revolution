@@ -94,14 +94,7 @@ public class BuildingSystem : MonoBehaviour
         Debug.Log(selectedBuilding);
         if (selectedBuilding != null) {
             preview = CreatePreview(selectedBuilding, mousePos);
-        }
-        else
-        {
-            
-        }
-
-
-        
+        }       
     }
 
 

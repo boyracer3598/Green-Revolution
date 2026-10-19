@@ -1,17 +1,27 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
-    <ui:GroupBox style="align-items: flex-start; align-self: flex-start; align-content: flex-start; justify-content: flex-start; width: 1280px; flex-direction: column;">
+    <ui:GroupBox style="align-items: flex-start; align-self: flex-start; align-content: flex-start; justify-content: flex-start; width: 1280px; flex-direction: column; -unity-text-align: upper-center;">
         <ui:GroupBox name="topBar" style="flex-direction: row; align-self: flex-start;">
             <ui:Button text="" icon-image="" name="pauseButton" style="height: 55px; width: 55px; background-image: url(&quot;project://database/Assets/UI/Icons/pauseIcon.png?fileID=2800000&amp;guid=c4bd63ab713763744a65fb7c687d855d&amp;type=3#pauseIcon&quot;); background-color: rgba(188, 188, 188, 0); -unity-background-image-tint-color: rgb(117, 200, 147); flex-wrap: nowrap; margin-top: 0;"/>
             <ui:GroupBox name="resources" style="align-items: auto; align-self: stretch; justify-content: space-around; align-content: flex-start; position: relative; top: auto; left: auto; flex-direction: row; height: auto; width: auto; margin-left: 0; margin-top: 0; margin-bottom: 0; padding-bottom: 0; padding-left: 0; padding-top: 0; margin-right: 0;">
                 <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; align-self: flex-start; margin-bottom: 15px; align-content: flex-start; align-items: stretch; left: auto; top: auto;">
-                    <ui:Label text="45" name="WoodAmount" style="position: absolute; top: 59px; left: 35px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&amp;guid=a0fa8ad870a4a2844aede7c0fbd12732&amp;type=3#Boogaloo-Regular&quot;); color: rgb(255, 255, 255); height: 28px; width: 23px; font-size: 20px;"/>
+                    <ui:Label text="45" name="WoodAmount" class="resourceLabel" style="position: absolute; top: 59px; left: 35px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&amp;guid=a0fa8ad870a4a2844aede7c0fbd12732&amp;type=3#Boogaloo-Regular&quot;); color: rgb(255, 255, 255); height: 28px; width: 23px; font-size: 20px;"/>
                 </ui:Image>
-                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;"/>
-                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;"/>
-                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;"/>
-                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;"/>
-                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;"/>
+                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
+                    <ui:Label text="4000" name="CropsAmount" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                </ui:Image>
+                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
+                    <ui:Label text="4000" name="FoodAmount" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                </ui:Image>
+                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
+                    <ui:Label text="4000" name="StoneAmount" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                </ui:Image>
+                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
+                    <ui:Label text="4000" name="FuelAmount" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                </ui:Image>
+                <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" enabled="true" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
+                    <ui:Label text="4000" name="Happiness" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                </ui:Image>
             </ui:GroupBox>
             <ui:GroupBox name="spacer" style="width: 450px;"/>
             <ui:Button text="" name="settingsButton" style="background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/UI/Icons/settingsIcon.png?fileID=2800000&amp;guid=86e758774f6638d4e841b86c1b96e6ad&amp;type=3#settingsIcon&quot;); -unity-background-image-tint-color: rgb(117, 200, 147); width: 60px; height: 60px; align-self: flex-start; margin-left: 0; background-position-x: right 0; background-size: 100% 100%;"/>
@@ -73,8 +83,8 @@
             <ui:VisualElement name="satsBackground" style="flex-grow: 1; background-color: rgb(117, 200, 147); width: 300px; margin-left: 60px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
                 <ui:ScrollView horizontal-page-size="100" vertical-page-size="100" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="height: 132px; width: 269px; margin-left: 8px; margin-top: 8px;">
                     <ui:GroupBox name="statGroup" class="statGroup">
-                        <ui:ProgressBar value="120" title="100" high-value="200" name="PowerStatus" class="statBar"/>
-                        <ui:Label text="Power" class="StatLabel"/>
+                        <ui:ProgressBar value="120" title="100" high-value="200" name="LandPollution" class="statBar"/>
+                        <ui:Label text="Land Pollution" class="StatLabel"/>
                     </ui:GroupBox>
                     <ui:GroupBox name="statGroup" class="statGroup">
                         <ui:ProgressBar value="120" title="" high-value="200" name="AirPollutionStatus" class="statBar"/>
@@ -91,6 +101,14 @@
                     <ui:GroupBox name="statGroup" class="statGroup">
                         <ui:ProgressBar value="120" title="" high-value="200" name="InspirationStatus" class="statBar"/>
                         <ui:Label text="Inspiration" class="StatLabel"/>
+                    </ui:GroupBox>
+                    <ui:GroupBox name="statGroup" class="statGroup">
+                        <ui:ProgressBar value="120" title="" high-value="200" name="PopulationStatus" class="statBar"/>
+                        <ui:Label text="Population" class="StatLabel"/>
+                    </ui:GroupBox>
+                    <ui:GroupBox name="statGroup" class="statGroup">
+                        <ui:ProgressBar value="120" title="" high-value="200" name="EmployedPopulationStatus" class="statBar"/>
+                        <ui:Label text="Employed Pop" class="StatLabel"/>
                     </ui:GroupBox>
                 </ui:ScrollView>
             </ui:VisualElement>

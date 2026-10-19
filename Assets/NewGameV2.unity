@@ -227,6 +227,27 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &917191537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+  m_PrefabInstance: {fileID: 2068198685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &917191538
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917191537}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 6665900104141937938, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &931052977
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
-  food: 0
+  food: 22
   wood: 1000
   stone: 1000
   fuel: 0
@@ -856,6 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUD_Events
   pausePanel: {fileID: 1118981879}
   settingsPanel: {fileID: 1065056952}
+  worldVariables: {fileID: 1480190924}
   styleSheet: {fileID: 7433441132597879392, guid: f2a936d679f84cf44b3d3dc98680c531, type: 3}
   buildingSystem: {fileID: 1212099179}
 --- !u!20 &1653509740 stripped
@@ -944,6 +966,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8615370417703781894, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
   m_PrefabInstance: {fileID: 1484744718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2068198685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8553953
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000044710447
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.846751
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      propertyPath: m_Name
+      value: farm_house_lvl7(anmated)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917191538}
+  m_SourcePrefab: {fileID: 100100000, guid: 45dc2723e9d9316478fcf5cc69b4a79b, type: 3}
 --- !u!1 &2136281854
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,3 +1067,4 @@ SceneRoots:
   - {fileID: 1065056955}
   - {fileID: 1619358217}
   - {fileID: 1118981881}
+  - {fileID: 2068198685}

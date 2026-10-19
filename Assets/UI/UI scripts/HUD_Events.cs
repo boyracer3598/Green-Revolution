@@ -10,18 +10,22 @@ public class HUD_Events : MonoBehaviour
     public GameObject settingsPanel;
 
     //staus bar variables
+    [SerializeField] private WorldVariables worldVariables;
     private ProgressBar waterPollutionStatus;
     private ProgressBar airPollutionStatus;
-    private ProgressBar powerStatus;
+    private ProgressBar landPollution;
     private ProgressBar happinessStatus;
     private ProgressBar inspirationStatus;
+    private ProgressBar populationStatus;
+    private ProgressBar employedPopulationStatus;
     
     // resource variables
     private Label woodAmount;
     private Label foodAmount;
     private Label stoneAmount;
     private Label fuelAmount;
-    private Label cropsAmountS;
+    private Label cropsAmount;
+    private Label happinessAmount;
     
     public StyleSheet styleSheet;
     [SerializeField] BuildingSystem buildingSystem;
@@ -38,13 +42,20 @@ public class HUD_Events : MonoBehaviour
         //status bars setup
         waterPollutionStatus = UIDoc.rootVisualElement.Q<ProgressBar>("WaterPollutionStatus");
         airPollutionStatus = UIDoc.rootVisualElement.Q<ProgressBar>("AirPollutionStatus");
-        powerStatus = UIDoc.rootVisualElement.Q<ProgressBar>("PowerStatus");
+        landPollution = UIDoc.rootVisualElement.Q<ProgressBar>("LandPollution");
         happinessStatus = UIDoc.rootVisualElement.Q<ProgressBar>("HappinessStatus");
         inspirationStatus= UIDoc.rootVisualElement.Q<ProgressBar>("InspirationStatus");
+        populationStatus = UIDoc.rootVisualElement.Q<ProgressBar>("PopulationStatus");
+        employedPopulationStatus = UIDoc.rootVisualElement.Q<ProgressBar>("EmployedPopulationStatus");
+
         
         //resource amount setup
         woodAmount = UIDoc.rootVisualElement.Q<Label>("WoodAmount");
-        woodAmount.text = "23";
+        foodAmount = UIDoc.rootVisualElement.Q<Label>("FoodAmount");
+        stoneAmount = UIDoc.rootVisualElement.Q<Label>("StoneAmount");
+        fuelAmount = UIDoc.rootVisualElement.Q<Label>("FuelAmount");
+        cropsAmount = UIDoc.rootVisualElement.Q<Label>("CropsAmount");
+        happinessAmount = UIDoc.rootVisualElement.Q<Label>("Happiness");
 
         //tab setup
         tabSetup(UIDoc.rootVisualElement.Q<GroupBox>("buildingButtons"));
@@ -60,11 +71,33 @@ public class HUD_Events : MonoBehaviour
     
     void Update()
     {
-        UpdateStatusBar(airPollutionStatus,20);
+        
+        UpdateResource(cropsAmount, worldVariables.crops);
+        UpdateResource(foodAmount, worldVariables.food);
+        UpdateResource(fuelAmount, worldVariables.fuel);
+        UpdateResource(stoneAmount, worldVariables.stone);
+        UpdateResource(woodAmount, worldVariables.wood);
+        UpdateResource(happinessAmount, ((int)worldVariables.PopulationHappiness));
+        
+        UpdateStatusBar(airPollutionStatus,worldVariables.AirPollution);
+        UpdateStatusBar(happinessStatus, worldVariables.PopulationHappiness);
+        UpdateStatusBar(waterPollutionStatus,worldVariables.WaterPollution);
+        UpdateStatusBar(happinessStatus,worldVariables.PopulationHappiness);
+        UpdateStatusBar(inspirationStatus,worldVariables.Inspiration);
+        UpdateStatusBar(populationStatus,worldVariables.Population);
+        UpdateStatusBar(employedPopulationStatus,worldVariables.EmployedPopulation);
+
+
 
     }
 
     
+    void UpdateResource(Label resource, int vaule)
+    {
+        resource.text=vaule.ToString();
+    }
+
+
     
     //update status bar
     private void UpdateStatusBar(ProgressBar statusBar, float value)

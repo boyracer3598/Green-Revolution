@@ -208,3 +208,14 @@
     position: relative;
     left: -72px;
 }
+
+.resourceLabel {
+    position: absolute;
+    top: 59px;
+    left: 35px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
+    color: rgb(255, 255, 255);
+    height: 28px;
+    width: 23px;
+    font-size: 20px;
+}

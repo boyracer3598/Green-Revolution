@@ -29,6 +29,6 @@ MonoBehaviour:
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <PopHap>k__BackingField: 0
-  <Inspiration>k__BackingField: 
+  <Inspiration>k__BackingField: 0
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 6e5e1b52262a512409c783aa4d0499cd, type: 3}
-  <SpecialBuilding>k__BackingField: {fileID: 0}
+  <SpecialBuilding>k__BackingField: {fileID: 1084248209476445525, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
