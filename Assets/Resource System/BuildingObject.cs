@@ -111,6 +111,10 @@ public class BuildingObject : BaseObject
             canProvide = false;
         }
     }
+    public virtual void Placed()
+    {
+
+    }
     public virtual void Upkeep()
     {
         this.PayUpkeepCosts();
