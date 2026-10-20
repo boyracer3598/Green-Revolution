@@ -18,7 +18,10 @@ public class BuildingGrid : MonoBehaviour
             }
         }
     }
-
+    public (int x, int y) getSize()
+    {
+        return (width, height);
+    }
     public void SetBuilding(Building building, List<Vector3> allBuildingPositions)
     {
         foreach (var p in allBuildingPositions )
@@ -27,6 +30,7 @@ public class BuildingGrid : MonoBehaviour
             grid[x, y].SetBuilding(building);
         }
     }
+
 
     public bool CanBuild(List<Vector3> allBuildingPositions)
     {

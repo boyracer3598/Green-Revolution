@@ -258,6 +258,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2062585158}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1 &950477250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950477251}
+  - component: {fileID: 950477253}
+  - component: {fileID: 950477252}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950477251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950477250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1820810709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950477252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950477250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
+  food: 0
+  wood: 0
+  stone: 0
+  fuel: 0
+  crops: 0
+  SpecialMaterials: []
+  Inspiration: 0
+  baseDamage: 0
+  basePermDamage: 0
+  safeDestroy: 0
+  TimeSinceLastUpkeep: 0
+--- !u!114 &950477253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950477250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba438d60e234948449c782aec229ad1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldGen
+  world: {fileID: 0}
+  buildingData1: {fileID: 0}
+  buildingData2: {fileID: 0}
+  buildingData3: {fileID: 0}
+  previewPrefab: {fileID: 0}
+  buildingPrefab: {fileID: 0}
+  grid: {fileID: 1320099256}
+  mainCamera: {fileID: 0}
+  clickableDistance: 0
+  grid: {fileID: 1320099256}
+  trees:
+  - {fileID: 11400000, guid: b21c634e2c90f284ab861495d259454b, type: 2}
+  rocks: []
+  fuel: []
+  plants: []
 --- !u!1 &1049513187
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f1e2b41807bd847a410b32bb61ee68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSystem
-  world: {fileID: 1480190924}
+  world: {fileID: 0}
   buildingData1: {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
   buildingData2: {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
   buildingData3: {fileID: 11400000, guid: a6e97507f89539344886f7713dbd9ee2, type: 2}
@@ -539,7 +622,6 @@ GameObject:
   - component: {fileID: 1480190923}
   - component: {fileID: 1480190922}
   - component: {fileID: 1480190921}
-  - component: {fileID: 1480190924}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -641,27 +723,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480190919}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1480190924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480190919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
-  food: 0
-  wood: 1000
-  stone: 1000
-  fuel: 0
-  SpecialMaterials:
-  - Wool
-  baseDamage: 0
-  basePermDamage: 0
-  safeDestroy: 0
 --- !u!1001 &1484744718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -929,6 +990,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1212099178}
+  - {fileID: 950477251}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2062585158 stripped
