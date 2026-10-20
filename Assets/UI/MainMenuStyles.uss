@@ -219,3 +219,9 @@
     width: 23px;
     font-size: 20px;
 }
+
+.detailText {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
+    color: rgb(158, 101, 25);
+    font-size: 30px;
+}

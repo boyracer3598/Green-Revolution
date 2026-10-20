@@ -200,7 +200,7 @@ public class BuildingSystem : MonoBehaviour
         RaycastHit hit;
         
         
-        if (Physics.Raycast(ray,out hit,100))
+        if (Physics.Raycast(ray,out hit,100,LayerMask.GetMask("Floor")))
         {
             return hit.point;
         }

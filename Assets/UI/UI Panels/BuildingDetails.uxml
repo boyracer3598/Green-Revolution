@@ -1,0 +1,40 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
+    <ui:VisualElement name="background" style="flex-grow: 1; background-color: rgb(117, 200, 147); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+        <ui:VisualElement name="wrapper" style="flex-grow: 1; margin-left: 60px; margin-top: 15px;">
+            <ui:Label text="Name:" name="Name" class="detailText"/>
+            <ui:Label text="Descrition:" name="Description" class="detailText"/>
+            <ui:GroupBox name="ProduceWrapper" style="flex-direction: row;">
+                <ui:Label text="Produce:" name="Produce" class="detailText" style="height: 49px; width: 101px;"/>
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+            </ui:GroupBox>
+            <ui:Label text="UpKeep" name="Upkeep" class="detailText"/>
+            <ui:GroupBox style="flex-direction: row;">
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+                <ui:GroupBox>
+                    <ui:Image style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                    <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                </ui:GroupBox>
+            </ui:GroupBox>
+            <ui:Label text="Pollution:" name="Pollution" class="detailText"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

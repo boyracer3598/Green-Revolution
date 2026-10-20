@@ -26,12 +26,17 @@ public class HUD_Events : MonoBehaviour
     private Label fuelAmount;
     private Label cropsAmount;
     private Label happinessAmount;
+
     
     public StyleSheet styleSheet;
+
     [SerializeField] BuildingSystem buildingSystem;
     
     void OnEnable()
-    {     
+    {
+        
+
+
         //button setup
         UIDoc = gameObject.GetComponent<UIDocument>();
         settingsButton= UIDoc.rootVisualElement.Q<Button>("settingsButton");
