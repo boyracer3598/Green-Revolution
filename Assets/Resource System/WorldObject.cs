@@ -1,13 +1,43 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using static UnityEditor.MaterialProperty;
+
 
 public class WorldObject : BaseObject
 {
-    [SerializeField] private float HpBase; // The base hp for the object
-    [SerializeField] private float[,] HpBounds; // The variation added to each object based on two floats
     [SerializeField] private float maxHP; // the max hp of the object before the diminish touches it
     [SerializeField] private float objectHp; // the object's current hp
     [SerializeField] private int HpDiminish = 0; // the permanent damage dealt to each object
+    public void AddData(string Name, string desc, int popHap, string produces, int produceAmt, float BaseHP, float low, float high)
+    {
+        this.ObjectName = name;
+        this.Description = desc;
+        this.populationHappiness = popHap;
+        this.maxHP = BaseHP + (float)Math.Round(UnityEngine.Random.Range(low, high), 1);
+        this.objectHp = maxHP;
+        this.produceAmount = produceAmt;
+        switch (produces)
+        {
+            case "wood":
+                this.produceType = ProduceTypes.WOOD;
+                break;
+            case "stone":
+                this.produceType = ProduceTypes.STONE;
+                break;
+            case "food":
+                this.produceType = ProduceTypes.FOOD;
+                break;
+            case "fuel":
+                this.produceType = ProduceTypes.FUEL;
+                break;
+            case "crops":
+                this.produceType = ProduceTypes.CROPS;
+                break;
+            default:
+                this.produceType = ProduceTypes.NONE;
+                break;
+        }
+    }
     public void Harvest()
     {
         int randnum = UnityEngine.Random.Range(0, 10);

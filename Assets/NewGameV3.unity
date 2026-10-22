@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 950477251}
   - component: {fileID: 950477253}
   - component: {fileID: 950477252}
+  - component: {fileID: 950477254}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -326,21 +327,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba438d60e234948449c782aec229ad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldGen
-  world: {fileID: 0}
-  buildingData1: {fileID: 0}
-  buildingData2: {fileID: 0}
-  buildingData3: {fileID: 0}
-  previewPrefab: {fileID: 0}
-  buildingPrefab: {fileID: 0}
   grid: {fileID: 1320099256}
-  mainCamera: {fileID: 0}
-  clickableDistance: 0
-  grid: {fileID: 1320099256}
+  wObjPrefab: {fileID: -3427656420723023712, guid: 6d82ed75901d1ce41b620c91610367ea, type: 3}
   trees:
   - {fileID: 11400000, guid: b21c634e2c90f284ab861495d259454b, type: 2}
   rocks: []
   fuel: []
   plants: []
+--- !u!114 &950477254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950477250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10060e213d9cc24da7263bdcc6a8df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingModel
+  wrapper: {fileID: 0}
 --- !u!1 &1049513187
 GameObject:
   m_ObjectHideFlags: 0

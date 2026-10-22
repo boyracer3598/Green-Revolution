@@ -150,7 +150,7 @@ public class BuildingSystem : MonoBehaviour
         preview = null;
     }
 
-    private Vector3 GetSnappedCenterPosition(List<Vector3> allBuildingPositions)
+    public Vector3 GetSnappedCenterPosition(List<Vector3> allBuildingPositions)
     {
         List<int> xs = allBuildingPositions.Select(p => Mathf.FloorToInt(p.x)).ToList();
         List<int> zs = allBuildingPositions.Select(p => Mathf.FloorToInt(p.z)).ToList();

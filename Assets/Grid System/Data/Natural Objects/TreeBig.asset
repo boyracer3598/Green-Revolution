@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjData
   <Name>k__BackingField: Big Tree
   <Description>k__BackingField: It's a big tree, what can I say?
-  <SpMats>k__BackingField: 
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <BaseHP>k__BackingField: 0
   <HPVariableLow>k__BackingField: 0
   <HPVariableHigh>k__BackingField: 0
-  <Model>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: b02d55b526f9ecf40ae39a4742f4ecba, type: 3}

@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldGen : BuildingSystem
+public class WorldGen : MonoBehaviour
 {
     [SerializeField] private BuildingGrid grid;
+    [SerializeField] private WorldObj wObjPrefab;
     [SerializeField] private WorldObjData[] trees;
     [SerializeField] private WorldObjData[] rocks;
     [SerializeField] private WorldObjData[] fuel;
@@ -18,12 +20,19 @@ public class WorldGen : BuildingSystem
         {
             for (int j = 0; j < gridSize.y; j++)
             {
-                // Use some refactored buildingsystem code to place the world objects in each position, for testing.
-                // Implement weighting on the data files and add all the weights of each type of wObject and do some weighting system type stuff
-                // have it place a world object based on what the weight is
-                // yeah
+                WorldObjData data = trees[0];
+                PlaceObject(data, new Vector3(i, 0, j));
             }
         }
     }
-
+    private void PlaceObject(WorldObjData data, Vector3 position)
+    {
+        // creates the building at the preview's position and gives it the required data and rotation
+        float rotation = UnityEngine.Random.Range(0, 360);
+        WorldObj wObject = Instantiate(wObjPrefab, position, Quaternion.identity);
+        wObject.Setup(data, rotation);
+        WorldObject wObjObject = wObject.gameObject.GetComponent<WorldObject>();
+        wObjObject.AddData(data.Name, data.Description, data.PopulationHappiness, data.ProduceType, data.ProduceAmount, data.BaseHP, data.HPVariableLow, data.HPVariableHigh);
+        grid.SetObject(wObject, (int)position.x, (int)position.z);
+    }
 }

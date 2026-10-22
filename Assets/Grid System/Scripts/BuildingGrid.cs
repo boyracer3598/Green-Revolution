@@ -30,7 +30,11 @@ public class BuildingGrid : MonoBehaviour
             grid[x, y].SetBuilding(building);
         }
     }
-
+    public void SetObject(WorldObj wObject, int ax, int ay)
+    {
+        (int x, int y) = WorldToGridPositon(new Vector3(ax, 0, ay));
+        grid[x, y].SetObject(wObject);
+    }
 
     public bool CanBuild(List<Vector3> allBuildingPositions)
     {
@@ -79,10 +83,12 @@ public class BuildingGrid : MonoBehaviour
     public class BuildingGridCell
     {
         private Building building;
+        private WorldObj wObject;
 
         public void SetBuilding(Building building) { this.building = building; }
+        public void SetObject(WorldObj wObject) { this.wObject = wObject; }
 
-        public bool IsEmpty() { return building == null; }
+    public bool IsEmpty() { return building == null && wObject == null; }
 
 
     }

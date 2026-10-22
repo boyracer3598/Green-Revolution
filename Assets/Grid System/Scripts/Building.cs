@@ -23,7 +23,7 @@ public class Building : MonoBehaviour
     public void Setup(BuildingData data, float rotation)
     {
         this.data = data;
-        model=Instantiate(data.Model, transform.position,Quaternion.identity,transform);
+        model = Instantiate(data.Model, transform.position,Quaternion.identity,transform);
         model.Rotate(rotation);
     }
 }
