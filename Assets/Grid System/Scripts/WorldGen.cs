@@ -11,17 +11,29 @@ public class WorldGen : MonoBehaviour
     [SerializeField] private WorldObjData[] fuel;
     [SerializeField] private WorldObjData[] plants;
     [SerializeField] private (int x, int y) gridSize;
+    bool hasGenerated = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gridSize = grid.getSize();
-        for (int i = 0; i < gridSize.x; i++)
+        
+    }
+    public void WorldStart()
+    {
+        if (!hasGenerated)
         {
-            for (int j = 0; j < gridSize.y; j++)
+            hasGenerated = true;
+            gridSize = grid.getSize();
+            for (int i = 0; i < gridSize.x; i++)
             {
-                WorldObjData data = trees[0];
-                PlaceObject(data, new Vector3(i, 0, j));
+                for (int j = 0; j < gridSize.y; j++)
+                {
+                    if (UnityEngine.Random.Range(0, 10) == 1)
+                    {
+                        WorldObjData data = trees[0];
+                        PlaceObject(data, new Vector3(i, 0, j));
+                    }
+                }
             }
         }
     }
