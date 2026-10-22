@@ -315,6 +315,7 @@ MonoBehaviour:
   basePermDamage: 0
   safeDestroy: 0
   TimeSinceLastUpkeep: 0
+  worldGen: {fileID: 950477253}
 --- !u!114 &950477253
 MonoBehaviour:
   m_ObjectHideFlags: 0
