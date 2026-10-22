@@ -21,6 +21,11 @@ public class DisplayBuildingDetails : MonoBehaviour
     private Label produceLabel;
     private Image produceIcon;
     private Label produceAmountLabel;
+    private Label UpkeepWoodLabel;
+    private Label UpKeepCropsLabel;
+    private Label UpKeepFoodLabel;
+    private Label UpKeepStoneLabel;
+    private Label UpKeepFuelLabel;
     private Label pollutionLabel;
     
 
@@ -113,9 +118,16 @@ public class DisplayBuildingDetails : MonoBehaviour
         //UI references setup
         buildingNameLabel = UIObject.rootVisualElement.Q<Label>("Name");
         buildingDescriptionLabel = UIObject.rootVisualElement.Q<Label>("Description");
-        produceLabel = UIObject.rootVisualElement.Q<Label>("produce");
-        produceIcon = UIObject.rootVisualElement.Q<Image>("produceIcon");
-        produceAmountLabel = UIObject.rootVisualElement.Q<Label>("produceAmount");
+        produceLabel = UIObject.rootVisualElement.Q<Label>("Produce");
+        produceIcon = UIObject.rootVisualElement.Q<Image>("ProduceIcon");
+        produceAmountLabel = UIObject.rootVisualElement.Q<Label>("ProduceAmount");
+
+        UpkeepWoodLabel = UIObject.rootVisualElement.Q<Label>("UpkeepWood");
+        UpKeepCropsLabel=UIObject.rootVisualElement.Q<Label>("UpKeepCrops");
+        UpKeepFoodLabel=UIObject.rootVisualElement.Q<Label>("UpKeepFood");
+        UpKeepStoneLabel=UIObject.rootVisualElement.Q<Label>("UpKeepStone");
+        UpKeepFuelLabel=UIObject.rootVisualElement.Q<Label>("UpKeepFuel");
+
         pollutionLabel = UIObject.rootVisualElement.Q<Label>("Pollution");
         
     }
@@ -124,10 +136,37 @@ public class DisplayBuildingDetails : MonoBehaviour
         
         buildingNameLabel.text= "Name: " +hitBuilding.ObjectName;
         buildingDescriptionLabel.text = "Description: " + hitBuilding.Description;
-        //produceLabel.text = "Produce: " + hitBuilding.pr
-        //produceAmountLabel.text = hitBuilding.produceAmount.ToString();
+        produceLabel.text = "Produce: " + hitBuilding.produceType.ToString().ToLower();
+        produceAmountLabel.text = hitBuilding.produceAmount.ToString();
+        switch (hitBuilding.produceType.ToString().ToLower())
+        {
+            case "wood":
+                produceIcon.image = resourceIcons[0];
+                break;
+            case "crops":
+                produceIcon.image= resourceIcons[1];
+                break;
+            case "food":
+                produceIcon.image=resourceIcons[2];
+                break;
+            case "stone":
+                produceIcon.image = resourceIcons[3];
+                break;
+            case "fuel":
+                produceIcon.image = resourceIcons[4];
+                break;
+
+            default:
+                produceIcon.image = resourceIcons[5];
+                break;
+        }
         //maybe add get functions???
-        pollutionLabel.text = "Pollution: "+hitBuilding.PolProduceType.ToString().ToLower() +hitBuilding.PolProduce.ToString();
+        UpkeepWoodLabel.text = hitBuilding.WoodUpkeep1.ToString();
+        UpKeepCropsLabel.text =hitBuilding.CropUpkeep1.ToString();
+        UpKeepFoodLabel.text = hitBuilding.FoodUpkeep1.ToString();
+        UpKeepStoneLabel.text = hitBuilding.StoneUpkeep1.ToString(); 
+        UpKeepFuelLabel.text= hitBuilding.FuelUpkeep1.ToString();
+        pollutionLabel.text = "Pollution: "+hitBuilding.PolProduceType.ToString().ToLower() +" "+hitBuilding.PolProduce.ToString();
 
 
     }

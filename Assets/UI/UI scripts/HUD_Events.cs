@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -31,7 +32,9 @@ public class HUD_Events : MonoBehaviour
     public StyleSheet styleSheet;
 
     [SerializeField] BuildingSystem buildingSystem;
-    
+    [SerializeField] UIDocument buildDetailUI;
+    [SerializeField] private DataStorage storage;
+
     void OnEnable()
     {
         
@@ -118,6 +121,8 @@ public class HUD_Events : MonoBehaviour
         foreach (Button buttons in tabs.Children())
         {
             buttons.RegisterCallback<ClickEvent>(selectBuildingUI);
+            buttons.RegisterCallback<PointerEnterEvent>(ShowBuildDetials);
+            buttons.RegisterCallback<PointerLeaveEvent>(HideBuildDetails);
         }
     }
 
@@ -130,6 +135,31 @@ public class HUD_Events : MonoBehaviour
     }
 
 
+    private void ShowBuildDetials(PointerEnterEvent evt)
+    {
+        BuildingData buildingData=new BuildingData();
+        buildDetailUI.gameObject.SetActive(true);
+        Button button = evt.target as Button;
+        buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+button.name;
+        foreach (BuildingData building in storage.buildingDatas)
+        {
+            if (building.Name == button.name) {
+                buildingData = building;
+            }
+        }
+        buildDetailUI.rootVisualElement.Q<Label>("WoodAmount").text = buildingData.WoodCost.ToString();
+        buildDetailUI.rootVisualElement.Q<Label>("CropAmount").text = "0";
+        buildDetailUI.rootVisualElement.Q<Label>("FoodAmount").text = buildingData.FoodCost.ToString();
+        buildDetailUI.rootVisualElement.Q<Label>("StoneAmount").text = buildingData.StoneCost.ToString();
+        buildDetailUI.rootVisualElement.Q<Label>("FuelAmount").text = buildingData.FuelCost.ToString();
+        Debug.Log(evt.position);
+
+    }
+
+    private void HideBuildDetails(PointerLeaveEvent evt)
+    {
+        buildDetailUI.gameObject.SetActive(false);
+    }
 
     private void onSettingClick(ClickEvent evt)
     {
