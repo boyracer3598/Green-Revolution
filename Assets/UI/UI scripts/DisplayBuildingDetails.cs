@@ -50,7 +50,6 @@ public class DisplayBuildingDetails : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100,LayerMask.GetMask("Building"))&MouseLeftClick.WasPressedThisFrame())
         {
             hitBuilding = hit.transform.gameObject.GetComponentInParent<BuildingObject>();
-            Debug.Log(hitBuilding);
             //display the building details
             if (hitBuilding != null)
             {

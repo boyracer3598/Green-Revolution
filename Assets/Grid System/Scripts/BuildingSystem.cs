@@ -47,7 +47,7 @@ public class BuildingSystem : MonoBehaviour
     {
         mousePos = GetMousePosition();
        
-        
+        //right click to cancel a build
         if (preview != null)
         {
             HandlePreview(mousePos);
@@ -56,33 +56,9 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(preview.gameObject);
             }
         }
-        
-        if (selectBuilding1.IsPressed())
-        {
-            if (preview != null)
-            {
-                Destroy(preview.gameObject); 
-            }
-            preview = CreatePreview(buildingData1, mousePos);
-        }else if (selectBuilding2.IsPressed())
-        {
-            if (preview != null)
-            {
-                Destroy(preview.gameObject);
-            }
-            preview = CreatePreview(buildingData2, mousePos);
-        }else if (selectBuilding3.IsPressed())
-        {
-            if (preview != null)
-            {
-                Destroy(preview.gameObject);
-            }
-            preview = CreatePreview(buildingData3, mousePos);
-        }
     }
 
     public void SelectBuilding(string buildingName) {
-        Debug.Log("builing: "+buildingName);
         if(preview != null)
         {
             Destroy(preview.gameObject);
@@ -95,7 +71,6 @@ public class BuildingSystem : MonoBehaviour
             }
 
         }
-        Debug.Log(selectedBuilding);
         if (selectedBuilding != null) {
             preview = CreatePreview(selectedBuilding, mousePos);
         }       

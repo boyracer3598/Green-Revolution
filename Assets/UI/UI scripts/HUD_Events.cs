@@ -152,8 +152,6 @@ public class HUD_Events : MonoBehaviour
         buildDetailUI.rootVisualElement.Q<Label>("FoodAmount").text = buildingData.FoodCost.ToString();
         buildDetailUI.rootVisualElement.Q<Label>("StoneAmount").text = buildingData.StoneCost.ToString();
         buildDetailUI.rootVisualElement.Q<Label>("FuelAmount").text = buildingData.FuelCost.ToString();
-        Debug.Log(evt.position);
-
     }
 
     private void HideBuildDetails(PointerLeaveEvent evt)
