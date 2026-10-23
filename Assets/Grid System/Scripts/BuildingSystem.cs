@@ -142,6 +142,7 @@ public class BuildingSystem : MonoBehaviour
         {
             BuildingObject buildingObject = building.gameObject.AddComponent<BuildingObject>();
             buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
+            buildingObject.Placed();
         }
         else
         {
@@ -149,8 +150,8 @@ public class BuildingSystem : MonoBehaviour
             BuildingObject buildingSpecial = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
             Destroy(building.gameObject.GetComponent<BuildingObject>());
             buildingSpecial.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
+            buildingSpecial.Placed();
         }
-        Debug.Log(preview.Data.SpecialBuilding.ToString());
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object
         SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
