@@ -52,7 +52,6 @@ public class CameraMove : MonoBehaviour
         mainCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
         miniMapCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
 
-
         // reads input for camera pan(mouse and WASD)
         mousePosition = mouseMove.ReadValue<Vector2>();
         Vector2 cameraInputKeyboard = cameraMove.ReadValue<Vector2>();

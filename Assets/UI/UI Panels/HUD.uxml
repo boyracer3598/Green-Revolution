@@ -26,6 +26,7 @@
                 </ui:Image>
                 <ui:Image source="project://database/Assets/UI/Icons/resourceIcon.png?fileID=2800000&amp;guid=422f1c1690bfc114cba8565e69849d48&amp;type=3#resourceIcon" tint-color="rgb(255, 255, 255)" scale-mode="ScaleToFit" name="resourceBorder" enabled="true" class="resourceBorder" style="height: 97px; width: 98px; position: relative; top: auto; left: auto;">
                     <ui:Label text="4000" name="Happiness" parse-escape-sequences="false" class="resourceLabel" style="width: 34px; height: 28px; align-items: stretch; margin-left: 4px; position: relative; left: 29%;"/>
+                    <ui:Image source="project://database/Assets/UI/Icons/logo%20v1.png?fileID=2800000&amp;guid=7739386b71f393f42b72c7fac7b511e7&amp;type=3#logo v1" name="HappyIcon" style="height: 40px; width: 40px; position: absolute; top: 15px; left: 28px;"/>
                 </ui:Image>
             </ui:GroupBox>
             <ui:GroupBox name="spacer" style="width: 450px;"/>
@@ -86,7 +87,7 @@
                 </ui:TabView>
             </ui:Image>
             <ui:VisualElement name="satsBackground" style="flex-grow: 1; background-color: rgb(117, 200, 147); width: 300px; margin-left: 60px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
-                <ui:ScrollView horizontal-page-size="100" vertical-page-size="100" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="height: 132px; width: 269px; margin-left: 8px; margin-top: 8px;">
+                <ui:ScrollView horizontal-page-size="100" vertical-page-size="100" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" name="StatView" style="height: 132px; width: 269px; margin-left: 8px; margin-top: 8px;">
                     <ui:GroupBox name="statGroup" class="statGroup">
                         <ui:ProgressBar value="120" title="100" high-value="200" name="LandPollution" class="statBar"/>
                         <ui:Label text="Land Pollution" class="StatLabel"/>

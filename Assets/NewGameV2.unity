@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
   food: 22
-  wood: 1000
+  wood: 2000
   stone: 1000
   fuel: 0
   crops: 0

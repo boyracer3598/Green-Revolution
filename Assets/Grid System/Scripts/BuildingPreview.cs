@@ -30,7 +30,6 @@ public class BuildingPreview : MonoBehaviour
 
    public void ChangeState(BuildingPreviewState newState)
    {
-      if (State == newState) return;
       State = newState;
       SetPreviewMaterial(State);
    }

@@ -56,6 +56,7 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(preview.gameObject);
             }
         }
+
     }
 
     public void SelectBuilding(string buildingName) {
@@ -84,7 +85,6 @@ public class BuildingSystem : MonoBehaviour
         List<Vector3> buildPositions = preview.BuildingModel.GetAllBuildingPosition();
         // Checks whether the building can be placed in that spot on the grid, and also checks if they have the correct resources available
         bool canBuild = grid.CanBuild(buildPositions) && CanPlaceBuilding();
-
         if (canBuild)
         {
             preview.transform.position = GetSnappedCenterPosition(buildPositions);
