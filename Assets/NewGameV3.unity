@@ -316,6 +316,7 @@ MonoBehaviour:
   safeDestroy: 0
   TimeSinceLastUpkeep: 0
   worldGen: {fileID: 950477253}
+  whenUpdate: 10
 --- !u!114 &950477253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +333,9 @@ MonoBehaviour:
   wObjPrefab: {fileID: -3427656420723023712, guid: 6d82ed75901d1ce41b620c91610367ea, type: 3}
   trees:
   - {fileID: 11400000, guid: b21c634e2c90f284ab861495d259454b, type: 2}
-  rocks: []
+  - {fileID: 11400000, guid: 3975c898450f8384cb26a8ac2e555df6, type: 2}
+  rocks:
+  - {fileID: 11400000, guid: e00cde1dfa2d5ce4b8441c5658abb4d3, type: 2}
   fuel: []
   plants: []
 --- !u!114 &950477254

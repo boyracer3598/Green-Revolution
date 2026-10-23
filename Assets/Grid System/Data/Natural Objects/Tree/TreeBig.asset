@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51788b41a3ba52b4cafe7e5a28fc4fec, type: 3}
+  m_Name: TreeBig
+  m_EditorClassIdentifier: Assembly-CSharp::WorldObjData
+  <Name>k__BackingField: Big Tree
+  <Description>k__BackingField: It's a big tree, what can I say?
+  <PopulationHappiness>k__BackingField: 1
+  <ProduceAmount>k__BackingField: 35
+  <ProduceType>k__BackingField: wood
+  <BaseHP>k__BackingField: 35
+  <HPVariableLow>k__BackingField: -5
+  <HPVariableHigh>k__BackingField: 10
+  <Weighting>k__BackingField: 30
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: b02d55b526f9ecf40ae39a4742f4ecba, type: 3}

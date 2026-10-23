@@ -10,6 +10,7 @@ public class WorldObj : MonoBehaviour
     public float BaseHP => data.BaseHP;
     public float HPVariableLow => data.HPVariableLow;
     public float HPVariableHigh => data.HPVariableHigh;
+    public float Weighting => data.Weighting;
 
     private BuildingModel model;
     private WorldObjData data;
@@ -17,7 +18,7 @@ public class WorldObj : MonoBehaviour
     public void Setup(WorldObjData data, float rotation)
     {
         this.data = data;
-        model=Instantiate(data.Model, transform.position,Quaternion.identity,transform);
+        model=Instantiate(data.Model, transform.position, Quaternion.identity,transform);
         model.Rotate(rotation);
     }
 }

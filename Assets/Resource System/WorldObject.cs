@@ -10,7 +10,8 @@ public class WorldObject : BaseObject
     [SerializeField] private int HpDiminish = 0; // the permanent damage dealt to each object
     public void AddData(string Name, string desc, int popHap, string produces, int produceAmt, float BaseHP, float low, float high)
     {
-        this.ObjectName = name;
+        this.ObjectName = Name;
+        this.name = string.Join(Name, "-", UnityEngine.Random.Range(0, 100).ToString());
         this.Description = desc;
         this.populationHappiness = popHap;
         this.maxHP = BaseHP + (float)Math.Round(UnityEngine.Random.Range(low, high), 1);

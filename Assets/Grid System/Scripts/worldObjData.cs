@@ -18,5 +18,6 @@ public class WorldObjData : ScriptableObject
     [field: SerializeField] public float BaseHP { get; private set; }
     [field: SerializeField] public float HPVariableLow { get; private set; }
     [field: SerializeField] public float HPVariableHigh { get; private set; }
+    [field: SerializeField] public float Weighting { get; private set; }
     [field: SerializeField] public BuildingModel Model { get; private set; }
 }
