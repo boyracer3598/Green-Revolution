@@ -19,7 +19,13 @@ public class BuildingObject : BaseObject
     [SerializeField] private int CropUpkeep = 0;
     public bool canProvide = true;
     public int[] Inspiration = null;
-    
+
+    public int WoodUpkeep1 { get => WoodUpkeep; set => WoodUpkeep = value; }
+    public int StoneUpkeep1 { get => StoneUpkeep; set => StoneUpkeep = value; }
+    public int FoodUpkeep1 { get => FoodUpkeep; set => FoodUpkeep = value; }
+    public int FuelUpkeep1 { get => FuelUpkeep; set => FuelUpkeep = value; }
+    public int CropUpkeep1 { get => CropUpkeep; set => CropUpkeep = value; }
+
     // This function is used to add data to the building object, it is called from the BuildingSystem script's PlaceBuilding function.
     public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds)
     {

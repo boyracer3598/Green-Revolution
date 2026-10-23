@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,10 +23,15 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding3;
     InputAction rotateBuilding; 
     InputAction buildInput;
+    InputAction cancelBuilding;
     Plane groundPlane;
     [SerializeField] private float clickableDistance;
-    
-     
+    Vector3 mousePos;
+    [SerializeField] BuildingData[] buildings; 
+
+
+
+
     void Start()
     {
         selectBuilding1 = InputSystem.actions["SelectBuilding1"];
@@ -33,41 +39,44 @@ public class BuildingSystem : MonoBehaviour
         selectBuilding3 = InputSystem.actions["SelectBuilding3"];
         rotateBuilding = InputSystem.actions["rotateBuilding"];
         buildInput = InputSystem.actions["build"];
+        cancelBuilding = InputSystem.actions["RightMouseClick"];
     }
     
     
     private void Update()
     {
-        Vector3 mousePos = GetMousePosition();
-        //Debug.Log($"Mouse Position: {mousePos}");
+        mousePos = GetMousePosition();
+       
+        //right click to cancel a build
         if (preview != null)
         {
             HandlePreview(mousePos);
-        }
-        
-        if (selectBuilding1.IsPressed())
-        {
-            if (preview != null)
-            {
-                Destroy(preview.gameObject); 
-            }
-            preview = CreatePreview(buildingData1, mousePos);
-        }else if (selectBuilding2.IsPressed())
-        {
-            if (preview != null)
+            if (cancelBuilding.IsPressed())
             {
                 Destroy(preview.gameObject);
             }
-            preview = CreatePreview(buildingData2, mousePos);
-        }else if (selectBuilding3.IsPressed())
-        {
-            if (preview != null)
-            {
-                Destroy(preview.gameObject);
-            }
-            preview = CreatePreview(buildingData3, mousePos);
         }
     }
+
+    public void SelectBuilding(string buildingName) {
+        if(preview != null)
+        {
+            Destroy(preview.gameObject);
+        }
+        BuildingData selectedBuilding = null;
+        foreach (BuildingData building in buildings) {
+            if (building.Name.Replace(" ",string.Empty)== buildingName)
+            {
+                selectedBuilding = building;
+            }
+
+        }
+        if (selectedBuilding != null) {
+            preview = CreatePreview(selectedBuilding, mousePos);
+        }       
+    }
+
+
 
     private void HandlePreview(Vector3 mouseWorldPosition)
     {
@@ -167,7 +176,7 @@ public class BuildingSystem : MonoBehaviour
         RaycastHit hit;
         
         
-        if (Physics.Raycast(ray,out hit,100))
+        if (Physics.Raycast(ray,out hit,100,LayerMask.GetMask("Floor")))
         {
             return hit.point;
         }
