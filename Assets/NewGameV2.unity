@@ -1153,9 +1153,9 @@ MonoBehaviour:
   settingsPanel: {fileID: 1065056952}
   worldVariables: {fileID: 1480190924}
   happinessIcons:
-  - {fileID: -1304905567622442630, guid: c24c96f9fc1f90d4ea90f61222f2bd51, type: 3}
-  - {fileID: -6527069497977903076, guid: c24c96f9fc1f90d4ea90f61222f2bd51, type: 3}
-  - {fileID: 2800000, guid: 7739386b71f393f42b72c7fac7b511e7, type: 3}
+  - {fileID: 2800000, guid: a82295134f11ea244ac8718f0e5ec9d5, type: 3}
+  - {fileID: 2800000, guid: d40daeee94e5c6b4e98d839a0f013e01, type: 3}
+  - {fileID: 2800000, guid: 8a10e3b91c18a6849aa72db59bc7d9a8, type: 3}
   styleSheet: {fileID: 7433441132597879392, guid: f2a936d679f84cf44b3d3dc98680c531, type: 3}
   buildingSystem: {fileID: 1212099179}
   buildDetailUI: {fileID: 666444862}

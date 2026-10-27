@@ -87,7 +87,7 @@
                 </ui:TabView>
             </ui:Image>
             <ui:VisualElement name="satsBackground" style="flex-grow: 1; background-color: rgb(117, 200, 147); width: 300px; margin-left: 60px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
-                <ui:ScrollView horizontal-page-size="100" vertical-page-size="100" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" name="StatView" style="height: 132px; width: 269px; margin-left: 8px; margin-top: 8px;">
+                <ui:ScrollView horizontal-page-size="100" vertical-page-size="100" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible" name="StatView" class="unity-tracker" style="height: 125px; width: 286px; margin-left: 8px; margin-top: 8px;">
                     <ui:GroupBox name="statGroup" class="statGroup">
                         <ui:ProgressBar value="120" title="100" high-value="200" name="LandPollution" class="statBar"/>
                         <ui:Label text="Land Pollution" class="StatLabel"/>
