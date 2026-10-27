@@ -113,9 +113,9 @@ public class BuildingSystem : MonoBehaviour
         int matsAvailable = 0;
         int matsCount = 0;
         // makes sure the player is able to produce all the special materials
-        if (!string.IsNullOrEmpty(preview.Data.SpMats))
+        if (!string.IsNullOrEmpty(preview.Data.SpMatsNeeds))
         {
-            string[] requiredMaterials = preview.Data.SpMats.Split(", ");
+            string[] requiredMaterials = preview.Data.SpMatsNeeds.Split(", ");
             matsCount = requiredMaterials.Length;
             // iterates over the required materials and checks if they are all available to the player
             foreach (string item in requiredMaterials)

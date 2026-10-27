@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
+  m_Name: Fields
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingData
+  <Name>k__BackingField: Fields
+  <Description>k__BackingField: Provides crops
+  <SpMats>k__BackingField: 5 crops
+  <SpMatsNeeds>k__BackingField: 
+  <WoodCost>k__BackingField: 5
+  <FoodCost>k__BackingField: 0
+  <StoneCost>k__BackingField: 0
+  <FuelCost>k__BackingField: 0
+  <WoodUpkeep>k__BackingField: 0
+  <FoodUpkeep>k__BackingField: 0
+  <StoneUpkeep>k__BackingField: 0
+  <FuelUpkeep>k__BackingField: 0
+  <CropUpkeep>k__BackingField: 0
+  <PopulationHappiness>k__BackingField: 0
+  <ProduceAmount>k__BackingField: 0
+  <ProduceType>k__BackingField: 
+  <PopHap>k__BackingField: 0
+  <Inspiration>k__BackingField: 
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 43f4098e26196534d985192a5e8aebe5, type: 3}
+  <SpecialBuilding>k__BackingField: {fileID: 1084248209476445525, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}

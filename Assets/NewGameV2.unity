@@ -595,6 +595,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
   - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
   - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
 --- !u!1 &1317035434
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +646,9 @@ MonoBehaviour:
   buildingDatas:
   - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
   - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
 --- !u!1 &1320099254
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,11 +949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
-  food: 22
+  food: 1000
   wood: 2000
   stone: 1000
-  fuel: 0
-  crops: 0
+  fuel: 1000
+  crops: 1000
   SpecialMaterials:
   - Wool
   Inspiration: 0
