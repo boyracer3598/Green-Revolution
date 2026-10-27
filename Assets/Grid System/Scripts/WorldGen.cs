@@ -26,9 +26,10 @@ public class WorldGen : MonoBehaviour
         {
             hasGenerated = true;
             gridSize = grid.getSize();
+            Debug.Log(gridSize.x + ", " + gridSize.y);
             for (int spot = 0; spot < trees.Length; spot++)
             {
-                treeWeights[spot] = trees[spot].Weighting;
+                Debug.Log(spot);
             }
             //for (int spot = 0; spot < trees.Length; spot++)
             //{
@@ -46,7 +47,9 @@ public class WorldGen : MonoBehaviour
             {
                 for (int j = 0; j < gridSize.y; j++)
                 {
-                    int objectSelectWeight = UnityEngine.Random.Range(0, 100);
+                    Debug.Log(i + ", " + j);
+                    System.Random beep = new System.Random();
+                    int objectSelectWeight = beep.Next(0, 200);
                     WorldObjData data = null;
                     if (objectSelectWeight <= 15)
                     {
@@ -58,14 +61,14 @@ public class WorldGen : MonoBehaviour
                     }
                     else if (objectSelectWeight > 27 && objectSelectWeight <= 40)
                     {
-                        //data = fuel[0];
+                        data = fuel[0];
                     }
                     else if (objectSelectWeight > 40 && objectSelectWeight <= 75)
                     {
-                        //data = plants[0];
+                        data = plants[0];
                     }
-                    if (data != null) { 
-                        PlaceObject(data, new Vector3(i, 0, j)); 
+                    if (data != null) {
+                        PlaceObject(data, new Vector3(i, 0, j));
                     }
                 }
             }

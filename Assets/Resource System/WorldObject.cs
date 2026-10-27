@@ -11,7 +11,7 @@ public class WorldObject : BaseObject
     public void AddData(string Name, string desc, int popHap, string produces, int produceAmt, float BaseHP, float low, float high)
     {
         this.ObjectName = Name;
-        this.name = string.Join(Name, "-", UnityEngine.Random.Range(0, 100).ToString());
+        this.name = string.Join("-", Name, UnityEngine.Random.Range(0, 1000).ToString());
         this.Description = desc;
         this.populationHappiness = popHap;
         this.maxHP = BaseHP + (float)Math.Round(UnityEngine.Random.Range(low, high), 1);

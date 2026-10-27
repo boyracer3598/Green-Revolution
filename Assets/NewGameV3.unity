@@ -336,8 +336,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3975c898450f8384cb26a8ac2e555df6, type: 2}
   rocks:
   - {fileID: 11400000, guid: e00cde1dfa2d5ce4b8441c5658abb4d3, type: 2}
-  fuel: []
-  plants: []
+  fuel:
+  - {fileID: 11400000, guid: e00cde1dfa2d5ce4b8441c5658abb4d3, type: 2}
+  plants:
+  - {fileID: 11400000, guid: 7f2324f05a7d68a49bf48d38b5b21226, type: 2}
 --- !u!114 &950477254
 MonoBehaviour:
   m_ObjectHideFlags: 0
