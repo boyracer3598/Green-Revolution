@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6474991863362206294}
   - component: {fileID: 2057055532720519925}
   - component: {fileID: 3460157930029388305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 8426514069149941610}
   - component: {fileID: 210194161721193134}
   - component: {fileID: 336783080468851133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4350380783940630983}
   - component: {fileID: 8139988639747807959}
   - component: {fileID: 1350681271116525476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7576109760323284049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 3982043272616825972}
   - component: {fileID: 414303228251166161}
   - component: {fileID: 7071630161250987758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 4872369878560090816}
   - component: {fileID: 8276739624556766474}
   - component: {fileID: 1631210772069524659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 9137350625765156776}
   - component: {fileID: 4685370264106519296}
   - component: {fileID: 6080750547234277092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,9 +583,9 @@ GameObject:
   - component: {fileID: 5432390051451093041}
   - component: {fileID: 7820305802887640315}
   - component: {fileID: 1751615304456421170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rock_002
-  m_TagString: Untagged
+  m_TagString: WorldObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 940606070791961927}
   - component: {fileID: 5501334051406285600}
   - component: {fileID: 4943254548081434947}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OreBit (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

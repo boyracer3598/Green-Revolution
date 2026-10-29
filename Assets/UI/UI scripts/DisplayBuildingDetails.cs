@@ -80,7 +80,7 @@ public class DisplayBuildingDetails : MonoBehaviour
         }
         // click anywhere removes the UI
         else if(MouseLeftClick.WasPressedThisFrame()) {
-            if (!MouseInWindow)
+            if (!MouseInWindow& ActiveUI !=null)
             {
                 ActiveUI.gameObject.SetActive(false);
             }
