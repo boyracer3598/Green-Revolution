@@ -56,6 +56,7 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(preview.gameObject);
             }
         }
+
     }
 
     public void SelectBuilding(string buildingName) {
@@ -84,7 +85,6 @@ public class BuildingSystem : MonoBehaviour
         List<Vector3> buildPositions = preview.BuildingModel.GetAllBuildingPosition();
         // Checks whether the building can be placed in that spot on the grid, and also checks if they have the correct resources available
         bool canBuild = grid.CanBuild(buildPositions) && CanPlaceBuilding();
-
         if (canBuild)
         {
             preview.transform.position = GetSnappedCenterPosition(buildPositions);
@@ -113,9 +113,9 @@ public class BuildingSystem : MonoBehaviour
         int matsAvailable = 0;
         int matsCount = 0;
         // makes sure the player is able to produce all the special materials
-        if (!string.IsNullOrEmpty(preview.Data.SpMats))
+        if (!string.IsNullOrEmpty(preview.Data.SpMatsNeeds))
         {
-            string[] requiredMaterials = preview.Data.SpMats.Split(", ");
+            string[] requiredMaterials = preview.Data.SpMatsNeeds.Split(", ");
             matsCount = requiredMaterials.Length;
             // iterates over the required materials and checks if they are all available to the player
             foreach (string item in requiredMaterials)

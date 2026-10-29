@@ -298,7 +298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &685003432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,9 +331,9 @@ Transform:
   m_GameObject: {fileID: 685003431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.36545518, z: -0, w: 0.930829}
-  m_LocalPosition: {x: 10.85, y: 3.8, z: 1.5}
+  m_LocalPosition: {x: 1, y: 3.8, z: 1.5}
   m_LocalScale: {x: 0.6171693, y: 0.6171693, z: 0.6171693}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -42.871, z: 0}
@@ -468,6 +468,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1114501811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114501813}
+  - component: {fileID: 1114501812}
+  m_Layer: 5
+  m_Name: World Object Details
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1114501812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114501811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: fe62f8c3ee6832c48b74cc124f276ab4, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 862d74c6b0121a44f95702dae222883f, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 400
+  m_WorldSpaceHeight: 500
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1114501813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114501811}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.36545518, z: -0, w: 0.930829}
+  m_LocalPosition: {x: 10.85, y: 3.8, z: 1.5}
+  m_LocalScale: {x: 0.6171693, y: 0.6171693, z: 0.6171693}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -42.871, z: 0}
 --- !u!1 &1118981879
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +650,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
   - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
   - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
 --- !u!1 &1317035434
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +701,9 @@ MonoBehaviour:
   buildingDatas:
   - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
   - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
 --- !u!1 &1320099254
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,11 +1004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
-  food: 22
-  wood: 1000
+  food: 1000
+  wood: 2000
   stone: 1000
-  fuel: 0
-  crops: 0
+  fuel: 1000
+  crops: 1000
   SpecialMaterials:
   - Wool
   Inspiration: 0
@@ -1152,6 +1214,10 @@ MonoBehaviour:
   pausePanel: {fileID: 1118981879}
   settingsPanel: {fileID: 1065056952}
   worldVariables: {fileID: 1480190924}
+  happinessIcons:
+  - {fileID: 2800000, guid: a82295134f11ea244ac8718f0e5ec9d5, type: 3}
+  - {fileID: 2800000, guid: d40daeee94e5c6b4e98d839a0f013e01, type: 3}
+  - {fileID: 2800000, guid: 8a10e3b91c18a6849aa72db59bc7d9a8, type: 3}
   styleSheet: {fileID: 7433441132597879392, guid: f2a936d679f84cf44b3d3dc98680c531, type: 3}
   buildingSystem: {fileID: 1212099179}
   buildDetailUI: {fileID: 666444862}
@@ -1218,7 +1284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisplayBuildingDetails
   mainCamera: {fileID: 1653509740}
-  UIObject: {fileID: 685003432}
+  BuildingDetailsUI: {fileID: 685003432}
+  WorldObjectDetailsUI: {fileID: 1114501812}
   UIPositionOffset: {x: 0, y: 0.4, z: 0}
   resourceIcons:
   - {fileID: 2800000, guid: e04bc7d79851ce14a93c0fbc33976679, type: 3}
@@ -1307,4 +1374,5 @@ SceneRoots:
   - {fileID: 1619358217}
   - {fileID: 1118981881}
   - {fileID: 685003433}
+  - {fileID: 1114501813}
   - {fileID: 666444863}

@@ -41,6 +41,7 @@ public class pauseEvents : MonoBehaviour
 
     private void onResumeClick(ClickEvent evt)
     {
+        Time.timeScale = 1;
         gameObject.SetActive(false);
         settingsPanel.SetActive(false);
     }
