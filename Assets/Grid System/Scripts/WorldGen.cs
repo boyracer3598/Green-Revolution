@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 
@@ -9,13 +8,13 @@ public class WorldGen : MonoBehaviour
     [SerializeField] private BuildingGrid grid;
     [SerializeField] private WorldObj wObjPrefab;
     [SerializeField] private WorldObjData[] trees;
-    private float[] treeWeights;
+    private WorldObjData[] treeWeights;
     [SerializeField] private WorldObjData[] rocks;
-    private float[] rockWeights;
+    private WorldObjData[] rockWeights;
     [SerializeField] private WorldObjData[] fuel;
-    private float[] fuelWeights;
+    private WorldObjData[] fuelWeights;
     [SerializeField] private WorldObjData[] plants;
-    private float[] plantWeights;
+    private WorldObjData[] plantWeights;
     [SerializeField] private (int x, int y) gridSize;
     bool hasGenerated = false;
     
@@ -26,46 +25,38 @@ public class WorldGen : MonoBehaviour
         {
             hasGenerated = true;
             gridSize = grid.getSize();
-            Debug.Log(gridSize.x + ", " + gridSize.y);
-            for (int spot = 0; spot < trees.Length; spot++)
-            {
-                Debug.Log(spot);
-            }
-            //for (int spot = 0; spot < trees.Length; spot++)
-            //{
-            //    rockWeights[spot] = rocks[spot].Weighting;
-            //}
-            //for (int spot = 0; spot < trees.Length; spot++)
-            //{
-            //    fuelWeights[spot] = fuel[spot].Weighting;
-            //}
-            //for (int spot = 0; spot < trees.Length; spot++)
-            //{
-            //    plantWeights[spot] = plants[spot].Weighting;
-            //}
+
+            treeWeights = BuildWeightedObjects(trees);
+            rockWeights = BuildWeightedObjects(rocks);
+            fuelWeights = BuildWeightedObjects(fuel);
+            plantWeights = BuildWeightedObjects(plants);
+
             for (int i = 0; i < gridSize.x; i++)
             {
                 for (int j = 0; j < gridSize.y; j++)
                 {
-                    Debug.Log(i + ", " + j);
                     System.Random beep = new System.Random();
                     int objectSelectWeight = beep.Next(0, 200);
                     WorldObjData data = null;
-                    if (objectSelectWeight <= 15)
+                    if (objectSelectWeight <= 15 && treeWeights.Length > 0)
                     {
-                        data = trees[0];
+                        int x = beep.Next(0, treeWeights.Length);
+                        data = treeWeights[x];
                     }
-                    else if (objectSelectWeight > 15 && objectSelectWeight <= 27)
+                    else if (objectSelectWeight > 15 && objectSelectWeight <= 27 && rockWeights.Length > 0)
                     {
-                        data = rocks[0];
+                        int x = beep.Next(0, rockWeights.Length);
+                        data = rockWeights[x];
                     }
-                    else if (objectSelectWeight > 27 && objectSelectWeight <= 40)
+                    else if (objectSelectWeight > 27 && objectSelectWeight <= 40 && fuelWeights.Length > 0)
                     {
-                        data = fuel[0];
+                        int x = beep.Next(0, fuelWeights.Length);
+                        data = fuelWeights[x];
                     }
-                    else if (objectSelectWeight > 40 && objectSelectWeight <= 75)
+                    else if (objectSelectWeight > 40 && objectSelectWeight <= 75 && plantWeights.Length > 0)
                     {
-                        data = plants[0];
+                        int x = beep.Next(0, plantWeights.Length);
+                        data = plantWeights[x];
                     }
                     if (data != null) {
                         PlaceObject(data, new Vector3(i, 0, j));
@@ -73,6 +64,32 @@ public class WorldGen : MonoBehaviour
                 }
             }
         }
+    }
+
+    private static WorldObjData[] BuildWeightedObjects(WorldObjData[] objects)
+    {
+        List<WorldObjData> weightedObjects = new List<WorldObjData>();
+
+        if (objects == null)
+        {
+            return weightedObjects.ToArray();
+        }
+
+        foreach (WorldObjData obj in objects)
+        {
+            if (obj == null)
+            {
+                continue;
+            }
+
+            int weight = Mathf.Max(0, Mathf.CeilToInt(obj.Weighting));
+            for (int i = 0; i < weight; i++)
+            {
+                weightedObjects.Add(obj);
+            }
+        }
+
+        return weightedObjects.ToArray();
     }
 
     private void PlaceObject(WorldObjData data, Vector3 position)
