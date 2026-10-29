@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Fields
   <Description>k__BackingField: Provides crops
-  <SpMats>k__BackingField: 5 crops
+  <SpMats>k__BackingField: 
   <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 5
   <FoodCost>k__BackingField: 0
