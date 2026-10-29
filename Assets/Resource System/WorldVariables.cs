@@ -22,6 +22,8 @@ public class WorldVariables : MonoBehaviour
     public float basePermDamage;
     public bool safeDestroy = false;
     public float TimeSinceLastUpkeep = 0;
+    [SerializeField] private WorldGen worldGen;
+    [SerializeField] private float whenUpdate = 10f;
 
     public void ChangeSpMats(bool Add, string Material)
     {
@@ -35,6 +37,10 @@ public class WorldVariables : MonoBehaviour
         {
             this.SpecialMaterials.Remove(Material);
         }
+    }
+    public void setDayLength(float length)
+    {
+        whenUpdate = length;
     }
     public float CalculateHappiness(float input)
     {
@@ -106,6 +112,7 @@ public class WorldVariables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        worldGen.WorldStart();
         if (PopulationHappiness < 0)
         {
             PopulationHappiness = 0;
@@ -114,7 +121,10 @@ public class WorldVariables : MonoBehaviour
         {
             PopulationHappiness = 1;
         }
-        if (TimeSinceLastUpkeep >= 10f)
+    }
+    private void FixedUpdate()
+    {
+        if (TimeSinceLastUpkeep >= whenUpdate)
         {
             TriggerUpkeep();
             TimeSinceLastUpkeep = 0;

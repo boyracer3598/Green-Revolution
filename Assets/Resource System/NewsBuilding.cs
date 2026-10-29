@@ -22,7 +22,6 @@ public class NewsBuilding : BuildingObject
     public string[] jobs;
     public string[] culprits;
     public string[] articles;
-    bool hasPlaced = false;
  
     public override void Placed()
     {
