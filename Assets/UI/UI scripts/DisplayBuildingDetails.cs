@@ -6,7 +6,7 @@ public class DisplayBuildingDetails : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     InputAction MouseLeftClick;
-    BuildingObject hitBuilding;
+    BaseObject hitBuilding;
     [SerializeField] UIDocument BuildingDetailsUI;
     [SerializeField] UIDocument WorldObjectDetailsUI;
     private UIDocument ActiveUI;
@@ -51,13 +51,13 @@ public class DisplayBuildingDetails : MonoBehaviour
         Vector3 mousePosition = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0);
         Ray ray = mainCamera.ScreenPointToRay(mousePosition);
         RaycastHit hit;
+        
         if (Physics.Raycast(ray, out hit, 100,LayerMask.GetMask("Building"))&MouseLeftClick.WasReleasedThisFrame())
         {
-            hitBuilding = hit.transform.gameObject.GetComponentInParent<BuildingObject>();
+            hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
             //display the building details
             if (hitBuilding != null)
             {
-                Debug.Log(hit.transform.gameObject.tag);
                 if (hit.transform.gameObject.tag == "Building")
                 {
                     ActiveUI = BuildingDetailsUI;
@@ -147,7 +147,6 @@ public class DisplayBuildingDetails : MonoBehaviour
         pollutionLabel = ActiveUI.rootVisualElement.Q<Label>("Pollution");
 
         HarvestButton = ActiveUI.rootVisualElement.Q<Button>("Harvest");
-        Debug.Log(HarvestButton);
         if (HarvestButton != null) {
             HarvestButton.RegisterCallback<ClickEvent>(clickHarvest);
         }
@@ -168,10 +167,23 @@ public class DisplayBuildingDetails : MonoBehaviour
         MouseInWindow = false;
     }
 
-
+    // remove a building or nature object from world
     private void clickHarvest(ClickEvent evt)
     {
-        Debug.Log("harvest Funtion");
+        if (hitBuilding != null)
+        {
+            WorldObject tempWorldObject = hitBuilding as WorldObject;
+            if (tempWorldObject != null)
+            {
+                tempWorldObject.Harvest(); 
+            }
+            else
+            {
+                hitBuilding.RemoveObject(true);
+            }
+            
+        }
+        ActiveUI.gameObject.SetActive(false);
     }
 
 
@@ -205,13 +217,14 @@ public class DisplayBuildingDetails : MonoBehaviour
                 break;
         }
         //maybe add get functions???
-        if(UpkeepWoodLabel != null)
+        BuildingObject tempBuildingObject = hitBuilding as BuildingObject;
+        if(tempBuildingObject != null)
         {
-            UpkeepWoodLabel.text = hitBuilding.WoodUpkeep1.ToString();
-            UpKeepCropsLabel.text = hitBuilding.CropUpkeep1.ToString();
-            UpKeepFoodLabel.text = hitBuilding.FoodUpkeep1.ToString();
-            UpKeepStoneLabel.text = hitBuilding.StoneUpkeep1.ToString();
-            UpKeepFuelLabel.text = hitBuilding.FuelUpkeep1.ToString();
+            UpkeepWoodLabel.text = tempBuildingObject.WoodUpkeep1.ToString();
+            UpKeepCropsLabel.text = tempBuildingObject.CropUpkeep1.ToString();
+            UpKeepFoodLabel.text = tempBuildingObject.FoodUpkeep1.ToString();
+            UpKeepStoneLabel.text = tempBuildingObject.StoneUpkeep1.ToString();
+            UpKeepFuelLabel.text = tempBuildingObject.FuelUpkeep1.ToString();
             pollutionLabel.text = "Pollution: " + hitBuilding.PolProduceType.ToString().ToLower() + " " + hitBuilding.PolProduce.ToString();
         }
        
