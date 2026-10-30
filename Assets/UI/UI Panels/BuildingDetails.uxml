@@ -36,6 +36,7 @@
                     </ui:GroupBox>
                 </ui:GroupBox>
                 <ui:Label text="Pollution:" name="Pollution" class="detailText"/>
+                <ui:Button text="Destory" name="Harvest" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&amp;guid=7c681b37a040a5f4baf060aa6e9c08a5&amp;type=3#CherryBombOne-Regular&quot;); background-color: rgb(158, 101, 25); border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; width: 200px; color: rgb(243, 113, 113); font-size: 20px; padding-top: 6px; padding-bottom: 6px;"/>
             </ui:GroupBox>
         </ui:GroupBox>
     </ui:GroupBox>

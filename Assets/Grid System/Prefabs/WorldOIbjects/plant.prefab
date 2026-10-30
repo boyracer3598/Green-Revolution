@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3070836258081514916}
   - component: {fileID: 2121956122045666456}
-  m_Layer: 2
-  m_Name: BuildingModel1 1
-  m_TagString: Untagged
+  - component: {fileID: 61678808815392803}
+  m_Layer: 7
+  m_Name: plant
+  m_TagString: WorldObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5503513018793865582}
@@ -46,6 +47,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingModel
   wrapper: {fileID: 5503513018793865582}
+--- !u!65 &61678808815392803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104508094865348408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6340802, y: 1.9484168, z: 1.1317749}
+  m_Center: {x: -0.07484992, y: 0.9410855, z: 0.012381424}
 --- !u!1 &1211093592388933586
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,8 +79,7 @@ GameObject:
   - component: {fileID: 8468967550939883418}
   - component: {fileID: 2154520144345585230}
   - component: {fileID: 3630041276622534319}
-  - component: {fileID: 4862468087652764913}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: 'building '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +108,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211093592388933586}
-  m_Mesh: {fileID: 4542573763548188204, guid: be9f7f4fbeaf8cc4d8218c440af009c6, type: 3}
+  m_Mesh: {fileID: -1014274713754901959, guid: c6d960b26161b984bbefd034139657d4, type: 3}
 --- !u!23 &3630041276622534319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -137,27 +158,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4862468087652764913
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211093592388933586}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8632283402332334300
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503513018793865582}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Wrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,6 +202,10 @@ PrefabInstance:
     - target: {fileID: 3858943635635809396, guid: eeedf3b66164d97438cea7a79b6c360e, type: 3}
       propertyPath: m_Name
       value: BuildingShapeUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858943635635809396, guid: eeedf3b66164d97438cea7a79b6c360e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6564241096592346136, guid: eeedf3b66164d97438cea7a79b6c360e, type: 3}
       propertyPath: m_LocalPosition.x
