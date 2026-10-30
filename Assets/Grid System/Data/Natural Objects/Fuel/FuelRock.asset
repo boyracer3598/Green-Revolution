@@ -15,10 +15,10 @@ MonoBehaviour:
   <Name>k__BackingField: Coal Ore
   <Description>k__BackingField: A node of coal ore.
   <PopulationHappiness>k__BackingField: 0
-  <ProduceAmount>k__BackingField: 0
+  <ProduceAmount>k__BackingField: 5
   <ProduceType>k__BackingField: fuel
   <BaseHP>k__BackingField: 0
   <HPVariableLow>k__BackingField: 0
   <HPVariableHigh>k__BackingField: 0
   <Weighting>k__BackingField: 25
-  <Model>k__BackingField: {fileID: 1751615304456421170, guid: 59c8a977d8773d5418af313e75b35ed3, type: 3}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 630ff5fd17aa7c6419dd67147fa50da0, type: 3}

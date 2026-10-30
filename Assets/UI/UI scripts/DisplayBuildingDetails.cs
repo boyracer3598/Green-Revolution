@@ -58,6 +58,9 @@ public class DisplayBuildingDetails : MonoBehaviour
             //display the building details
             if (hitBuilding != null)
             {
+                if (!MouseInWindow & ActiveUI != null) {
+                    ActiveUI.gameObject.SetActive(false);
+                }
                 if (hit.transform.gameObject.tag == "Building")
                 {
                     ActiveUI = BuildingDetailsUI;
