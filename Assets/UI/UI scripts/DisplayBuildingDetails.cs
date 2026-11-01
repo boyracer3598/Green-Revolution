@@ -52,8 +52,9 @@ public class DisplayBuildingDetails : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, 100,LayerMask.GetMask("Building"))&MouseLeftClick.WasReleasedThisFrame())
+        if (Physics.Raycast(ray, out hit, 100,LayerMask.GetMask("Building"))&MouseLeftClick.WasReleasedThisFrame()&!MouseInWindow)
         {
+            if (ActiveUI!=null) ActiveUI.gameObject.SetActive(false);
             hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
             //display the building details
             if (hitBuilding != null)
@@ -68,11 +69,8 @@ public class DisplayBuildingDetails : MonoBehaviour
                 }else if (hit.transform.gameObject.tag == "WorldObject")
                 {
                     ActiveUI = WorldObjectDetailsUI;
-                }
-                ActiveUI.gameObject.SetActive(true);
-                UIRotationChange();
-                UIPositionChange();
-                UIScaleChange();
+                } 
+                if (ActiveUI is not null)ActiveUI.gameObject.SetActive(true);
                 WakeUpUI();
                 PopulatingFields();
 
@@ -91,22 +89,8 @@ public class DisplayBuildingDetails : MonoBehaviour
         }
 
 
-        if (hitBuilding != null)
-        {
-            
-            //if camera angle changes
-            if (mainCamera.transform.position != mainCameraCurrentPos)
-            {
-                UIRotationChange();
-            }
         
-            //camera size changes
-            if (mainCameraCurrentSize != mainCamera.orthographicSize)
-            {
-                UIScaleChange();
-                UIPositionChange();
-            }
-        }
+        
         
         
         
@@ -186,6 +170,7 @@ public class DisplayBuildingDetails : MonoBehaviour
             }
             
         }
+        MouseInWindow=false;
         ActiveUI.gameObject.SetActive(false);
     }
 

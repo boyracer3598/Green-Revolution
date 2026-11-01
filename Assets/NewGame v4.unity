@@ -831,8 +831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23220454cc547a46a09f64f7b03847c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingGrid
-  width: 20
-  height: 20
+  width: 100
+  height: 100
 --- !u!1 &1331786888
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,8 +989,8 @@ Transform:
   m_GameObject: {fileID: 1480190919}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.9646, y: -0, z: 10.6357}
-  m_LocalScale: {x: 19.869453, y: 21.23209, z: 1}
+  m_LocalPosition: {x: 50.027, y: -0, z: 50.0056}
+  m_LocalScale: {x: 99.9882, y: 99.97073, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 306239772}
@@ -1042,7 +1042,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 11e3b0cfa8bd55f49af70d323d2a3c6e, type: 2}
+  - {fileID: 2100000, guid: 34b91a86f24cc6f4e9bf589109950a12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1084,7 +1084,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1201164877398166573, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: maxZoom
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1201164877398166573, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: minZoom
@@ -1114,6 +1114,10 @@ PrefabInstance:
       propertyPath: southCameraPos
       value: 
       objectReference: {fileID: 2136281854}
+    - target: {fileID: 1201164877398166573, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
+      propertyPath: CameraMoveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5019354277651961797, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6
@@ -1132,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8615370417703781894, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.3
+      value: 78.4
       objectReference: {fileID: 0}
     - target: {fileID: 8615370417703781894, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1140,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8615370417703781894, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -43.3
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 8615370417703781894, guid: a083eb2a62f45624db2180b0c91c1182, type: 3}
       propertyPath: m_LocalRotation.w

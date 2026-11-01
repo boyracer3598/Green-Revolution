@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3070836258081514916}
   - component: {fileID: 2121956122045666456}
+  - component: {fileID: 2993148240928070202}
   m_Layer: 7
   m_Name: Coal
   m_TagString: WorldObject
@@ -46,6 +47,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingModel
   wrapper: {fileID: 5503513018793865582}
+--- !u!65 &2993148240928070202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104508094865348408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6243363, y: 0.5567748, z: 0.6848767}
+  m_Center: {x: 0.47443882, y: 0.27448002, z: 0.5043366}
 --- !u!1 &8632283402332334300
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +77,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503513018793865582}
-  - component: {fileID: 7626170599794740792}
   m_Layer: 7
   m_Name: Wrapper
   m_TagString: Untagged
@@ -80,27 +101,6 @@ Transform:
   - {fileID: 3125404417055050651}
   m_Father: {fileID: 3070836258081514916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7626170599794740792
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8632283402332334300}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.8672173, y: 0.6603354, z: 1.1447201}
-  m_Center: {x: -0.016271114, y: 0.31196624, z: 0.0058419704}
 --- !u!1001 &7449080425128719452
 PrefabInstance:
   m_ObjectHideFlags: 0
