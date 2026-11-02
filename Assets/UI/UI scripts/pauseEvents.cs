@@ -8,6 +8,7 @@ public class pauseEvents : MonoBehaviour
     private Button resumeButton;
     private Button settingsButton;
     private Button loadButton;
+    private Button QuitButton;
 
 
     private void Start()
@@ -25,10 +26,12 @@ public class pauseEvents : MonoBehaviour
         resumeButton = UIDoc.rootVisualElement.Q<Button>("resumeGame");
         settingsButton = UIDoc.rootVisualElement.Q<Button>("settings");
         loadButton = UIDoc.rootVisualElement.Q<Button>("loadGame");
+        QuitButton = UIDoc.rootVisualElement.Q<Button>("QuitGame");
         //event setup
         resumeButton.RegisterCallback<ClickEvent>(onResumeClick);
         settingsButton.RegisterCallback<ClickEvent>(onSettingsClick);
         loadButton.RegisterCallback<ClickEvent>(onLoadClick);
+        QuitButton.RegisterCallback<ClickEvent>(OnQuitClick);
 
 
     }
@@ -51,7 +54,10 @@ public class pauseEvents : MonoBehaviour
         Debug.Log("Load game");
     }
 
-
+    private void OnQuitClick(ClickEvent evt)
+    {
+        Application.Quit();
+    }
 
 
 }

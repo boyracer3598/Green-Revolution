@@ -45,7 +45,7 @@ public class DisplayBuildingDetails : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //shoot raycast from main camera see if hits a building
         Vector3 mousePosition = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0);

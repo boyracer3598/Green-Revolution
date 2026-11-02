@@ -110,10 +110,11 @@ public class CameraMove : MonoBehaviour
 
 
     public void CameraPan(float posX,float posY){
-        this.transform.Translate(new Vector3(posX,0,posY) * CameraMoveSpeed, Space.Self);
+        this.transform.Translate(new Vector3(posX,0,posY) * (CameraMoveSpeed*mainCamera.orthographicSize), Space.Self);
     }
     //changes the agile by 90 degrees
     public void switchCameraAngle() {
+        miniMapCamera.transform.Rotate(new Vector3(0, 0, 90));
         switch (currentCamDir)
         {
             case cameraDirection.NORTH:
