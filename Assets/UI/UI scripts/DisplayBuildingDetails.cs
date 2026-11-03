@@ -31,7 +31,8 @@ public class DisplayBuildingDetails : MonoBehaviour
     private Label UpKeepFuelLabel;
     private Label pollutionLabel;
     private Button HarvestButton;
-    
+    [SerializeField] private AudioClip DestroyBuiding;
+    [SerializeField] private AudioClip DestoryNature;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -138,10 +139,12 @@ public class DisplayBuildingDetails : MonoBehaviour
             WorldObject tempWorldObject = hitBuilding as WorldObject;
             if (tempWorldObject != null)
             {
+                SoundManager.instance.PlaySoundClip(DestoryNature,tempWorldObject.transform,1f);
                 tempWorldObject.Harvest(); 
             }
             else
             {
+                SoundManager.instance.PlaySoundClip(DestroyBuiding, hitBuilding.transform, 1f);
                 hitBuilding.RemoveObject(true);
             }
             

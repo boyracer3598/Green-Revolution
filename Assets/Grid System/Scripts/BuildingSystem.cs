@@ -26,7 +26,8 @@ public class BuildingSystem : MonoBehaviour
     Plane groundPlane;
     [SerializeField] private float clickableDistance;
     Vector3 mousePos;
-    [SerializeField] BuildingData[] buildings; 
+    [SerializeField] BuildingData[] buildings;
+    [SerializeField] private AudioClip PlaceSound;
 
 
 
@@ -91,6 +92,7 @@ public class BuildingSystem : MonoBehaviour
             if (buildInput.IsPressed())
             {
                 // this places the building on the grid and uses up the spendable resources
+                SoundManager.instance.PlaySoundClip(PlaceSound, preview.transform, 1f);
                 PlaceBuilding(buildPositions);
             }
         }
