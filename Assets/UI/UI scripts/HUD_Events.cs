@@ -104,7 +104,7 @@ public class HUD_Events : MonoBehaviour
         UpdateStatusBar(airPollutionStatus,worldVariables.AirPollution);
         UpdateStatusBar(happinessStatus, worldVariables.PopulationHappiness);
         UpdateStatusBar(waterPollutionStatus,worldVariables.WaterPollution);
-        UpdateStatusBar(happinessStatus,worldVariables.PopulationHappiness*100);
+        UpdateStatusBar(happinessStatus,(int)(worldVariables.PopulationHappiness*100));
         UpdateStatusBar(inspirationStatus,worldVariables.Inspiration);
         UpdateStatusBar(populationStatus,worldVariables.Population);
         UpdateStatusBar(employedPopulationStatus,worldVariables.EmployedPopulation);

@@ -10,6 +10,7 @@ public class mainMenuEvents : MonoBehaviour
     private Button newGameButton;
     private Button loadGameButton;
     private Button settingsButton;
+    private Button QuitButton;
     public GameObject SettingsPanel;
 
     
@@ -22,12 +23,14 @@ public class mainMenuEvents : MonoBehaviour
         newGameButton = UIDoc.rootVisualElement.Q("newGame") as Button;
         loadGameButton = UIDoc.rootVisualElement.Q("loadGame") as Button;
         settingsButton = UIDoc.rootVisualElement.Q("settings") as Button;
+        QuitButton = UIDoc.rootVisualElement.Q("QuitGame") as Button;
         
         
         // setup button events
         newGameButton.RegisterCallback<ClickEvent>(onNewGameClick);
         loadGameButton.RegisterCallback<ClickEvent>(onLoadGameClick);
         settingsButton.RegisterCallback<ClickEvent>(onSettingsClick);
+        QuitButton.RegisterCallback<ClickEvent>(OnQuitClick);
     }
 
     
@@ -52,7 +55,10 @@ public class mainMenuEvents : MonoBehaviour
     {
         //Hides mainmenu and show the settings panel
         SettingsPanel.SetActive(true);
-        gameObject.SetActive(false);
-        
+        gameObject.SetActive(false); 
+    }
+
+    private void OnQuitClick(ClickEvent evt) {
+        Application.Quit();
     }
 }
