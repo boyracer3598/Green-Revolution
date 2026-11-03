@@ -45,76 +45,52 @@ public class DisplayBuildingDetails : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        //shoot raycast from main camera see if hits a building
-        Vector3 mousePosition = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0);
-        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, 100,LayerMask.GetMask("Building"))&MouseLeftClick.WasReleasedThisFrame()&!MouseInWindow)
+        if (Time.deltaTime > 0)
         {
-            if (ActiveUI!=null) ActiveUI.gameObject.SetActive(false);
-            hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
-            //display the building details
-            if (hitBuilding != null)
+            //shoot raycast from main camera see if hits a building
+            Vector3 mousePosition = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0);
+            Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Building")) & MouseLeftClick.WasReleasedThisFrame() & !MouseInWindow)
             {
-                if (!MouseInWindow & ActiveUI != null) {
+                if (ActiveUI != null) ActiveUI.gameObject.SetActive(false);
+                hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
+                //display the building details
+                if (hitBuilding != null)
+                {
+                    if (!MouseInWindow & ActiveUI != null)
+                    {
+                        ActiveUI.gameObject.SetActive(false);
+                    }
+                    if (hit.transform.gameObject.tag == "Building")
+                    {
+                        ActiveUI = BuildingDetailsUI;
+
+                    }
+                    else if (hit.transform.gameObject.tag == "WorldObject")
+                    {
+                        ActiveUI = WorldObjectDetailsUI;
+                    }
+                    if (ActiveUI is not null) ActiveUI.gameObject.SetActive(true);
+                    WakeUpUI();
+                    PopulatingFields();
+
+                }
+            }
+            // click anywhere removes the UI
+            else if (MouseLeftClick.WasPressedThisFrame())
+            {
+                if (!MouseInWindow & ActiveUI != null)
+                {
                     ActiveUI.gameObject.SetActive(false);
                 }
-                if (hit.transform.gameObject.tag == "Building")
-                {
-                    ActiveUI = BuildingDetailsUI;
-                    
-                }else if (hit.transform.gameObject.tag == "WorldObject")
-                {
-                    ActiveUI = WorldObjectDetailsUI;
-                } 
-                if (ActiveUI is not null)ActiveUI.gameObject.SetActive(true);
-                WakeUpUI();
-                PopulatingFields();
 
             }
-            
-
-
-        }
-        // click anywhere removes the UI
-        else if(MouseLeftClick.WasPressedThisFrame()) {
-            if (!MouseInWindow& ActiveUI !=null)
-            {
-                ActiveUI.gameObject.SetActive(false);
-            }
-            
-        }
-
-
-        
-        
-        
-        
-        
+        } 
     }
-
-
-    private void UIScaleChange()
-    {
-        ActiveUI.gameObject.transform.localScale=mainCameraScaleOffset*mainCamera.orthographicSize;
-        mainCameraCurrentSize = mainCamera.orthographicSize;
-        
-    }
-    private void UIRotationChange()
-    {
-        ActiveUI.gameObject.transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward, Vector3.up);
-        mainCameraCurrentPos = mainCamera.transform.position;
-    }
-    
-    private void UIPositionChange()
-    {
-        ActiveUI.gameObject.transform.position = (hitBuilding.transform.position+(UIPositionOffset*mainCamera.orthographicSize));
-        
-    }
-
 
     private void WakeUpUI()
     {
@@ -204,8 +180,9 @@ public class DisplayBuildingDetails : MonoBehaviour
                 produceIcon.image = resourceIcons[5];
                 break;
         }
-        //maybe add get functions???
+        
         BuildingObject tempBuildingObject = hitBuilding as BuildingObject;
+        //if its a building
         if(tempBuildingObject != null)
         {
             UpkeepWoodLabel.text = tempBuildingObject.WoodUpkeep1.ToString();
