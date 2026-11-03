@@ -17,6 +17,15 @@ public class WorldVariables : MonoBehaviour
     public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
     public int Population { get; set; } = 0;
     public int EmployedPopulation { get; set; } = 0;
+    public int RequiredPopulation { get; set; } = 0;
+    public int RequiredPollution { get; set; } = 0;
+    public int RequiredHappiness { get; set; } = 50;
+    public int RequiredInspiration { get; set; } = 0;
+    public enum PollutionType { Air, Water, Land }
+    public PollutionType ChallengePollutionType { get; set; } = PollutionType.Air;
+    public enum ChallengeType { Pollution, Happiness, Population, Inspiration }
+    public ChallengeType ChallengePt1 { get; set; } = ChallengeType.Pollution;
+    public ChallengeType ChallengePt2 { get; set; } = ChallengeType.Population;
     [SerializeField] public int Inspiration = 0;
     public float baseDamage;
     public float basePermDamage;
@@ -24,6 +33,7 @@ public class WorldVariables : MonoBehaviour
     public float TimeSinceLastUpkeep = 0;
     [SerializeField] private WorldGen worldGen;
     [SerializeField] private float whenUpdate = 10f;
+    [SerializeField] private string challengeString = "";
 
     public void ChangeSpMats(bool Add, string Material)
     {
@@ -108,6 +118,35 @@ public class WorldVariables : MonoBehaviour
             building.Upkeep();
         }
         UpdateInspiration();
+    }
+    void CreateChallenge()
+    {
+        ChallengePt1 = (ChallengeType)Random.Range(0, 4);
+        ChallengePt2 = (ChallengeType)Random.Range(0, 4);
+        while (ChallengePt2 == ChallengePt1)
+        {
+            ChallengePt2 = (ChallengeType)Random.Range(0, 4);
+        }
+        ChallengeType[] built = { ChallengePt1, ChallengePt2 };
+        foreach (ChallengeType challenge in built)
+        {
+            switch (challenge)
+            {
+                case ChallengeType.Pollution:
+                    ChallengePollutionType = (PollutionType)Random.Range(0, 3);
+                    RequiredPollution = Random.Range(0, 25);
+                    break;
+                case ChallengeType.Happiness:
+                    RequiredHappiness = Random.Range(70, 101);
+                    break;
+                case ChallengeType.Population:
+                    RequiredPopulation = Random.Range(500, 1000);
+                    break;
+                case ChallengeType.Inspiration:
+                    RequiredInspiration = Random.Range(30, 51);
+                    break;
+            }
+        }
     }
     // Update is called once per frame
     void Update()
