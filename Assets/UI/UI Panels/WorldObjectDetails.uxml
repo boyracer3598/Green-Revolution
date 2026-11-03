@@ -1,0 +1,19 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
+    <ui:GroupBox name="screen" style="flex-direction: row-reverse; margin-right: 60px; margin-top: 643px;">
+        <ui:GroupBox name="backgound" style="background-color: rgb(116, 200, 147); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; width: 400px; height: auto;">
+            <ui:VisualElement name="wrapper" style="flex-grow: 1; margin-left: 20px;">
+                <ui:Label text="Name:" name="Name" class="detailText"/>
+                <ui:Label text="Descrition:" name="Description" class="detailText" style="width: 350px; white-space: normal; height: auto;"/>
+                <ui:GroupBox name="ProduceWrapper" style="flex-direction: row;">
+                    <ui:Label text="Produce:" name="Produce" class="detailText" style="height: 49px; width: 101px;"/>
+                    <ui:GroupBox style="position: relative; top: 1px; left: 155px;">
+                        <ui:Image name="ProduceIcon" style="width: 50px; height: 50px; flex-direction: column; background-color: rgb(158, 101, 25); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;"/>
+                        <ui:Label text="1" name="ProduceAmount" class="detailText" style="-unity-text-align: upper-center;"/>
+                    </ui:GroupBox>
+                </ui:GroupBox>
+                <ui:Button text="Harvest" name="Harvest" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&amp;guid=7c681b37a040a5f4baf060aa6e9c08a5&amp;type=3#CherryBombOne-Regular&quot;); background-color: rgb(158, 101, 25); color: rgb(181, 228, 140); border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; width: 200px; align-items: auto; align-self: center; font-size: 20px; padding-top: 6px; padding-bottom: 6px;"/>
+            </ui:VisualElement>
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

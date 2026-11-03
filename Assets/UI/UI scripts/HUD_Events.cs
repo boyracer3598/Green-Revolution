@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class HUD_Events : MonoBehaviour
@@ -16,6 +17,7 @@ public class HUD_Events : MonoBehaviour
     private ProgressBar airPollutionStatus;
     private ProgressBar landPollution;
     private ProgressBar happinessStatus;
+    [SerializeField] Texture[] happinessIcons;
     private ProgressBar inspirationStatus;
     private ProgressBar populationStatus;
     private ProgressBar employedPopulationStatus;
@@ -27,8 +29,10 @@ public class HUD_Events : MonoBehaviour
     private Label fuelAmount;
     private Label cropsAmount;
     private Label happinessAmount;
+    private Image happinessIcon;
 
-    
+    private InputAction cameraZoom;
+    private ScrollView statView;
     public StyleSheet styleSheet;
 
     [SerializeField] BuildingSystem buildingSystem;
@@ -37,7 +41,7 @@ public class HUD_Events : MonoBehaviour
 
     void OnEnable()
     {
-        
+        cameraZoom = InputSystem.actions["Zoom"];
 
 
         //button setup
@@ -64,6 +68,7 @@ public class HUD_Events : MonoBehaviour
         fuelAmount = UIDoc.rootVisualElement.Q<Label>("FuelAmount");
         cropsAmount = UIDoc.rootVisualElement.Q<Label>("CropsAmount");
         happinessAmount = UIDoc.rootVisualElement.Q<Label>("Happiness");
+        happinessIcon = UIDoc.rootVisualElement.Q<Image>("HappyIcon");
 
         //tab setup
         tabSetup(UIDoc.rootVisualElement.Q<GroupBox>("buildingButtons"));
@@ -75,6 +80,13 @@ public class HUD_Events : MonoBehaviour
         //panel setup
         settingsPanel.SetActive(false);
         pausePanel.SetActive(false);
+
+        //scoll handling
+        cameraZoom = InputSystem.actions["Zoom"];
+        statView = UIDoc.rootVisualElement.Q<ScrollView>("StatView");
+        statView.RegisterCallback<PointerEnterEvent>(EnterStat);
+        statView.RegisterCallback<PointerLeaveEvent>(LeaveStat);
+
     }
     
     void Update()
@@ -85,12 +97,14 @@ public class HUD_Events : MonoBehaviour
         UpdateResource(fuelAmount, worldVariables.fuel);
         UpdateResource(stoneAmount, worldVariables.stone);
         UpdateResource(woodAmount, worldVariables.wood);
-        UpdateResource(happinessAmount, ((int)worldVariables.PopulationHappiness));
+        UpdateResource(happinessAmount, (int)(worldVariables.PopulationHappiness*100));
+        UpdadeHappinessIcon(worldVariables.PopulationHappiness);
         
+        UpdateStatusBar(landPollution, worldVariables.LandPollution);
         UpdateStatusBar(airPollutionStatus,worldVariables.AirPollution);
         UpdateStatusBar(happinessStatus, worldVariables.PopulationHappiness);
         UpdateStatusBar(waterPollutionStatus,worldVariables.WaterPollution);
-        UpdateStatusBar(happinessStatus,worldVariables.PopulationHappiness);
+        UpdateStatusBar(happinessStatus,worldVariables.PopulationHappiness*100);
         UpdateStatusBar(inspirationStatus,worldVariables.Inspiration);
         UpdateStatusBar(populationStatus,worldVariables.Population);
         UpdateStatusBar(employedPopulationStatus,worldVariables.EmployedPopulation);
@@ -99,6 +113,20 @@ public class HUD_Events : MonoBehaviour
 
     }
 
+
+    private void UpdadeHappinessIcon(float happiness)
+    {
+        if (happiness <=0.3)
+        {
+            happinessIcon.image = happinessIcons[0];
+        }else if(happiness < 0.5)
+        {
+            happinessIcon.image = happinessIcons[1];
+        }
+        else if(happiness >=0.5) {
+            happinessIcon.image = happinessIcons[2];
+        }
+    }
     
     void UpdateResource(Label resource, int vaule)
     {
@@ -162,10 +190,23 @@ public class HUD_Events : MonoBehaviour
     private void onSettingClick(ClickEvent evt)
     {
         settingsPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void onPauseClick(ClickEvent evt)
     {
         pausePanel.SetActive(true);
+        Time.timeScale= 0;
+    }
+
+    private void EnterStat(PointerEnterEvent evt)
+    {
+        cameraZoom.Disable();
+    }
+
+
+    private void LeaveStat(PointerLeaveEvent evt)
+    {
+        cameraZoom.Enable();
     }
 }

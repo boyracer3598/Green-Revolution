@@ -37,7 +37,7 @@
 
 #unity-dragger {
     -unity-background-image-tint-color: rgb(255, 255, 255);
-    background-color: rgb(117, 200, 147);
+    background-color: rgb(102, 60, 4);
     background-size: 100px 100%;
     width: 25px;
     height: 25px;
@@ -50,6 +50,7 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
+    opacity: 1;
 }
 
 #unity-drag-container {
@@ -224,4 +225,51 @@
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Boogaloo-Regular.ttf?fileID=12800000&guid=a0fa8ad870a4a2844aede7c0fbd12732&type=3#Boogaloo-Regular");
     color: rgb(158, 101, 25);
     font-size: 30px;
+}
+
+.unity-scroller__low-button {
+    opacity: 0;
+    height: 0;
+}
+
+.unity-scroller__high-button {
+    opacity: 0;
+}
+
+.unity-scroller__slider {
+    opacity: 1;
+    background-color: rgb(158, 101, 25);
+    border-left-color: rgba(158, 101, 25, 0);
+    border-right-color: rgba(158, 101, 25, 0);
+    border-top-color: rgba(158, 101, 25, 0);
+    border-bottom-color: rgba(158, 101, 25, 0);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: auto;
+}
+
+.unity-base-slider__drag-container {
+    margin-top: -31px;
+    background-size: 100% 100%;
+}
+
+
+
+.unity-base-slider__tracker {
+    opacity: 0;
+}
+
+.unity-base-slider__dragger {
+    opacity: 1;
+    margin-left: -4px;
+    width: auto;
+    background-color: rgb(102, 60, 4);
+}
+
+.unity-base-slider__dragger-border {
+    opacity: 1;
 }
