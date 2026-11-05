@@ -59,8 +59,8 @@ public class DisplayBuildingDetails : MonoBehaviour
             {
                 if (ActiveUI != null) ActiveUI.gameObject.SetActive(false);
                 hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
-                hit.transform.gameObject.layer = LayerMask.GetMask("ClickedObject");
-                Debug.Log( hit.transform.gameObject.layer);
+                //puts it on the outline layer
+                hitBuilding.GetComponentInChildren<MeshRenderer>().gameObject.layer = LayerMask.NameToLayer("ClickedObject");
                 if (hitBuilding != null)
                 {
                     if (!MouseInWindow & ActiveUI != null)
@@ -87,6 +87,11 @@ public class DisplayBuildingDetails : MonoBehaviour
                 if (!MouseInWindow & ActiveUI != null)
                 {
                     ActiveUI.gameObject.SetActive(false);
+                    if (hitBuilding != null)
+                    {
+                        hitBuilding.GetComponentInChildren<MeshRenderer>().gameObject.layer = LayerMask.NameToLayer("Building");  
+                    }
+                    
                 }
 
             }
@@ -147,6 +152,7 @@ public class DisplayBuildingDetails : MonoBehaviour
                 SoundManager.instance.PlaySoundClip(DestroyBuiding, hitBuilding.transform, 1f);
                 hitBuilding.RemoveObject(true);
             }
+            hitBuilding = null;
             
         }
         MouseInWindow=false;
