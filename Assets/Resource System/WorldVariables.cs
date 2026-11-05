@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using System;
+using System.ComponentModel.Design.Serialization;
+using UnityEngine.Serialization;
 public class WorldVariables : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +20,7 @@ public class WorldVariables : MonoBehaviour
     public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
     public int Population { get; set; } = 0;
     public int EmployedPopulation { get; set; } = 0;
+    public int IllPopulation { get; set; } = 0;
     public int RequiredPopulation { get; set; } = 0;
     public int RequiredPollution { get; set; } = 0;
     public int RequiredHappiness { get; set; } = 50;
@@ -32,8 +36,15 @@ public class WorldVariables : MonoBehaviour
     public bool safeDestroy = false;
     public float TimeSinceLastUpkeep = 0;
     [SerializeField] private WorldGen worldGen;
+    [SerializeField] public BuildingObject NormalBuilding;
     [SerializeField] private float whenUpdate = 10f;
     [SerializeField] private string challengeString = "";
+    [SerializeField] private float LandPollutionHappinessDampener = 0.01f;
+    [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
+    [SerializeField] private float WaterPollutionSicknessChance = 0.001f;
+    [SerializeField] public int HappinessFromNature = 0;
+    [SerializeField] public int HappinessLost = 0;
+    [SerializeField] public double sickChance = 0.5;
 
     public void ChangeSpMats(bool Add, string Material)
     {
@@ -54,8 +65,11 @@ public class WorldVariables : MonoBehaviour
     }
     public float CalculateHappiness(float input)
     {
-        // calculates the happiness as a float between 0 and 1, based on the input value, which is clamped between 0 and 100.
-        return Mathf.Clamp(input, 0, 100) / 100f;
+        // based on the current land pollution, calculates a dampened happiness value. The more land pollution, the lower the happiness.
+        float dampener = 1f - LandPollution * LandPollutionHappinessDampener;
+        float happy = input * dampener * (1f - (HappinessLost / HappinessFromNature) / 10f); // Reduce happiness based on lost happiness and pollution dampening
+        float normalizedHappiness = Mathf.Clamp(happy, 0, 100) / 100f; // Normalize to a 0-1 scale
+        return normalizedHappiness;
     }
     public bool HasSpMat(string Material)
     {
@@ -112,20 +126,32 @@ public class WorldVariables : MonoBehaviour
     }
     void TriggerUpkeep()
     {
+        float newHappiness = 0f;
         BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
+        float sickPpl = UnityEngine.Random.Range(0, (2 * WaterPollution * WaterPollutionSicknessChance * Population)); // Chance for population to get sick based on water pollution
+        IllPopulation += Mathf.FloorToInt(sickPpl); // Chance for population to get sick based on water pollution
         foreach (var building in buildings)
         {
-            building.Upkeep();
+            System.Random rand = new System.Random();
+            if (rand.Next(0, 100) > (AirPollution * AirPollutionProduceDampener)) // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
+            {
+                building.Upkeep();
+            }
+            if (building.canProvide)
+            {
+                newHappiness += building.populationHappiness;
+            }
         }
+        PopulationHappiness = CalculateHappiness(newHappiness);
         UpdateInspiration();
     }
     void CreateChallenge()
     {
-        ChallengePt1 = (ChallengeType)Random.Range(0, 4);
-        ChallengePt2 = (ChallengeType)Random.Range(0, 4);
+        ChallengePt1 = (ChallengeType)UnityEngine.Random.Range(0, 4);
+        ChallengePt2 = (ChallengeType)UnityEngine.Random.Range(0, 4);
         while (ChallengePt2 == ChallengePt1)
         {
-            ChallengePt2 = (ChallengeType)Random.Range(0, 4);
+            ChallengePt2 = (ChallengeType)UnityEngine.Random.Range(0, 4);
         }
         ChallengeType[] built = { ChallengePt1, ChallengePt2 };
         foreach (ChallengeType challenge in built)
@@ -133,17 +159,17 @@ public class WorldVariables : MonoBehaviour
             switch (challenge)
             {
                 case ChallengeType.Pollution:
-                    ChallengePollutionType = (PollutionType)Random.Range(0, 3);
-                    RequiredPollution = Random.Range(0, 25);
+                    ChallengePollutionType = (PollutionType)UnityEngine.Random.Range(0, 3);
+                    RequiredPollution = UnityEngine.Random.Range(0, 25);
                     break;
                 case ChallengeType.Happiness:
-                    RequiredHappiness = Random.Range(70, 101);
+                    RequiredHappiness = UnityEngine.Random.Range(70, 101);
                     break;
                 case ChallengeType.Population:
-                    RequiredPopulation = Random.Range(500, 1000);
+                    RequiredPopulation = UnityEngine.Random.Range(500, 1000);
                     break;
                 case ChallengeType.Inspiration:
-                    RequiredInspiration = Random.Range(30, 51);
+                    RequiredInspiration = UnityEngine.Random.Range(30, 51);
                     break;
             }
         }

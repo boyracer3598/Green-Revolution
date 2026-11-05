@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UIElements;
 public class BuildingObject : BaseObject
 {
@@ -17,6 +18,7 @@ public class BuildingObject : BaseObject
     [SerializeField] private int FoodUpkeep = 0;
     [SerializeField] private int FuelUpkeep = 0;
     [SerializeField] private int CropUpkeep = 0;
+    [SerializeField] private int population = 0;
     public bool canProvide = true;
     public int[] Inspiration = null;
 
@@ -27,7 +29,7 @@ public class BuildingObject : BaseObject
     public int CropUpkeep1 { get => CropUpkeep; set => CropUpkeep = value; }
 
     // This function is used to add data to the building object, it is called from the BuildingSystem script's PlaceBuilding function.
-    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds)
+    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population)
     {
         this.ObjectName = name;
         this.Description = description;
@@ -38,6 +40,7 @@ public class BuildingObject : BaseObject
         this.produceAmount = produceAmt;
         this.populationHappiness = popHap;
         this.Inspiration = inspiration;
+        this.population = population;
         this.WoodUpkeep = upkeepWood;
         this.StoneUpkeep = upkeepStone;
         this.FuelCost = upkeepFuel;
@@ -94,7 +97,11 @@ public class BuildingObject : BaseObject
     }
     public void PayUpkeepCosts()
     {
+        bool disabled = false;
         int worldGotIt = 0;
+        int sickPpl = world.IllPopulation;
+        double sickChance = world.sickChance;
+        System.Random rand = new System.Random();
         string[] requiredMaterials = SpMatsNeeds.Split(", ");
         for (int i = 0; i < requiredMaterials.Length; i++)
         {
@@ -103,7 +110,16 @@ public class BuildingObject : BaseObject
                 worldGotIt++;
             }
         }
-        if (worldGotIt == requiredMaterials.Length && world.wood >= WoodUpkeep && world.stone >= StoneUpkeep && world.food >= FoodUpkeep && world.fuel >= FuelUpkeep && world.crops >= CropUpkeep)
+        if (sickPpl > 0 && population > 0)
+        {
+
+            if (rand.NextDouble() < sickChance)
+            {
+                sickPpl += this.population;
+                disabled = true;
+            }
+        }
+        if (disabled && worldGotIt == requiredMaterials.Length && world.wood >= WoodUpkeep && world.stone >= StoneUpkeep && world.food >= FoodUpkeep && world.fuel >= FuelUpkeep && world.crops >= CropUpkeep)
         {
             world.wood -= WoodUpkeep;
             world.stone -= StoneUpkeep;

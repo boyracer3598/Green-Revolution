@@ -16,6 +16,7 @@ public class Building : MonoBehaviour
     public string SpMats => data.SpMats;
     public string SpMatsNeeds => data.SpMatsNeeds;
     public float PopulationHappiness => data.PopulationHappiness;
+    public int PopulationAdded => data.PopulationAdded;
 
     private BuildingModel model;
     private BuildingData data;

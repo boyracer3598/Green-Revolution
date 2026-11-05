@@ -33,7 +33,7 @@ public class BaseObject : MonoBehaviour
     }
     public void RemoveObject(bool pos)
     {
-        world.PopulationHappiness -= world.CalculateHappiness(this.populationHappiness);
+        world.HappinessLost += populationHappiness;
         UpdatePollution(pos);
         Destroy(this.gameObject);
     }

@@ -60,6 +60,7 @@ public class WorldGen : MonoBehaviour
                     }
                     if (data != null) {
                         PlaceObject(data, new Vector3(i, 0, j));
+                        this.GetComponent<WorldVariables>().HappinessFromNature += data.PopulationHappiness;
                     }
                 }
             }
