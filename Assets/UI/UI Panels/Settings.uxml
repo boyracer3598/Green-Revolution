@@ -4,7 +4,7 @@
         <ui:Label text="Settings" class="label"/>
         <ui:SliderInt label="FX Volume" value="-60" high-value="0" name="FX" low-value="-80" class="slider" style="-unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(255, 255, 255, 0); margin-left: 150px; margin-right: 150px;"/>
         <ui:SliderInt label="Music Volume" value="-50" high-value="0" name="music" low-value="-80" class="slider" style="-unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(255, 255, 255, 0); margin-left: 150px; margin-right: 150px;"/>
-        <ui:Toggle label="Mute All Sounds" name="Toggle" style="top: auto; align-items: auto; margin-left: 150px; margin-right: 150px; margin-top: 60px; justify-content: flex-start; align-self: auto;"/>
+        <ui:Toggle label="Mute All Sounds" name="MuteSounds" style="top: auto; align-items: auto; margin-left: 150px; margin-right: 150px; margin-top: 60px; justify-content: flex-start; align-self: auto;"/>
         <ui:Toggle label="Easy Mode" name="Toggle" style="top: auto; align-items: auto; margin-left: 150px; margin-right: 150px; margin-top: 20px; justify-content: flex-start; align-self: auto;"/>
         <ui:Button text="Back" name="backButton" class="button" style="align-items: stretch; -unity-text-align: middle-center; width: 150px; height: 60px; margin-top: 26px; margin-left: 150px; margin-right: 0; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; margin-bottom: 0;"/>
     </ui:VisualElement>

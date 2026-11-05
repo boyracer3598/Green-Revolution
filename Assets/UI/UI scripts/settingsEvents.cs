@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -7,8 +8,9 @@ public class settingsEvents : MonoBehaviour
 {
     private UIDocument UIDoc;
     private Button backButton;
-    private Slider FXVolume;
-    private Slider MusicVolume;
+    private SliderInt FXVolume;
+    private SliderInt MusicVolume;
+    private Toggle MuteSounds;
     public GameObject prevPanel;
     void OnEnable()
     {
@@ -19,25 +21,53 @@ public class settingsEvents : MonoBehaviour
         backButton.RegisterCallback<ClickEvent>(onBackClick);
 
         //slider setup
-        MusicVolume = UIDoc.rootVisualElement.Q<Slider>("music");
-        FXVolume = UIDoc.rootVisualElement.Q<Slider>("FX");
+        MusicVolume = UIDoc.rootVisualElement.Q<SliderInt>("music");
+        FXVolume = UIDoc.rootVisualElement.Q<SliderInt>("FX");
+        FXVolume.value = (int)SoundManager.instance.GetVolume("FXVolume");
+        MusicVolume.value = (int)SoundManager.instance.GetVolume("MusicVolume");
+        MusicVolume.RegisterValueChangedCallback(onSliderMusicChange);
+        FXVolume.RegisterValueChangedCallback(onSliderFXChange);
         
+        //mute sound setup
+        MuteSounds= UIDoc.rootVisualElement.Q<Toggle>("MuteSounds");
+        if (SoundManager.instance.GetVolume("MasterVolume") <= -80)
+        {
+            MuteSounds.value = true;
+        }
+        else
+        {
+            MuteSounds.value = false;
+        }
+        MuteSounds.RegisterValueChangedCallback(ToggleMuteSounds);
 
     }
-
     public void onBackClick(ClickEvent evt)
     {
         prevPanel.SetActive(true);
         gameObject.SetActive(false);
     }
-    
-    public void ChangeVolume(float Volume )
+
+    private void onSliderMusicChange(ChangeEvent<int> evt)
     {
-        //sets audio
+        SoundManager.instance.SetMusicVolume(evt.newValue);
     }
-    
-    void Update()
+
+    private void onSliderFXChange(ChangeEvent<int> evt)
     {
+        SoundManager.instance.SetFXVolume(evt.newValue);
+    }
+
+    private void ToggleMuteSounds(ChangeEvent<bool> evt)
+    {
+        if (MuteSounds.value)
+        {
+            SoundManager.instance.SetVolumeMaster(-80);
+        }
+        else
+        {
+            SoundManager.instance.SetVolumeMaster(0);
+        }
         
     }
+        
 }

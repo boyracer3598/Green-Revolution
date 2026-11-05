@@ -79,7 +79,7 @@ public class HUD_Events : MonoBehaviour
 
         //panel setup
         settingsPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        pausePanel.SetActive(true);
 
         //scoll handling
         cameraZoom = InputSystem.actions["Zoom"];

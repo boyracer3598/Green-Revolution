@@ -20,7 +20,7 @@ public class pauseEvents : MonoBehaviour
     {
         //hides panels
         settingsPanel.SetActive(false);
-
+        Time.timeScale = 0;
         //button setup
         UIDoc = gameObject.GetComponent<UIDocument>();
         resumeButton = UIDoc.rootVisualElement.Q<Button>("resumeGame");
