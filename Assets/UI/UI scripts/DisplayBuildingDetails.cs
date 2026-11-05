@@ -59,7 +59,8 @@ public class DisplayBuildingDetails : MonoBehaviour
             {
                 if (ActiveUI != null) ActiveUI.gameObject.SetActive(false);
                 hitBuilding = hit.transform.gameObject.GetComponentInParent<BaseObject>();
-                //display the building details
+                hit.transform.gameObject.layer = LayerMask.GetMask("ClickedObject");
+                Debug.Log( hit.transform.gameObject.layer);
                 if (hitBuilding != null)
                 {
                     if (!MouseInWindow & ActiveUI != null)
@@ -69,7 +70,6 @@ public class DisplayBuildingDetails : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Building")
                     {
                         ActiveUI = BuildingDetailsUI;
-
                     }
                     else if (hit.transform.gameObject.tag == "WorldObject")
                     {

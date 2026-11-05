@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class pauseEvents : MonoBehaviour
 {
     public GameObject settingsPanel;
+    public GameObject ChallangePanel;
     private UIDocument UIDoc;
     private Button resumeButton;
     private Button settingsButton;
@@ -20,6 +21,7 @@ public class pauseEvents : MonoBehaviour
     {
         //hides panels
         settingsPanel.SetActive(false);
+        ChallangePanel.SetActive(true);
         Time.timeScale = 0;
         //button setup
         UIDoc = gameObject.GetComponent<UIDocument>();

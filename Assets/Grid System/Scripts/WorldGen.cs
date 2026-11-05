@@ -23,6 +23,8 @@ public class WorldGen : MonoBehaviour
     {
         if (!hasGenerated)
         {
+            this.GetComponent<WorldVariables>().CreateChallenge();
+            Debug.Log(this.GetComponent<WorldVariables>().ChallengeToString());
             hasGenerated = true;
             gridSize = grid.getSize();
 
