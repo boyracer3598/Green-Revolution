@@ -463,7 +463,14 @@ MonoBehaviour:
   safeDestroy: 0
   TimeSinceLastUpkeep: 0
   worldGen: {fileID: 950477253}
+  NormalBuilding: {fileID: 1084248209476445525, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
   whenUpdate: 10
+  challengeString: 
+  LandPollutionHappinessDampener: 0.01
+  AirPollutionProduceDampener: 0.1
+  WaterPollutionSicknessChance: 0.001
+  HappinessFromNature: 0
+  HappinessLost: 0
 --- !u!114 &950477253
 MonoBehaviour:
   m_ObjectHideFlags: 0
