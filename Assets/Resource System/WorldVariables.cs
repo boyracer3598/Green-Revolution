@@ -39,12 +39,13 @@ public class WorldVariables : MonoBehaviour
     [SerializeField] public BuildingObject NormalBuilding;
     [SerializeField] private float whenUpdate = 10f;
     [SerializeField] private string challengeString = "";
-    [SerializeField] private float LandPollutionHappinessDampener = 0.01f;
+    [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
-    [SerializeField] private float WaterPollutionSicknessChance = 0.001f;
+    [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
     [SerializeField] public int HappinessFromNature = 0;
     [SerializeField] public int HappinessLost = 0;
     [SerializeField] public double sickChance = 0.5;
+    public bool hasWon = false;
 
     public void ChangeSpMats(bool Add, string Material)
     {
@@ -66,7 +67,7 @@ public class WorldVariables : MonoBehaviour
     public float CalculateHappiness(float input)
     {
         // based on the current land pollution, calculates a dampened happiness value. The more land pollution, the lower the happiness.
-        float dampener = 1f - LandPollution * LandPollutionHappinessDampener;
+        float dampener = 1f - LandPollution * LandPollutionHappinessDampener * 0.01f;
         float happy = input * dampener * (1f - (HappinessLost / HappinessFromNature) / 10f); // Reduce happiness based on lost happiness and pollution dampening
         float normalizedHappiness = Mathf.Clamp(happy, 0, 100) / 100f; // Normalize to a 0-1 scale
         return normalizedHappiness;
@@ -160,16 +161,16 @@ public class WorldVariables : MonoBehaviour
             {
                 case ChallengeType.Pollution:
                     ChallengePollutionType = (PollutionType)UnityEngine.Random.Range(0, 3);
-                    RequiredPollution = UnityEngine.Random.Range(0, 25);
+                    RequiredPollution = 5 * UnityEngine.Random.Range(0, 5);
                     break;
                 case ChallengeType.Happiness:
-                    RequiredHappiness = UnityEngine.Random.Range(70, 101);
+                    RequiredHappiness = 5 * UnityEngine.Random.Range(14, 20);
                     break;
                 case ChallengeType.Population:
-                    RequiredPopulation = UnityEngine.Random.Range(500, 1000);
+                    RequiredPopulation = 10 * UnityEngine.Random.Range(50, 150);
                     break;
                 case ChallengeType.Inspiration:
-                    RequiredInspiration = UnityEngine.Random.Range(30, 51);
+                    RequiredInspiration = 5 * UnityEngine.Random.Range(6, 11);
                     break;
             }
         }
@@ -215,7 +216,22 @@ public class WorldVariables : MonoBehaviour
     void Update()
     {
         worldGen.WorldStart();
-        //Debug.Log(ChallengeToString());
+        if (!hasWon)
+        {
+            bool[] challengeMet = {
+                ChallengePt1 == ChallengeType.Pollution ? (ChallengePollutionType == PollutionType.Air ? AirPollution < RequiredPollution : ChallengePollutionType == PollutionType.Water ? WaterPollution < RequiredPollution : LandPollution < RequiredPollution) : true,
+                ChallengePt1 == ChallengeType.Happiness ? PopulationHappiness >= (RequiredHappiness / 100f) : true,
+                ChallengePt1 == ChallengeType.Population ? Population >= RequiredPopulation : true,
+                ChallengePt1 == ChallengeType.Inspiration ? Inspiration >= RequiredInspiration : true,
+                ChallengePt2 == ChallengeType.Pollution ? (ChallengePollutionType == PollutionType.Air ? AirPollution < RequiredPollution : ChallengePollutionType == PollutionType.Water ? WaterPollution < RequiredPollution : LandPollution < RequiredPollution) : true,
+                ChallengePt2 == ChallengeType.Happiness ? PopulationHappiness >= (RequiredHappiness / 100f) : true,
+                ChallengePt2 == ChallengeType.Population ? Population >= RequiredPopulation : true,
+                ChallengePt2 == ChallengeType.Inspiration ? Inspiration >= RequiredInspiration : true
+            };
+            hasWon = challengeMet.All(met => met);
+            // this.PopupCreate("Challenge Completed! Would you like to continue?");
+            Debug.Log("Challenge Completed");
+        }
         if (PopulationHappiness < 0)
         {
             PopulationHappiness = 0;
