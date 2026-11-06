@@ -66,6 +66,8 @@ public class NewsBuilding : BuildingObject
 
     public override void Upkeep()
     {
-        Debug.Log(ArticleCreation());
+        string article = ArticleCreation();
+        Debug.Log(article);
+        // world.PopupCreate(article)
     }
 }
