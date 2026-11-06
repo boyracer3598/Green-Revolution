@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,12 +14,15 @@ public class mainMenuEvents : MonoBehaviour
     private Button settingsButton;
     private Button QuitButton;
     public GameObject SettingsPanel;
+    public GameObject loadingPanel;
+    private UIDocument LoadingUIDoc;
+    private ProgressBar loadingBar;
 
     
     private void OnEnable()
     {
-        SettingsPanel.SetActive(false);
         
+        SettingsPanel.SetActive(false);
         UIDoc = GetComponent<UIDocument>();
         //button setup
         newGameButton = UIDoc.rootVisualElement.Q("newGame") as Button;
@@ -39,10 +44,24 @@ public class mainMenuEvents : MonoBehaviour
     private void onNewGameClick(ClickEvent evt)
     {
         //loads a new game
-        SceneManager.LoadScene("NewGame");
-        Debug.Log("it should start game");
+        loadingPanel.SetActive(true);
+        LoadingUIDoc= loadingPanel.GetComponent<UIDocument>();
+        loadingBar = LoadingUIDoc.rootVisualElement.Q("Loading")as ProgressBar;
+        //start load async
+        StartCoroutine(LoadGameAsync("NewGame v4"));
+        
     }
-
+    public IEnumerator LoadGameAsync(string levelName)
+    {
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelName);
+        while (!loadOperation.isDone)
+        {
+            float progress = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            loadingBar.value = progress;
+            yield return null;
+        }
+    }
+    
 
     private void onLoadGameClick(ClickEvent evt)
     {

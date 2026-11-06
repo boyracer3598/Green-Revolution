@@ -145,7 +145,7 @@ public class WorldVariables : MonoBehaviour
         PopulationHappiness = CalculateHappiness(newHappiness);
         UpdateInspiration();
     }
-    void CreateChallenge()
+    public void CreateChallenge()
     {
         ChallengePt1 = (ChallengeType)UnityEngine.Random.Range(0, 4);
         ChallengePt2 = (ChallengeType)UnityEngine.Random.Range(0, 4);
@@ -174,10 +174,48 @@ public class WorldVariables : MonoBehaviour
             }
         }
     }
+
+    public string ChallengeToString()
+    {
+        string strPt1 = string.Empty;
+        string strPt2 = string.Empty;
+        switch (ChallengePt1)
+        {
+            case ChallengeType.Pollution:
+                strPt1 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString();
+                break;
+            case ChallengeType.Happiness:
+                strPt1 = "minimum of " + RequiredHappiness + " total happiness";
+                break;
+            case ChallengeType.Population:
+                strPt1 = "population of " + RequiredPopulation;
+                break;
+            case ChallengeType.Inspiration:
+                strPt1 = "at least " + RequiredInspiration + "inspiration";
+                break;
+        }
+        switch (ChallengePt2)
+        {
+            case ChallengeType.Pollution:
+                strPt2 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString();
+                break;
+            case ChallengeType.Happiness:
+                strPt2 = "minimum of " + RequiredHappiness + " total happiness";
+                break;
+            case ChallengeType.Population:
+                strPt2 = "population of " + RequiredPopulation;
+                break;
+            case ChallengeType.Inspiration:
+                strPt2 = "at least " + RequiredInspiration + " inspiration";
+                break;
+        }
+        return "Have" + strPt1 + " with " + strPt2;
+    }
     // Update is called once per frame
     void Update()
     {
         worldGen.WorldStart();
+        //Debug.Log(ChallengeToString());
         if (PopulationHappiness < 0)
         {
             PopulationHappiness = 0;

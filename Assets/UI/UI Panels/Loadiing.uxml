@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
+    <ui:VisualElement style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(125, 243, 125);">
+        <ui:Label text="Loading" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&amp;guid=7c681b37a040a5f4baf060aa6e9c08a5&amp;type=3#CherryBombOne-Regular&quot;); font-size: 54px; -unity-text-align: upper-center; color: rgb(247, 117, 28); margin-top: 119px;"/>
+        <ui:ProgressBar value="0.3" title="" name="Loading" high-value="1" style="background-color: rgb(247, 117, 28); margin-top: 117px; width: 800px; align-self: center; height: auto;"/>
+    </ui:VisualElement>
+</ui:UXML>
