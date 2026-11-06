@@ -137,20 +137,16 @@ public class BuildingSystem : MonoBehaviour
         // creates the building at the preview's position and gives it the required data and rotation
         Building building = Instantiate(buildingPrefab, preview.transform.position, Quaternion.identity);
         building.Setup(preview.Data, preview.BuildingModel.Rotation);
-        if (preview.Data.SpecialBuilding == null)
+        BuildingObject buildingObject = building.GetComponent<BuildingObject>();
+        BuildingObject specialBuilding = preview.Data.SpecialBuilding;
+        if (specialBuilding != null && specialBuilding.GetType() != typeof(BuildingObject))
         {
-            BuildingObject buildingObject = building.gameObject.AddComponent<BuildingObject>();
-            buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
-            buildingObject.Placed();
+            Type specialBuildingType = specialBuilding.GetType();
+            Destroy(buildingObject);
+            buildingObject = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
         }
-        else
-        {
-            Type specialBuildingType = preview.Data.SpecialBuilding.GetType();
-            BuildingObject buildingSpecial = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
-            Destroy(building.gameObject.GetComponent<BuildingObject>());
-            buildingSpecial.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
-            buildingSpecial.Placed();
-        }
+        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds);
+        buildingObject.Placed();
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object
         SpendMaterials(preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost);
