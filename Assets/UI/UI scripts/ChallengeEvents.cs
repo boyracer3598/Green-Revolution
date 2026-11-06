@@ -16,7 +16,7 @@ public class ChallengeEvents : MonoBehaviour
         challengeLabel = UIDoc.rootVisualElement.Q<Label>("Message");
         OkayButton = UIDoc.rootVisualElement.Q<Button>("OkayButton");
         OkayButton.RegisterCallback<ClickEvent>(OnOkayButon);
-        if(Time.frameCount > 10 ) UpdateChallengeMessage();
+        UpdateChallengeMessage();
 
 
     }
@@ -24,6 +24,11 @@ public class ChallengeEvents : MonoBehaviour
     private void OnOkayButon(ClickEvent evt)
     {
         this.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        UpdateChallengeMessage();
     }
 
     private void UpdateChallengeMessage()

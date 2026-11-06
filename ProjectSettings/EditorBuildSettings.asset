@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NewGame.unity
     guid: 02e8e6c7a7d15934ab0c0c261051798d
+  - enabled: 1
+    path: Assets/NewGame v4.unity
+    guid: 78cabd2d821769340a9f71936fec67a2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
