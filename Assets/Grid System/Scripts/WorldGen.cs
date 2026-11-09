@@ -6,8 +6,8 @@ using UnityEngine;
 public class WorldGen : MonoBehaviour
 {
     [SerializeField] private BuildingGrid grid;
-    [SerializeField] private WorldObj wObjPrefab;
-    [SerializeField] private WorldObjData[] trees;
+    public WorldObj wObjPrefab;
+    [SerializeField] public WorldObjData[] trees;
     private WorldObjData[] treeWeights;
     [SerializeField] private WorldObjData[] rocks;
     private WorldObjData[] rockWeights;
@@ -94,7 +94,7 @@ public class WorldGen : MonoBehaviour
         return weightedObjects.ToArray();
     }
 
-    private void PlaceObject(WorldObjData data, Vector3 position)
+    public void PlaceObject(WorldObjData data, Vector3 position)
     {
         // creates the building at the preview's position and gives it the required data and rotation
         float rotation = UnityEngine.Random.Range(0, 360);
