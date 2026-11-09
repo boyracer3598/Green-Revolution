@@ -48,6 +48,13 @@ public class BuildingObject : BaseObject
         this.FoodUpkeep = upkeepFood;
         this.CropUpkeep = upkeepCrops; // cropkeep
         this.SpMatsNeeds = spMatsNeeds;
+        if (population < 0)
+        {
+            world.EmployedPopulation += population;
+        } else
+        {
+            world.Population += population;
+        }
         switch(prodType)
         {
             case "wood":
@@ -104,12 +111,18 @@ public class BuildingObject : BaseObject
         double sickChance = world.sickChance;
         System.Random rand = new System.Random();
         string[] requiredMaterials = SpMatsNeeds.Split(", ");
+        bool worldGotAll = false;
+        
         for (int i = 0; i < requiredMaterials.Length; i++)
         {
             if (world.HasSpMat(requiredMaterials[i]))
             {
                 worldGotIt++;
             }
+        }
+        if (string.IsNullOrEmpty(SpMatsNeeds) || worldGotIt == requiredMaterials.Length)
+        {
+            worldGotAll = true;
         }
         if (sickPpl > 0 && population > 0)
         {
@@ -120,8 +133,9 @@ public class BuildingObject : BaseObject
                 disabled = true;
             }
         }
-        if (disabled && worldGotIt == requiredMaterials.Length && world.wood >= WoodUpkeep && world.stone >= StoneUpkeep && world.food >= FoodUpkeep && world.fuel >= FuelUpkeep && world.crops >= CropUpkeep)
+        if (!disabled && worldGotAll && world.wood >= WoodUpkeep && world.stone >= StoneUpkeep && world.food >= FoodUpkeep && world.fuel >= FuelUpkeep && world.crops >= CropUpkeep)
         {
+
             world.wood -= WoodUpkeep;
             world.stone -= StoneUpkeep;
             world.food -= FoodUpkeep;
@@ -131,6 +145,7 @@ public class BuildingObject : BaseObject
         }
         else
         {
+            Debug.Log(disabled.ToString() + ", " + worldGotAll.ToString());
             canProvide = false;
         }
     }
@@ -143,11 +158,13 @@ public class BuildingObject : BaseObject
         this.PayUpkeepCosts();
         if (this.canProvide)
         {
+            Debug.Log("Providing resources for " + this.ObjectName);
             this.Harvest(false);
             world.ChangeSpMats(true, this.SpMats);
         }
         else
         {
+            Debug.Log("Not providing resources for " + this.ObjectName);
             world.ChangeSpMats(false, this.SpMats);
         }
     }

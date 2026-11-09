@@ -36,15 +36,15 @@ public class WorldVariables : MonoBehaviour
     public bool safeDestroy = false;
     public float TimeSinceLastUpkeep = 0;
     [SerializeField] private WorldGen worldGen;
-    [SerializeField] public BuildingObject NormalBuilding;
+    public BuildingObject NormalBuilding;
     [SerializeField] private float whenUpdate = 10f;
     [SerializeField] private string challengeString = "";
     [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
     [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
-    [SerializeField] public int HappinessFromNature = 0;
-    [SerializeField] public int HappinessLost = 0;
-    [SerializeField] public double sickChance = 0.5;
+    public int HappinessFromNature = 0;
+    public int HappinessLost = 0;
+    public double sickChance = 0.5;
     public bool hasWon = false;
 
     public void ChangeSpMats(bool Add, string Material)
@@ -127,6 +127,7 @@ public class WorldVariables : MonoBehaviour
     }
     void TriggerUpkeep()
     {
+        Debug.Log("Triggering upkeep");
         float newHappiness = 0f;
         BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
         float sickPpl = UnityEngine.Random.Range(0, (2 * WaterPollution * WaterPollutionSicknessChance * Population)); // Chance for population to get sick based on water pollution
@@ -229,8 +230,11 @@ public class WorldVariables : MonoBehaviour
                 ChallengePt2 == ChallengeType.Inspiration ? Inspiration >= RequiredInspiration : true
             };
             hasWon = challengeMet.All(met => met);
-            // this.PopupCreate("Challenge Completed! Would you like to continue?");
-            Debug.Log("Challenge Completed");
+            if (hasWon)
+            {
+                // this.PopupCreate("Challenge Completed! Would you like to continue?");
+                Debug.Log("Challenge Completed");
+            }
         }
         if (PopulationHappiness < 0)
         {
