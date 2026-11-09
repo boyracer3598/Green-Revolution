@@ -2,6 +2,7 @@
     <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
     <ui:VisualElement style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(24, 78, 118);">
         <ui:Label text="Loading" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/CherryBombOne-Regular.ttf?fileID=12800000&amp;guid=7c681b37a040a5f4baf060aa6e9c08a5&amp;type=3#CherryBombOne-Regular&quot;); font-size: 54px; -unity-text-align: upper-center; color: rgb(181, 228, 140); margin-top: 119px;"/>
-        <ui:ProgressBar value="0.3" title="" name="Loading" high-value="1" style="background-color: rgb(117, 200, 147); margin-top: 117px; width: 800px; align-self: center; height: auto;"/>
+        <ui:Image source="project://database/Assets/UI/Icons/Throbberv2.png?fileID=-1771056976&amp;guid=3547cb2edf37e8f4c8b32770698973b8&amp;type=3#Throbberv2_0" tint-color="rgb(116, 200, 147)" enabled="false"/>
+        <ui:ProgressBar value="0.3" title="" name="Loading" high-value="1" enabled="false" style="background-color: rgb(117, 200, 147); margin-top: 117px; width: 800px; align-self: center; height: auto;"/>
     </ui:VisualElement>
 </ui:UXML>

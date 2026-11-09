@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -7,6 +8,7 @@ public class DisplayBuildingDetails : MonoBehaviour
     [SerializeField] Camera mainCamera;
     InputAction MouseLeftClick;
     BaseObject hitBuilding;
+    private InputAction Harvest;
     [SerializeField] UIDocument BuildingDetailsUI;
     [SerializeField] UIDocument WorldObjectDetailsUI;
     private UIDocument ActiveUI;
@@ -38,6 +40,7 @@ public class DisplayBuildingDetails : MonoBehaviour
     void OnEnable()
     {
         MouseLeftClick = InputSystem.actions["build"];
+        Harvest = InputSystem.actions["Harvest"];
         mainCameraScaleOffset = new Vector3(0.1f, 0.1f, 0.1f);
         BuildingDetailsUI.gameObject.SetActive(false);
         MouseInWindow = false;
@@ -95,6 +98,10 @@ public class DisplayBuildingDetails : MonoBehaviour
                 }
 
             }
+
+            if (hitBuilding != null& Harvest.WasCompletedThisFrame()) {
+                HarvestBuilding();
+            }
         } 
     }
 
@@ -139,25 +146,33 @@ public class DisplayBuildingDetails : MonoBehaviour
     // remove a building or nature object from world
     private void clickHarvest(ClickEvent evt)
     {
+        HarvestBuilding();
+    }
+
+    private void HarvestBuilding()
+    {
         if (hitBuilding != null)
         {
             WorldObject tempWorldObject = hitBuilding as WorldObject;
             if (tempWorldObject != null)
             {
-                SoundManager.instance.PlaySoundClip(DestoryNature,tempWorldObject.transform,1f);
-                tempWorldObject.Harvest(); 
+                SoundManager.instance.PlaySoundClip(DestoryNature, tempWorldObject.transform, 1f);
+                tempWorldObject.Harvest();
             }
             else
             {
                 SoundManager.instance.PlaySoundClip(DestroyBuiding, hitBuilding.transform, 1f);
                 hitBuilding.RemoveObject(true);
             }
-            hitBuilding = null;
-            
+            //hitBuilding = null;
+
         }
-        MouseInWindow=false;
-        ActiveUI.gameObject.SetActive(false);
+        MouseInWindow = false;
+        if (!hitBuilding.isActiveAndEnabled) {
+            ActiveUI.gameObject.SetActive(false);
+        }
     }
+
 
 
     private void PopulatingFields()
