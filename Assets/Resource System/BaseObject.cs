@@ -31,7 +31,7 @@ public class BaseObject : MonoBehaviour
     {
         world = GameObject.FindFirstObjectByType<WorldVariables>();
     }
-    public void RemoveObject(bool pos)
+    public virtual void RemoveObject(bool pos)
     {
         world.HappinessLost += populationHappiness;
         UpdatePollution(pos);

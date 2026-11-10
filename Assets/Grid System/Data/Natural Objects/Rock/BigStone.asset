@@ -17,8 +17,8 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 5
   <ProduceType>k__BackingField: stone
-  <BaseHP>k__BackingField: 0
-  <HPVariableLow>k__BackingField: 0
-  <HPVariableHigh>k__BackingField: 0
-  <Weighting>k__BackingField: 0
+  <BaseHP>k__BackingField: 50
+  <HPVariableLow>k__BackingField: -5
+  <HPVariableHigh>k__BackingField: 5
+  <Weighting>k__BackingField: 35
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 14cb7d00aff7a484681194f3ce3cd402, type: 3}

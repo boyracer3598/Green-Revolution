@@ -113,6 +113,8 @@ public class BuildingSystem : MonoBehaviour
         int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost;
         int matsAvailable = 0;
         int matsCount = 0;
+        int unemployedPopulation = world.Population - world.EmployedPopulation;
+        bool hasEnoughUnemployedPopulation = false;
         // makes sure the player is able to produce all the special materials
         if (!string.IsNullOrEmpty(preview.Data.SpMatsNeeds))
         {
@@ -124,7 +126,15 @@ public class BuildingSystem : MonoBehaviour
                 if (world.HasSpMat(item)) matsAvailable++;
             }
         }
-        return matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
+        if (preview.Data.PopulationAdded < 0)
+        {
+            hasEnoughUnemployedPopulation = unemployedPopulation + (-1 * preview.Data.PopulationAdded) >= 0;
+        }
+        else
+        {
+            hasEnoughUnemployedPopulation = true;
+        }
+        return hasEnoughUnemployedPopulation && matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
     }
     private void SpendMaterials(int woodCost, int stoneCost, int foodCost, int fuelCost)
     {
