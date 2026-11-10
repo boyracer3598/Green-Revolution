@@ -38,7 +38,6 @@ public class WorldVariables : MonoBehaviour
     [SerializeField] private WorldGen worldGen;
     public BuildingObject NormalBuilding;
     [SerializeField] private float whenUpdate = 10f;
-    [SerializeField] private string challengeString = "";
     [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
     [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
@@ -184,7 +183,7 @@ public class WorldVariables : MonoBehaviour
         switch (ChallengePt1)
         {
             case ChallengeType.Pollution:
-                strPt1 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString();
+                strPt1 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString() + " pollution";
                 break;
             case ChallengeType.Happiness:
                 strPt1 = "minimum of " + RequiredHappiness + " total happiness";
@@ -193,13 +192,13 @@ public class WorldVariables : MonoBehaviour
                 strPt1 = "population of " + RequiredPopulation;
                 break;
             case ChallengeType.Inspiration:
-                strPt1 = "at least " + RequiredInspiration + "inspiration";
+                strPt1 = "at least " + RequiredInspiration + " inspiration";
                 break;
         }
         switch (ChallengePt2)
         {
             case ChallengeType.Pollution:
-                strPt2 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString();
+                strPt2 = "less than " + RequiredPollution + " " + ChallengePollutionType.ToString() + " pollution";
                 break;
             case ChallengeType.Happiness:
                 strPt2 = "minimum of " + RequiredHappiness + " total happiness";
