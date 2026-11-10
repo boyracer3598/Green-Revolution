@@ -9,8 +9,9 @@ public class BaseObject : MonoBehaviour
     public int populationHappiness = 0;
     public enum PolProduceTypes
     {
-        WATER,
+        NONE, 
         AIR,
+        WATER,
         LAND
     }
     public enum ProduceTypes

@@ -30,7 +30,7 @@ public class BuildingObject : BaseObject
     public (int x, int y) gridPos;
 
     // This function is used to add data to the building object, it is called from the BuildingSystem script's PlaceBuilding function.
-    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population)
+    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population, string pollution, int pollutionAmount)
     {
         this.ObjectName = name;
         this.Description = description;
@@ -48,6 +48,8 @@ public class BuildingObject : BaseObject
         this.FoodUpkeep = upkeepFood;
         this.CropUpkeep = upkeepCrops; // cropkeep
         this.SpMatsNeeds = spMatsNeeds;
+        this.PolProduce = pollutionAmount;
+
         if (population < 0)
         {
             world.EmployedPopulation += population;
@@ -74,6 +76,21 @@ public class BuildingObject : BaseObject
                 break;
             default:
                 this.produceType = ProduceTypes.NONE;
+                break;
+        }
+        switch (pollution)
+        {
+            case "air":
+                this.PolProduceType = PolProduceTypes.AIR;
+                break;
+            case "water":
+                this.PolProduceType = PolProduceTypes.WATER;
+                break;
+            case "land":
+                this.PolProduceType = PolProduceTypes.LAND;
+                break;
+            default:
+                this.PolProduceType = PolProduceTypes.NONE;
                 break;
         }
     }
