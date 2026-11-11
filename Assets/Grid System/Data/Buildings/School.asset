@@ -15,8 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: School
   <Description>k__BackingField: Students learn here, increases insight while happiness
     is high
-  <SpMats>k__BackingField: 
-  <SpMatsNeeds>k__BackingField: 
+  <SpMats>k__BackingField: Education
+  <SpMatsNeeds>k__BackingField: Bricks
   <WoodCost>k__BackingField: 150
   <FoodCost>k__BackingField: 0
   <StoneCost>k__BackingField: 100
@@ -29,7 +29,10 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <PopHap>k__BackingField: 0
-  <Inspiration>k__BackingField: 5
+  <Inspiration>k__BackingField: 5/3/2/0
+  <InspirationRequirement>k__BackingField: 5
+  <PopulationAdded>k__BackingField: -5
+  <Pollution>k__BackingField: land
+  <PollutionAmount>k__BackingField: 1
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 0d28cc50b0b1504498e1ae24def785a8, type: 3}
-  <SpecialBuilding>k__BackingField: {fileID: 0}
+  <SpecialBuilding>k__BackingField: {fileID: 6149637755350343198, guid: 8a3354ac93cece84ba5ded21caee2b44, type: 3}

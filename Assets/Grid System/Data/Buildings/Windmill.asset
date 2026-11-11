@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Windmill
   <Description>k__BackingField: Processes Crops into Bread (food)
-  <SpMats>k__BackingField: 
+  <SpMats>k__BackingField: Bread
   <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 50
   <FoodCost>k__BackingField: 0
@@ -24,11 +24,14 @@ MonoBehaviour:
   <FoodUpkeep>k__BackingField: 0
   <StoneUpkeep>k__BackingField: 0
   <FuelUpkeep>k__BackingField: 0
-  <CropUpkeep>k__BackingField: 0
+  <CropUpkeep>k__BackingField: 5
   <PopulationHappiness>k__BackingField: 0
-  <ProduceAmount>k__BackingField: 0
-  <ProduceType>k__BackingField: 
-  <PopHap>k__BackingField: 0
+  <ProduceAmount>k__BackingField: 10
+  <ProduceType>k__BackingField: food
   <Inspiration>k__BackingField: 0
+  <InspirationRequirement>k__BackingField: 0
+  <PopulationAdded>k__BackingField: 0
+  <Pollution>k__BackingField: 
+  <PollutionAmount>k__BackingField: 0
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 6e5e1b52262a512409c783aa4d0499cd, type: 3}
-	<SpecialBuilding>k__BackingField: {fileID: 0}
+  <SpecialBuilding>k__BackingField: {fileID: 0}

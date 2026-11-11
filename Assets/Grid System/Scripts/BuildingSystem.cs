@@ -109,8 +109,8 @@ public class BuildingSystem : MonoBehaviour
     private bool CanPlaceBuilding()
     {
         // puts all the current resources and the required resources into variables to check if the player has enough resources to place the building
-        int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel;
-        int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost;
+        int currentWood = world.wood, currentStone = world.stone, currentFood = world.food, currentFuel = world.fuel, currentInspiration = world.Inspiration;
+        int woodCost = preview.Data.WoodCost, stoneCost = preview.Data.StoneCost, foodCost = preview.Data.FoodCost, fuelCost = preview.Data.FuelCost, inspirationCost = preview.Data.InspirationRequirement;
         int matsAvailable = 0;
         int matsCount = 0;
         int unemployedPopulation = world.Population - world.EmployedPopulation;
@@ -134,7 +134,7 @@ public class BuildingSystem : MonoBehaviour
         {
             hasEnoughUnemployedPopulation = true;
         }
-        return hasEnoughUnemployedPopulation && matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
+        return hasEnoughUnemployedPopulation && currentInspiration >= inspirationCost && matsCount == matsAvailable && currentWood >= woodCost && currentStone >= stoneCost && currentFood >= foodCost  && currentFuel >= fuelCost;
     }
     private void SpendMaterials(int woodCost, int stoneCost, int foodCost, int fuelCost)
     {
@@ -157,7 +157,7 @@ public class BuildingSystem : MonoBehaviour
             Destroy(buildingObject);
             buildingObject = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
         }
-        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopHap, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds, preview.Data.PopulationAdded);
+        buildingObject.addData(preview.Data.Name, preview.Data.Description, preview.Data.WoodCost, preview.Data.StoneCost, preview.Data.FoodCost, preview.Data.FuelCost, preview.Data.ProduceAmount, preview.Data.ProduceType, preview.Data.PopulationHappiness, Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse), preview.Data.WoodUpkeep, preview.Data.StoneUpkeep, preview.Data.FuelUpkeep, preview.Data.FoodUpkeep, preview.Data.CropUpkeep, preview.Data.SpMatsNeeds, preview.Data.PopulationAdded, preview.Data.Pollution, preview.Data.PollutionAmount);
         buildingObject.Placed();
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object

@@ -4,7 +4,10 @@ public class SpecialReqBuilding : BuildingObject
 {
     public enum ExtraType
     {
-        POPHAP
+        POPHAP,
+        AIRPOL,
+        WATERPOL,
+        LANDPOL
     }
     public enum TypePos
     {
@@ -25,6 +28,36 @@ public class SpecialReqBuilding : BuildingObject
                 } else
                 {
                     cont = world.PopulationHappiness <= requirementNum;
+                }
+                break;
+            case ExtraType.AIRPOL:
+                if (pos == TypePos.POS)
+                {
+                    cont = world.AirPollution >= requirementNum;
+                }
+                else
+                {
+                    cont = world.AirPollution <= requirementNum;
+                }
+                break;
+            case ExtraType.WATERPOL:
+                if (pos == TypePos.POS) 
+                {
+                    cont = world.WaterPollution >= requirementNum;
+                }
+                else
+                {
+                    cont = world.WaterPollution <= requirementNum;
+                }
+                break;
+                case ExtraType.LANDPOL:
+                if (pos == TypePos.POS)
+                {
+                    cont = world.LandPollution >= requirementNum;
+                }
+                else
+                {
+                    cont = world.LandPollution <= requirementNum;
                 }
                 break;
             default:

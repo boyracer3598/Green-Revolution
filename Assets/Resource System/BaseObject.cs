@@ -6,11 +6,12 @@ public class BaseObject : MonoBehaviour
     public WorldVariables world;
     public string ObjectName;
     public string Description;
-    public int populationHappiness = 0;
+    public float populationHappiness = 0f;
     public enum PolProduceTypes
     {
-        WATER,
+        NONE, 
         AIR,
+        WATER,
         LAND
     }
     public enum ProduceTypes
