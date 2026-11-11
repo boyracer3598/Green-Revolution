@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
+  m_Name: Town Hall
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingData
+  <Name>k__BackingField: Town Hall
+  <Description>k__BackingField: The center of your town, kickstarts inspiration
+  <SpMats>k__BackingField: 
+  <SpMatsNeeds>k__BackingField: 
+  <WoodCost>k__BackingField: 100
+  <FoodCost>k__BackingField: 0
+  <StoneCost>k__BackingField: 100
+  <FuelCost>k__BackingField: 0
+  <WoodUpkeep>k__BackingField: 0
+  <FoodUpkeep>k__BackingField: 0
+  <StoneUpkeep>k__BackingField: 0
+  <FuelUpkeep>k__BackingField: 0
+  <CropUpkeep>k__BackingField: 0
+  <PopulationHappiness>k__BackingField: 0
+  <ProduceAmount>k__BackingField: 0
+  <ProduceType>k__BackingField: 
+  <Inspiration>k__BackingField: 5/0
+  <InspirationRequirement>k__BackingField: 0
+  <PopulationAdded>k__BackingField: 0
+  <Pollution>k__BackingField: land
+  <PollutionAmount>k__BackingField: 2
+  <Model>k__BackingField: {fileID: 0}
+  <SpecialBuilding>k__BackingField: {fileID: 3609284665910568140, guid: dff7c445a914e8c4d867372a40d7113c, type: 3}

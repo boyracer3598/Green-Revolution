@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Tent
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Basic Tent
-  <Description>k__BackingField: Tent out!!!!
+  <Description>k__BackingField: Provides population and a little bit of happiness
   <SpMats>k__BackingField: 
   <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 5
-  <FoodCost>k__BackingField: 5
+  <FoodCost>k__BackingField: 30
   <StoneCost>k__BackingField: 0
   <FuelCost>k__BackingField: 0
   <WoodUpkeep>k__BackingField: 0
@@ -31,6 +31,8 @@ MonoBehaviour:
   <PopHap>k__BackingField: 0
   <Inspiration>k__BackingField: 
   <InspirationRequirement>k__BackingField: 0
-  <PopulationAdded>k__BackingField: 2
+  <PopulationAdded>k__BackingField: 1
+  <Pollution>k__BackingField: 
+  <PollutionAmount>k__BackingField: 0
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: fa1029a9550d64547bd572fa37f02c67, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 0}

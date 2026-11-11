@@ -13,7 +13,7 @@ public class Damager : BuildingObject
     public override void RemoveObject(bool pos)
     {
         base.RemoveObject(pos);
-        world.baseDamage += damageAmount;
+        world.baseDamage -= damageAmount;
         world.basePermDamage -= permDamageAmount;
     }
 }

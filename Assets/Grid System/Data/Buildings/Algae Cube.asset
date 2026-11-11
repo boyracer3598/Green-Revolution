@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
-  m_Name: Library
+  m_Name: Algae Cube
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
-  <Name>k__BackingField: Library
-  <Description>k__BackingField: Increases Insight and Happiness. Also provides books.
-  <SpMats>k__BackingField: Books
-  <SpMatsNeeds>k__BackingField: Paper
-  <WoodCost>k__BackingField: 100
+  <Name>k__BackingField: Algae Cube
+  <Description>k__BackingField: Reduces air pollution
+  <SpMats>k__BackingField: 
+  <SpMatsNeeds>k__BackingField: Higher Education
+  <WoodCost>k__BackingField: 0
   <FoodCost>k__BackingField: 0
-  <StoneCost>k__BackingField: 10
-  <FuelCost>k__BackingField: 0
+  <StoneCost>k__BackingField: 30
+  <FuelCost>k__BackingField: 100
   <WoodUpkeep>k__BackingField: 0
   <FoodUpkeep>k__BackingField: 0
   <StoneUpkeep>k__BackingField: 0
@@ -28,9 +28,10 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <PopHap>k__BackingField: 3
-  <Inspiration>k__BackingField: 2/2/2/0
-  <InspirationRequirement>k__BackingField: 15
-  <PopulationAdded>k__BackingField: -2
+  <Inspiration>k__BackingField: 
+  <InspirationRequirement>k__BackingField: 25
+  <PopulationAdded>k__BackingField: 0
+  <Pollution>k__BackingField: air
+  <PollutionAmount>k__BackingField: 5
   <Model>k__BackingField: {fileID: 0}
   <SpecialBuilding>k__BackingField: {fileID: 0}

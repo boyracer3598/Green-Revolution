@@ -30,7 +30,7 @@ public class BuildingObject : BaseObject
     public (int x, int y) gridPos;
 
     // This function is used to add data to the building object, it is called from the BuildingSystem script's PlaceBuilding function.
-    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, int popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population, string pollution, int pollutionAmount)
+    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, float popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population, string pollution, int pollutionAmount)
     {
         this.ObjectName = name;
         this.Description = description;

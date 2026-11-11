@@ -41,8 +41,8 @@ public class WorldVariables : MonoBehaviour
     [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
     [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
-    public int HappinessFromNature = 0;
-    public int HappinessLost = 0;
+    public float HappinessFromNature = 0;
+    public float HappinessLost = 0;
     public double sickChance = 0.5;
     public bool hasWon = false;
 

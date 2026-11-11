@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &920850146785702422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2685283085515442560}
+  - component: {fileID: 96421398831569790}
+  - component: {fileID: 6885690894442987098}
+  m_Layer: 0
+  m_Name: Hospital
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2685283085515442560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920850146785702422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.12338, y: -0.00002, z: 36.32811}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96421398831569790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920850146785702422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cc2b9c796519a43a06f2534175f06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Building
+--- !u!114 &6885690894442987098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920850146785702422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d955bf37a446df6498c962862f87690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hospital
+  world: {fileID: 0}
+  ObjectName: 
+  Description: 
+  populationHappiness: 0
+  produceType: 0
+  produceAmount: 0
+  PolProduceType: 0
+  PolProduce: 0
+  WoodCost: 0
+  StoneCost: 0
+  FoodCost: 0
+  FuelCost: 0
+  SpMats: 
+  SpMatsNeeds: 
+  WoodUpkeep: 0
+  StoneUpkeep: 0
+  FoodUpkeep: 0
+  FuelUpkeep: 0
+  CropUpkeep: 0
+  population: 0
+  canProvide: 1
+  Inspiration: 
+  sickReduction: 0.1

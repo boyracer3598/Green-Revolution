@@ -29,11 +29,10 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 5
   <ProduceType>k__BackingField: fuel
-  <PopHap>k__BackingField: 0
   <Inspiration>k__BackingField: 
   <InspirationRequirement>k__BackingField: 35
-  <PopulationAdded>k__BackingField: 0
-  <Pollution>k__BackingField: 
-  <PollutionAmount>k__BackingField: 0
+  <PopulationAdded>k__BackingField: -2
+  <Pollution>k__BackingField: air
+  <PollutionAmount>k__BackingField: 3
   <Model>k__BackingField: {fileID: 0}
   <SpecialBuilding>k__BackingField: {fileID: 0}

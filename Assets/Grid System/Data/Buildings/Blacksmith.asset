@@ -29,9 +29,10 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <PopHap>k__BackingField: 0
   <Inspiration>k__BackingField: 0
   <InspirationRequirement>k__BackingField: 15
   <PopulationAdded>k__BackingField: -1
+  <Pollution>k__BackingField: land
+  <PollutionAmount>k__BackingField: 2
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: 1b2e47765dc1a0e4da3e60e8edd6b7f0, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 4147389648118688711, guid: b1b4a48459f84c643b8fea295b88bbbf, type: 3}
