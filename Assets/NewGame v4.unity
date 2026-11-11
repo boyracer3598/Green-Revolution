@@ -451,11 +451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
-  food: 1000
-  wood: 1000
-  stone: 1000
-  fuel: 1999
-  crops: 1000
+  food: 100
+  wood: 100
+  stone: 100
+  fuel: 100
+  crops: 100
   SpecialMaterials: []
   Inspiration: 0
   baseDamage: 20
@@ -771,21 +771,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSystem
   world: {fileID: 950477252}
   buildingData1: {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
-  buildingData2: {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
-  buildingData3: {fileID: 11400000, guid: a6e97507f89539344886f7713dbd9ee2, type: 2}
+  buildingData2: {fileID: 11400000, guid: b263f41455bc9c746a68fadfd8b8178a, type: 2}
+  buildingData3: {fileID: 11400000, guid: f12abacf61ae0cb4ebfb6dcba04f1658, type: 2}
   previewPrefab: {fileID: 7485645782993581721, guid: 4c55f67ad826d0241ad509d6f0b5879c, type: 3}
   buildingPrefab: {fileID: 4179078616871795822, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
   grid: {fileID: 1320099256}
   mainCamera: {fileID: 1653509740}
   clickableDistance: 0
   buildings:
-  - {fileID: 11400000, guid: 0c4d40009c55714429d00f17a2184a64, type: 2}
-  - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
-  - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: b263f41455bc9c746a68fadfd8b8178a, type: 2}
+  - {fileID: 11400000, guid: 6f18ef48dac7cba4098b84585b99e6e7, type: 2}
+  - {fileID: 11400000, guid: d6dc92e5d6bc1704fa24a6d0bdb1809d, type: 2}
+  - {fileID: 11400000, guid: f12abacf61ae0cb4ebfb6dcba04f1658, type: 2}
   - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
-  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: 15c72629c2ddde243bb5402e90358a22, type: 2}
+  - {fileID: 11400000, guid: 5ea025e2db05d8149bef023280c16017, type: 2}
+  - {fileID: 11400000, guid: e25f7c939c4ad47458a49bda0624e06a, type: 2}
+  - {fileID: 11400000, guid: bf339eec914a5c444a5b1cf945097544, type: 2}
+  - {fileID: 11400000, guid: 5e1effe8a7dbb544e90796a024109ba5, type: 2}
   - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: 0b6b285cf487e3e46a88241e5dfa7591, type: 2}
+  - {fileID: 11400000, guid: f1c39990f55e15c4987e3ce617fad570, type: 2}
+  - {fileID: 11400000, guid: 8ec52e3211046ed4fabbbc4b5b352d35, type: 2}
+  - {fileID: 11400000, guid: 494e9e78662c49a4b97e0a935af6eeee, type: 2}
+  - {fileID: 11400000, guid: ce3d790d2a226724e88dd4393b977e2d, type: 2}
   - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
+  - {fileID: 11400000, guid: bddcd77353ae5b645b1a77ea4ec57fde, type: 2}
+  - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
+  - {fileID: 11400000, guid: 280dc97d9af0d0d4eaadd45e1d23e8f7, type: 2}
+  - {fileID: 11400000, guid: 5eb7576a4d8e1bd41871d182b96a67b1, type: 2}
+  - {fileID: 11400000, guid: 1e5e8e0bf9ce06a478c7b06b5b250818, type: 2}
+  - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
   PlaceSound: {fileID: 8300000, guid: 410f252684b2c354db553d547f274158, type: 3}
 --- !u!1 &1316843273
 GameObject:
@@ -878,11 +895,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataStorage
   buildingDatas:
-  - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
-  - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
-  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: b263f41455bc9c746a68fadfd8b8178a, type: 2}
+  - {fileID: 11400000, guid: d6dc92e5d6bc1704fa24a6d0bdb1809d, type: 2}
+  - {fileID: 11400000, guid: f12abacf61ae0cb4ebfb6dcba04f1658, type: 2}
+  - {fileID: 11400000, guid: 15c72629c2ddde243bb5402e90358a22, type: 2}
+  - {fileID: 11400000, guid: 5ea025e2db05d8149bef023280c16017, type: 2}
+  - {fileID: 11400000, guid: e25f7c939c4ad47458a49bda0624e06a, type: 2}
+  - {fileID: 11400000, guid: bf339eec914a5c444a5b1cf945097544, type: 2}
+  - {fileID: 11400000, guid: 5e1effe8a7dbb544e90796a024109ba5, type: 2}
   - {fileID: 11400000, guid: f5d7386955254d54ab3178b1e1376953, type: 2}
+  - {fileID: 11400000, guid: c646aecb8f80f26409e4cb9ad15c746c, type: 2}
+  - {fileID: 11400000, guid: 0b6b285cf487e3e46a88241e5dfa7591, type: 2}
+  - {fileID: 11400000, guid: f1c39990f55e15c4987e3ce617fad570, type: 2}
+  - {fileID: 11400000, guid: 8ec52e3211046ed4fabbbc4b5b352d35, type: 2}
+  - {fileID: 11400000, guid: 494e9e78662c49a4b97e0a935af6eeee, type: 2}
+  - {fileID: 11400000, guid: ce3d790d2a226724e88dd4393b977e2d, type: 2}
   - {fileID: 11400000, guid: 800135ef722b3334fba106519cffcce0, type: 2}
+  - {fileID: 11400000, guid: bddcd77353ae5b645b1a77ea4ec57fde, type: 2}
+  - {fileID: 11400000, guid: 861e3247cc9d2cd409d3363cc5d4cb11, type: 2}
+  - {fileID: 11400000, guid: 280dc97d9af0d0d4eaadd45e1d23e8f7, type: 2}
+  - {fileID: 11400000, guid: 5eb7576a4d8e1bd41871d182b96a67b1, type: 2}
+  - {fileID: 11400000, guid: 1e5e8e0bf9ce06a478c7b06b5b250818, type: 2}
+  - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
+  - {fileID: 11400000, guid: 6f18ef48dac7cba4098b84585b99e6e7, type: 2}
+  - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
 --- !u!1 &1320099254
 GameObject:
   m_ObjectHideFlags: 0

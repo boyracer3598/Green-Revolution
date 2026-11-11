@@ -52,6 +52,8 @@ public class BaseObject : MonoBehaviour
             case PolProduceTypes.LAND:
                 world.LandPollution += polChange;
                 break;
+            case PolProduceTypes.NONE:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }

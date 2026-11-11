@@ -33,5 +33,5 @@ MonoBehaviour:
   <PopulationAdded>k__BackingField: -1
   <Pollution>k__BackingField: water
   <PollutionAmount>k__BackingField: 1
-  <Model>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: ef15cf124765189458572955b536f62d, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 0}

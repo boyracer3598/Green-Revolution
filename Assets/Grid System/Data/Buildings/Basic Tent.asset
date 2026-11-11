@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
-  m_Name: Tent
+  m_Name: Basic Tent
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Basic Tent
   <Description>k__BackingField: Provides population and a little bit of happiness
@@ -28,11 +28,10 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0.1
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <PopHap>k__BackingField: 0
   <Inspiration>k__BackingField: 
   <InspirationRequirement>k__BackingField: 0
   <PopulationAdded>k__BackingField: 1
   <Pollution>k__BackingField: 
   <PollutionAmount>k__BackingField: 0
-  <Model>k__BackingField: {fileID: 2121956122045666456, guid: fa1029a9550d64547bd572fa37f02c67, type: 3}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: ef035629b2bf71442a88dfc6e9517634, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 0}

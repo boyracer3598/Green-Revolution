@@ -168,10 +168,11 @@ public class HUD_Events : MonoBehaviour
         BuildingData buildingData=new BuildingData();
         buildDetailUI.gameObject.SetActive(true);
         Button button = evt.target as Button;
-        buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+button.name;
+        //buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+button.name;
         foreach (BuildingData building in storage.buildingDatas)
         {
-            if (building.Name == button.name) {
+            if (building.Name.Replace(" ",string.Empty) == button.name) {
+                buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+building.Name;
                 buildingData = building;
             }
         }
