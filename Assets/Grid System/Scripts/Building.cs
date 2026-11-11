@@ -19,6 +19,10 @@ public class Building : MonoBehaviour
     public int inspirationRequirement => data.InspirationRequirement;
     public float PopulationHappiness => data.PopulationHappiness;
     public int PopulationAdded => data.PopulationAdded;
+    public int ProduceAmount => data.ProduceAmount;
+    public string ProduceType => data.ProduceType;
+    public string Pollution => data.Pollution;
+    public int PollutionAmount => data.PollutionAmount;
 
     private BuildingModel model;
     private BuildingData data;

@@ -18,7 +18,7 @@ public class BuildingObject : BaseObject
     [SerializeField] private int FoodUpkeep = 0;
     [SerializeField] private int FuelUpkeep = 0;
     [SerializeField] private int CropUpkeep = 0;
-    [SerializeField] private int population = 0;
+    public int population = 0;
     public bool canProvide = true;
     public int[] Inspiration = null;
 
@@ -53,11 +53,12 @@ public class BuildingObject : BaseObject
         if (population < 0)
         {
             world.EmployedPopulation += population;
-        } else
+        }
+        else
         {
             world.Population += population;
         }
-        switch(prodType)
+        switch (prodType.ToLower())
         {
             case "wood":
                 this.produceType = ProduceTypes.WOOD;
@@ -78,7 +79,7 @@ public class BuildingObject : BaseObject
                 this.produceType = ProduceTypes.NONE;
                 break;
         }
-        switch (pollution)
+        switch (pollution.ToLower())
         {
             case "air":
                 this.PolProduceType = PolProduceTypes.AIR;
@@ -175,13 +176,11 @@ public class BuildingObject : BaseObject
         this.PayUpkeepCosts();
         if (this.canProvide)
         {
-            Debug.Log("Providing resources for " + this.ObjectName);
             this.Harvest(false);
             world.ChangeSpMats(true, this.SpMats);
         }
         else
         {
-            Debug.Log("Not providing resources for " + this.ObjectName);
             world.ChangeSpMats(false, this.SpMats);
         }
     }

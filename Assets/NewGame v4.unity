@@ -963,8 +963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23220454cc547a46a09f64f7b03847c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingGrid
-  width: 100
-  height: 100
+  width: 50
+  height: 50
 --- !u!1 &1331786888
 GameObject:
   m_ObjectHideFlags: 0
