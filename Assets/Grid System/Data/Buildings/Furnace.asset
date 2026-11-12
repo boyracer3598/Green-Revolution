@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Furnace
   <Description>k__BackingField: Allows you to turn stone into metal and bricks
-  <SpMats>k__BackingField: metal, brick
+  <SpMats>k__BackingField: Metal, Bricks
   <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 0
   <FoodCost>k__BackingField: 0

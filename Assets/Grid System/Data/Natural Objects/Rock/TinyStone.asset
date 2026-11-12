@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51788b41a3ba52b4cafe7e5a28fc4fec, type: 3}
-  m_Name: FuelRock
+  m_Name: TinyStone
   m_EditorClassIdentifier: Assembly-CSharp::WorldObjData
-  <Name>k__BackingField: Coal Ore
-  <Description>k__BackingField: A node of coal ore.
+  <Name>k__BackingField: Tiny Stone
+  <Description>k__BackingField: Littler and cuter
   <PopulationHappiness>k__BackingField: 0
-  <ProduceAmount>k__BackingField: 5
-  <ProduceType>k__BackingField: fuel
-  <BaseHP>k__BackingField: 0
-  <HPVariableLow>k__BackingField: 0
-  <HPVariableHigh>k__BackingField: 0
-  <Weighting>k__BackingField: 25
-  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 630ff5fd17aa7c6419dd67147fa50da0, type: 3}
+  <ProduceAmount>k__BackingField: 4
+  <ProduceType>k__BackingField: stone
+  <BaseHP>k__BackingField: 20
+  <HPVariableLow>k__BackingField: -5
+  <HPVariableHigh>k__BackingField: 20
+  <Weighting>k__BackingField: 15
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 36babe77bd684b14ebb350906cba638d, type: 3}

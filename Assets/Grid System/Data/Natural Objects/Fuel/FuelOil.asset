@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: Oil Pubble
   <Description>k__BackingField: Wow oil has come out of the ground
   <PopulationHappiness>k__BackingField: 0
-  <ProduceAmount>k__BackingField: 5
+  <ProduceAmount>k__BackingField: 25
   <ProduceType>k__BackingField: fuel
-  <BaseHP>k__BackingField: 0
+  <BaseHP>k__BackingField: 5
   <HPVariableLow>k__BackingField: 0
   <HPVariableHigh>k__BackingField: 0
   <Weighting>k__BackingField: 25

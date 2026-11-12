@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51788b41a3ba52b4cafe7e5a28fc4fec, type: 3}
+  m_Name: UraniumOre
+  m_EditorClassIdentifier: Assembly-CSharp::WorldObjData
+  <Name>k__BackingField: Uranium Ore
+  <Description>k__BackingField: A node of Uranium, surprisingly doesn't pollute the
+    world.
+  <PopulationHappiness>k__BackingField: 0
+  <ProduceAmount>k__BackingField: 50
+  <ProduceType>k__BackingField: fuel
+  <BaseHP>k__BackingField: 100
+  <HPVariableLow>k__BackingField: -20
+  <HPVariableHigh>k__BackingField: 40
+  <Weighting>k__BackingField: 10
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 630ff5fd17aa7c6419dd67147fa50da0, type: 3}

@@ -10,6 +10,7 @@ public class WorldObject : BaseObject
     [SerializeField] private int HpDiminish = 0; // the permanent damage dealt to each object
     public void AddData(string Name, string desc, int popHap, string produces, int produceAmt, float BaseHP, float low, float high)
     {
+        world = GameObject.FindAnyObjectByType<WorldVariables>();
         this.ObjectName = Name;
         this.name = string.Join("-", Name, UnityEngine.Random.Range(0, 1000).ToString());
         this.Description = desc;

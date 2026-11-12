@@ -494,11 +494,16 @@ MonoBehaviour:
   rocks:
   - {fileID: 11400000, guid: 35ee66599e124b1499a9b274ec85bd4c, type: 2}
   - {fileID: 11400000, guid: c1be8822fbc2af640b1add98d7f5bc00, type: 2}
+  - {fileID: 11400000, guid: 6b1f6049f9158e2439657f6a39f64321, type: 2}
+  - {fileID: 11400000, guid: 9e3f8674c56f03e45804a13c3993c620, type: 2}
   fuel:
   - {fileID: 11400000, guid: e00cde1dfa2d5ce4b8441c5658abb4d3, type: 2}
   - {fileID: 11400000, guid: f101ef8652d526e48b3c1fc698e1d524, type: 2}
+  - {fileID: 11400000, guid: 92e00dd15038cce44839c616db85d9d3, type: 2}
   plants:
   - {fileID: 11400000, guid: 7f2324f05a7d68a49bf48d38b5b21226, type: 2}
+  - {fileID: 11400000, guid: 34403fba43aac05438ed137504f12017, type: 2}
+  - {fileID: 11400000, guid: 684bea478f890174987beb60f0ffac95, type: 2}
 --- !u!1 &1049513187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,8 +1126,8 @@ Transform:
   m_GameObject: {fileID: 1480190919}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 50.027, y: -0, z: 50.0056}
-  m_LocalScale: {x: 99.9882, y: 99.97073, z: 1}
+  m_LocalPosition: {x: 25.0007, y: 0, z: 25.1353}
+  m_LocalScale: {x: 49.934105, y: 50.225296, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 306239772}
