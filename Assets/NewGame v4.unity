@@ -465,6 +465,7 @@ MonoBehaviour:
   worldGen: {fileID: 950477253}
   NormalBuilding: {fileID: 1084248209476445525, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
   whenUpdate: 10
+  DefaultWhenUpdate: 30
   LandPollutionHappinessDampener: 0.01
   AirPollutionProduceDampener: 0.1
   WaterPollutionSicknessChance: 0.001
@@ -924,6 +925,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c02267527c278cd46b85b82ab148bc40, type: 2}
   - {fileID: 11400000, guid: 6f18ef48dac7cba4098b84585b99e6e7, type: 2}
   - {fileID: 11400000, guid: e3445055a17f4bd4f8b60ade69054972, type: 2}
+  UI:
+  - {fileID: 1308943959231178960, guid: 9c4904aff4f052d44b87b3fed47f6e33, type: 3}
 --- !u!1 &1320099254
 GameObject:
   m_ObjectHideFlags: 0

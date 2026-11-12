@@ -37,7 +37,8 @@ public class WorldVariables : MonoBehaviour
     public float TimeSinceLastUpkeep = 0;
     [SerializeField] private WorldGen worldGen;
     public BuildingObject NormalBuilding;
-    [SerializeField] private float whenUpdate = 10f;
+    [SerializeField] private float whenUpdate = 30f;
+    public float DefaultWhenUpdate = 30f;
     [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
     [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
@@ -126,7 +127,6 @@ public class WorldVariables : MonoBehaviour
     }
     void TriggerUpkeep()
     {
-        Debug.Log("Triggering upkeep");
         float newHappiness = 0f;
         BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
         float sickPpl = UnityEngine.Random.Range(0, (2 * WaterPollution * WaterPollutionSicknessChance * Population)); // Chance for population to get sick based on water pollution
@@ -143,7 +143,7 @@ public class WorldVariables : MonoBehaviour
                 newHappiness += building.populationHappiness;
             }
         }
-        PopulationHappiness = CalculateHappiness(newHappiness);
+        PopulationHappiness = CalculateHappiness(50 + newHappiness);
         UpdateInspiration();
     }
     public void CreateChallenge()
@@ -164,10 +164,10 @@ public class WorldVariables : MonoBehaviour
                     RequiredPollution = 5 * UnityEngine.Random.Range(0, 5);
                     break;
                 case ChallengeType.Happiness:
-                    RequiredHappiness = 5 * UnityEngine.Random.Range(14, 20);
+                    RequiredHappiness = 5 * UnityEngine.Random.Range(10, 16);
                     break;
                 case ChallengeType.Population:
-                    RequiredPopulation = 10 * UnityEngine.Random.Range(50, 150);
+                    RequiredPopulation = 10 * UnityEngine.Random.Range(5, 25);
                     break;
                 case ChallengeType.Inspiration:
                     RequiredInspiration = 5 * UnityEngine.Random.Range(6, 11);
@@ -204,17 +204,22 @@ public class WorldVariables : MonoBehaviour
                 strPt2 = "minimum of " + RequiredHappiness + " total happiness";
                 break;
             case ChallengeType.Population:
-                strPt2 = "population of " + RequiredPopulation;
+                strPt2 = "a population of " + RequiredPopulation;
                 break;
             case ChallengeType.Inspiration:
                 strPt2 = "at least " + RequiredInspiration + " inspiration";
                 break;
         }
-        return "Have" + strPt1 + " with " + strPt2;
+        return "Have " + strPt1 + " with " + strPt2;
     }
     // Update is called once per frame
     void Update()
     {
+        if (PlayerPrefs.GetFloat("SlowMode") != whenUpdate)
+        {
+            whenUpdate = PlayerPrefs.GetFloat("SlowMode");
+        }
+
         worldGen.WorldStart();
         if (!hasWon)
         {
@@ -243,9 +248,12 @@ public class WorldVariables : MonoBehaviour
         {
             PopulationHappiness = 1;
         }
+        
     }
     private void FixedUpdate()
     {
+        
+
         if (TimeSinceLastUpkeep >= whenUpdate)
         {
             TriggerUpkeep();

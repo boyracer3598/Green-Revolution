@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4584fdedc45b1954bbd7bc6e1be7fe2f, type: 3}
-  m_Name: Paper Processing Factory
+  m_Name: Paper Factory
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
-  <Name>k__BackingField: Paper Processing Factory
+  <Name>k__BackingField: Paper Factory
   <Description>k__BackingField: Creates paper
   <SpMats>k__BackingField: Paper
   <SpMatsNeeds>k__BackingField: Gears

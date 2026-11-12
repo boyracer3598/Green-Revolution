@@ -68,6 +68,12 @@ public class NewsBuilding : BuildingObject
     {
         string article = ArticleCreation();
         Debug.Log(article);
-        // world.PopupCreate(article)
+        GameObject popup = Instantiate(GameObject.FindAnyObjectByType<DataStorage>().UI[0]);
+        PopupEvents actualPopup = popup.GetComponent<PopupEvents>();
+        actualPopup.UpdatePopUp(article);
+        
     }
+
+    
+
 }

@@ -60,7 +60,7 @@ public class CameraMove : MonoBehaviour
                 
                 if (mouseClick.IsPressed())
                 {
-                    CameraPan(mousePosition.x, mousePosition.y);
+                    CameraPan(-mousePosition.x, -mousePosition.y);
                 } else if (cameraMove.IsPressed()){
                     CameraPan(cameraInputKeyboard.x, cameraInputKeyboard.y);
                 }
@@ -68,7 +68,7 @@ public class CameraMove : MonoBehaviour
             case cameraDirection.EAST:
                 if (mouseClick.IsPressed())
                 {
-                    CameraPan(mousePosition.y, -mousePosition.x);
+                    CameraPan(-mousePosition.y, mousePosition.x);
                 } else if (cameraMove.IsPressed()){
                     CameraPan(cameraInputKeyboard.y, -cameraInputKeyboard.x);
                 }
@@ -76,7 +76,7 @@ public class CameraMove : MonoBehaviour
             case cameraDirection.SOUTH:
                 if (mouseClick.IsPressed())
                 {
-                    CameraPan(-mousePosition.x, -mousePosition.y);
+                    CameraPan(mousePosition.x, mousePosition.y);
                 } else if (cameraMove.IsPressed()){
                     CameraPan(-cameraInputKeyboard.x, -cameraInputKeyboard.y);
                 }
@@ -84,7 +84,7 @@ public class CameraMove : MonoBehaviour
             case cameraDirection.WEST:
                 if (mouseClick.IsPressed())
                 {
-                    CameraPan(-mousePosition.y, mousePosition.x);
+                    CameraPan(mousePosition.y, -mousePosition.x);
                 } else if (cameraMove.IsPressed()){
                     CameraPan(-cameraInputKeyboard.y, cameraInputKeyboard.x);
                 }

@@ -566,10 +566,110 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1437503256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437503259}
+  - component: {fileID: 1437503258}
+  - component: {fileID: 1437503257}
+  m_Layer: 0
+  m_Name: WorldDefault
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1437503257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437503256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc000d3e0d653d49b5d313a19f960d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldVariables
+  food: 100
+  wood: 100
+  stone: 100
+  fuel: 100
+  crops: 100
+  SpecialMaterials: []
+  Inspiration: 0
+  baseDamage: 20
+  basePermDamage: 5
+  safeDestroy: 0
+  TimeSinceLastUpkeep: 0
+  worldGen: {fileID: 1437503258}
+  NormalBuilding: {fileID: 1084248209476445525, guid: 030bcb1e8aaf44d408dde7804f036d9c, type: 3}
+  whenUpdate: 10
+  DefaultWhenUpdate: 30
+  LandPollutionHappinessDampener: 0.01
+  AirPollutionProduceDampener: 0.1
+  WaterPollutionSicknessChance: 0.001
+  HappinessFromNature: 0
+  HappinessLost: 0
+  sickChance: 0.5
+  hasWon: 0
+--- !u!114 &1437503258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437503256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba438d60e234948449c782aec229ad1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldGen
+  grid: {fileID: 0}
+  wObjPrefab: {fileID: -3427656420723023712, guid: 6d82ed75901d1ce41b620c91610367ea, type: 3}
+  trees:
+  - {fileID: 11400000, guid: b21c634e2c90f284ab861495d259454b, type: 2}
+  - {fileID: 11400000, guid: 3975c898450f8384cb26a8ac2e555df6, type: 2}
+  - {fileID: 11400000, guid: 4759343683864d748b6b8ca635c1551f, type: 2}
+  - {fileID: 11400000, guid: 2ef77e9b6f1061748a1f103880591dd8, type: 2}
+  rocks:
+  - {fileID: 11400000, guid: 35ee66599e124b1499a9b274ec85bd4c, type: 2}
+  - {fileID: 11400000, guid: c1be8822fbc2af640b1add98d7f5bc00, type: 2}
+  - {fileID: 11400000, guid: 6b1f6049f9158e2439657f6a39f64321, type: 2}
+  - {fileID: 11400000, guid: 9e3f8674c56f03e45804a13c3993c620, type: 2}
+  fuel:
+  - {fileID: 11400000, guid: e00cde1dfa2d5ce4b8441c5658abb4d3, type: 2}
+  - {fileID: 11400000, guid: f101ef8652d526e48b3c1fc698e1d524, type: 2}
+  - {fileID: 11400000, guid: 92e00dd15038cce44839c616db85d9d3, type: 2}
+  plants:
+  - {fileID: 11400000, guid: 7f2324f05a7d68a49bf48d38b5b21226, type: 2}
+  - {fileID: 11400000, guid: 34403fba43aac05438ed137504f12017, type: 2}
+  - {fileID: 11400000, guid: 684bea478f890174987beb60f0ffac95, type: 2}
+--- !u!4 &1437503259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437503256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.56154, y: 0, z: 1.58932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1437503259}
   - {fileID: 1087448831}
   - {fileID: 1050234877}
   - {fileID: 1151496067}
