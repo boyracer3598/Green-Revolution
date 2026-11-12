@@ -49,7 +49,7 @@ public class mainMenuEvents : MonoBehaviour
         LoadingUIDoc= loadingPanel.GetComponent<UIDocument>();
         loadingBar = LoadingUIDoc.rootVisualElement.Q("Loading")as ProgressBar;
         //start load async
-        StartCoroutine(LoadGameAsync("NewGame v4"));
+        StartCoroutine(LoadGameAsync("NewGame"));
         
     }
     public IEnumerator LoadGameAsync(string levelName)

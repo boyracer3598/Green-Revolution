@@ -46,7 +46,7 @@ public class WorldVariables : MonoBehaviour
     public float HappinessLost = 0;
     public double sickChance = 0.5;
     public bool hasWon = false;
-
+    [SerializeField] private AudioClip winSound;
     public void ChangeSpMats(bool Add, string Material)
     {
         // If Add is true, adds the material to the list of special materials, if it isn't, it removes it.
@@ -217,7 +217,15 @@ public class WorldVariables : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("SlowMode") != whenUpdate)
         {
-            whenUpdate = PlayerPrefs.GetFloat("SlowMode");
+            if (PlayerPrefs.GetFloat("SlowMode") <= 0)
+            {
+                PlayerPrefs.SetFloat("SlowMode", DefaultWhenUpdate);
+            }
+            else
+            {
+                whenUpdate = PlayerPrefs.GetFloat("SlowMode");
+            }
+            
         }
 
         worldGen.WorldStart();
@@ -237,6 +245,11 @@ public class WorldVariables : MonoBehaviour
             if (hasWon)
             {
                 // this.PopupCreate("Challenge Completed! Would you like to continue?");
+                SoundManager.instance.PlaySoundClip(winSound,this.transform,1);
+                //creates a popup object to show the popup
+                GameObject popup = Instantiate(GameObject.FindAnyObjectByType<DataStorage>().UI[0]);
+                PopupEvents actualPopup = popup.GetComponent<PopupEvents>();
+                actualPopup.UpdatePopUp("Challenge completed \n Congratulations! You won!");
                 Debug.Log("Challenge Completed");
             }
         }
