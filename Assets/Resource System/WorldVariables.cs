@@ -17,7 +17,7 @@ public class WorldVariables : MonoBehaviour
     public int AirPollution { get; set; }
     public int WaterPollution { get; set; }
     public int LandPollution { get; set; }
-    public float PopulationHappiness { get; set; } = 0.5f; // with world creation, maybe add a setting to choose your starting happiness?
+    public float PopulationHappiness { get; set; } = 0.3f; // with world creation, maybe add a setting to choose your starting happiness?
     public int Population { get; set; } = 0;
     public int EmployedPopulation { get; set; } = 0;
     public int IllPopulation { get; set; } = 0;
@@ -37,7 +37,8 @@ public class WorldVariables : MonoBehaviour
     public float TimeSinceLastUpkeep = 0;
     [SerializeField] private WorldGen worldGen;
     public BuildingObject NormalBuilding;
-    [SerializeField] private float whenUpdate = 10f;
+    [SerializeField] private float whenUpdate = 30f;
+    public float DefaultWhenUpdate = 30f;
     [SerializeField] private float LandPollutionHappinessDampener = 1f; // Dampens happiness based on land pollution, 1 = 1% happiness lost per point of land pollution
     [SerializeField] private float AirPollutionProduceDampener = 0.1f; // Chance for buildings to not produce due to air pollution, 0.1 = 0.1% chance per point of air pollution
     [SerializeField] private float WaterPollutionSicknessChance = 0.1f; // The chance for the population to get sick based on water pollution, 0.1 = 0.1% chance per point of water pollution
@@ -45,18 +46,24 @@ public class WorldVariables : MonoBehaviour
     public float HappinessLost = 0;
     public double sickChance = 0.5;
     public bool hasWon = false;
-
+    [SerializeField] private AudioClip winSound;
     public void ChangeSpMats(bool Add, string Material)
     {
         // If Add is true, adds the material to the list of special materials, if it isn't, it removes it.
         // Does nothing if the material is already in the list and Add is true, or if the material is not in the list and Add is false.
-        if (Add && !SpecialMaterials.Contains(Material))
-        {
-            this.SpecialMaterials.Add(Material);
-        }
-        else if (!Add && SpecialMaterials.Contains(Material))
-        {
-            this.SpecialMaterials.Remove(Material);
+        string[] MaterialArray = new string[0];
+        MaterialArray = Material.Split(',');
+        foreach (string MaterialString in MaterialArray)
+        { 
+            string thisMat = MaterialString.Replace(" ", "");
+            if (Add && !SpecialMaterials.Contains(thisMat))
+            {
+                this.SpecialMaterials.Add(thisMat);
+            }
+            else if (!Add && SpecialMaterials.Contains(thisMat))
+            {
+                this.SpecialMaterials.Remove(thisMat);
+            }
         }
     }
     public void setDayLength(float length)
@@ -83,50 +90,19 @@ public class WorldVariables : MonoBehaviour
 
         int totalInspiration = 0;
 
-        // Count how many buildings of each name have inspiration
-        Dictionary<string, int> buildingCounts = new Dictionary<string, int>();
-
-        // Cache inspiration arrays for each building name to avoid repeated queries
-        Dictionary<string, int[]> inspirationCache = new Dictionary<string, int[]>();
-
         // Count buildings with inspiration
         foreach (var building in buildings)
         {
-            if (building.Inspiration != null && building.Inspiration.Length > 0 && building.canProvide)
+            if (building.Inspiration != 0)
             {
-                if (buildingCounts.ContainsKey(building.name))
-                {
-                    buildingCounts[building.name]++;
-                }
-                else
-                {
-                    buildingCounts[building.name] = 1;
-                    inspirationCache[building.name] = building.Inspiration;
-                }
+                totalInspiration += building.Inspiration;
+                
             }
         }
-
-        // Calculate total inspiration based on counts and inspiration arrays
-        foreach (var kvp in buildingCounts)
-        {
-            string buildingName = kvp.Key;
-            int count = kvp.Value;
-            int[] inspirationArray = inspirationCache[buildingName];
-
-            // Loop up to the minimum of count and inspiration array length
-            int loops = Mathf.Min(count, inspirationArray.Length);
-
-            for (int i = 0; i < loops; i++)
-            {
-                totalInspiration += inspirationArray[i];
-            }
-        }
-
         this.Inspiration = totalInspiration;
     }
     void TriggerUpkeep()
     {
-        Debug.Log("Triggering upkeep");
         float newHappiness = 0f;
         BuildingObject[] buildings = FindObjectsByType<BuildingObject>(FindObjectsSortMode.None).ToArray();
         float sickPpl = UnityEngine.Random.Range(0, (2 * WaterPollution * WaterPollutionSicknessChance * Population)); // Chance for population to get sick based on water pollution
@@ -143,12 +119,12 @@ public class WorldVariables : MonoBehaviour
                 newHappiness += building.populationHappiness;
             }
         }
-        PopulationHappiness = CalculateHappiness(newHappiness);
-        UpdateInspiration();
+        PopulationHappiness = CalculateHappiness(30 + newHappiness);
+        PopulationHappiness = CalculateHappiness(30 + newHappiness);
     }
     public void CreateChallenge()
     {
-        ChallengePt1 = (ChallengeType)UnityEngine.Random.Range(0, 4);
+        ChallengePt1 = ChallengeType.Population;
         ChallengePt2 = (ChallengeType)UnityEngine.Random.Range(0, 4);
         while (ChallengePt2 == ChallengePt1)
         {
@@ -164,13 +140,13 @@ public class WorldVariables : MonoBehaviour
                     RequiredPollution = 5 * UnityEngine.Random.Range(0, 5);
                     break;
                 case ChallengeType.Happiness:
-                    RequiredHappiness = 5 * UnityEngine.Random.Range(14, 20);
+                    RequiredHappiness = 5 * UnityEngine.Random.Range(12, 16);
                     break;
                 case ChallengeType.Population:
-                    RequiredPopulation = 10 * UnityEngine.Random.Range(50, 150);
+                    RequiredPopulation = 10 * UnityEngine.Random.Range(5, 25);
                     break;
                 case ChallengeType.Inspiration:
-                    RequiredInspiration = 5 * UnityEngine.Random.Range(6, 11);
+                    RequiredInspiration = 5 * UnityEngine.Random.Range(4, 10);
                     break;
             }
         }
@@ -204,17 +180,30 @@ public class WorldVariables : MonoBehaviour
                 strPt2 = "minimum of " + RequiredHappiness + " total happiness";
                 break;
             case ChallengeType.Population:
-                strPt2 = "population of " + RequiredPopulation;
+                strPt2 = "a population of " + RequiredPopulation;
                 break;
             case ChallengeType.Inspiration:
                 strPt2 = "at least " + RequiredInspiration + " inspiration";
                 break;
         }
-        return "Have" + strPt1 + " with " + strPt2;
+        return "Have " + strPt1 + " with " + strPt2;
     }
     // Update is called once per frame
     void Update()
     {
+        if (PlayerPrefs.GetFloat("SlowMode") != whenUpdate)
+        {
+            if (PlayerPrefs.GetFloat("SlowMode") <= 0)
+            {
+                PlayerPrefs.SetFloat("SlowMode", DefaultWhenUpdate);
+            }
+            else
+            {
+                whenUpdate = PlayerPrefs.GetFloat("SlowMode");
+            }
+            
+        }
+
         worldGen.WorldStart();
         if (!hasWon)
         {
@@ -232,6 +221,11 @@ public class WorldVariables : MonoBehaviour
             if (hasWon)
             {
                 // this.PopupCreate("Challenge Completed! Would you like to continue?");
+                SoundManager.instance.PlaySoundClip(winSound,this.transform,1);
+                //creates a popup object to show the popup
+                GameObject popup = Instantiate(GameObject.FindAnyObjectByType<DataStorage>().UI[0]);
+                PopupEvents actualPopup = popup.GetComponent<PopupEvents>();
+                actualPopup.UpdatePopUp("Challenge completed \n Congratulations! You won!");
                 Debug.Log("Challenge Completed");
             }
         }
@@ -243,6 +237,7 @@ public class WorldVariables : MonoBehaviour
         {
             PopulationHappiness = 1;
         }
+        
     }
     private void FixedUpdate()
     {

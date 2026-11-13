@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: University
   <Description>k__BackingField: 'Not to be confused with the multiversity. Provides
     insight and higher education '
-  <SpMats>k__BackingField: Higher Education
+  <SpMats>k__BackingField: Higher Education, Education
   <SpMatsNeeds>k__BackingField: Education
   <WoodCost>k__BackingField: 250
   <FoodCost>k__BackingField: 0
@@ -29,8 +29,8 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 0
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <Inspiration>k__BackingField: 5/5/0
-  <InspirationRequirement>k__BackingField: 35
+  <Inspiration>k__BackingField: 5
+  <InspirationRequirement>k__BackingField: 20
   <PopulationAdded>k__BackingField: -15
   <Pollution>k__BackingField: 
   <PollutionAmount>k__BackingField: 0

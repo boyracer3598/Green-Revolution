@@ -168,18 +168,21 @@ public class HUD_Events : MonoBehaviour
         BuildingData buildingData=new BuildingData();
         buildDetailUI.gameObject.SetActive(true);
         Button button = evt.target as Button;
-        buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+button.name;
+        //buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+button.name;
         foreach (BuildingData building in storage.buildingDatas)
         {
-            if (building.Name == button.name) {
+            if (building.Name.Replace(" ",string.Empty) == button.name) {
+                buildDetailUI.rootVisualElement.Q<Label>("Name").text = "Name: "+building.Name;
                 buildingData = building;
             }
         }
         buildDetailUI.rootVisualElement.Q<Label>("WoodAmount").text = buildingData.WoodCost.ToString();
-        buildDetailUI.rootVisualElement.Q<Label>("CropAmount").text = "0";
+        buildDetailUI.rootVisualElement.Q<Label>("InspirationAmount").text = buildingData.InspirationRequirement.ToString();
         buildDetailUI.rootVisualElement.Q<Label>("FoodAmount").text = buildingData.FoodCost.ToString();
         buildDetailUI.rootVisualElement.Q<Label>("StoneAmount").text = buildingData.StoneCost.ToString();
         buildDetailUI.rootVisualElement.Q<Label>("FuelAmount").text = buildingData.FuelCost.ToString();
+        buildDetailUI.rootVisualElement.Q<Label>("SPMats").text=buildingData.SpMats.ToString();
+        buildDetailUI.rootVisualElement.Q<Label>("requirements").text=buildingData.SpMatsNeeds.ToString();
     }
 
     private void HideBuildDetails(PointerLeaveEvent evt)

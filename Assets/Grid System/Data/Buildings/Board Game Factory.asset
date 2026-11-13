@@ -30,9 +30,9 @@ MonoBehaviour:
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <Inspiration>k__BackingField: 
-  <InspirationRequirement>k__BackingField: 50
+  <InspirationRequirement>k__BackingField: 25
   <PopulationAdded>k__BackingField: -3
   <Pollution>k__BackingField: air
   <PollutionAmount>k__BackingField: 5
-  <Model>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 10bb98f5ee8cb714da5b463c2f95ab2e, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 3855603074102175449, guid: 3c256d63715447247a221e471f69978c, type: 3}

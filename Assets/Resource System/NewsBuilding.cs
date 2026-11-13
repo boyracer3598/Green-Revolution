@@ -25,6 +25,7 @@ public class NewsBuilding : BuildingObject
  
     public override void Placed()
     {
+        base.Placed();
         string filePathJson = Application.streamingAssetsPath + "/ArticleData.json";
         string[] fileText = File.ReadAllLines(filePathJson);
         string fileTextOneLine = "";
@@ -68,6 +69,12 @@ public class NewsBuilding : BuildingObject
     {
         string article = ArticleCreation();
         Debug.Log(article);
-        // world.PopupCreate(article)
+        GameObject popup = Instantiate(GameObject.FindAnyObjectByType<DataStorage>().UI[0]);
+        PopupEvents actualPopup = popup.GetComponent<PopupEvents>();
+        actualPopup.UpdatePopUp(article);
+        
     }
+
+    
+
 }

@@ -17,8 +17,8 @@ MonoBehaviour:
   <PopulationHappiness>k__BackingField: 2
   <ProduceAmount>k__BackingField: 35
   <ProduceType>k__BackingField: wood
-  <BaseHP>k__BackingField: 35
-  <HPVariableLow>k__BackingField: -5
-  <HPVariableHigh>k__BackingField: 10
+  <BaseHP>k__BackingField: 50
+  <HPVariableLow>k__BackingField: -10
+  <HPVariableHigh>k__BackingField: 30
   <Weighting>k__BackingField: 30
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: dd1f28c5dfbcd1740a9f55199d238661, type: 3}

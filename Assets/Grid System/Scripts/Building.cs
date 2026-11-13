@@ -15,10 +15,14 @@ public class Building : MonoBehaviour
     public int CropUpkeep => data.CropUpkeep;
     public string SpMats => data.SpMats;
     public string SpMatsNeeds => data.SpMatsNeeds;
-    public string inspiration => data.Inspiration;
+    public int inspiration => data.Inspiration;
     public int inspirationRequirement => data.InspirationRequirement;
     public float PopulationHappiness => data.PopulationHappiness;
     public int PopulationAdded => data.PopulationAdded;
+    public int ProduceAmount => data.ProduceAmount;
+    public string ProduceType => data.ProduceType;
+    public string Pollution => data.Pollution;
+    public int PollutionAmount => data.PollutionAmount;
 
     private BuildingModel model;
     private BuildingData data;

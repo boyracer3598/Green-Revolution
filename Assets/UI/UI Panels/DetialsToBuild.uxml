@@ -1,18 +1,14 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=f2a936d679f84cf44b3d3dc98680c531&amp;type=3#MainMenuStyles"/>
     <ui:GroupBox name="screen">
-        <ui:GroupBox name="body" style="margin-left: 760px; margin-top: 830px;">
-            <ui:GroupBox name="wrapper" style="background-color: rgb(117, 200, 147); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-left-width: 18px; border-top-width: 7px; width: 350px; height: 215px;">
+        <ui:GroupBox name="body" style="margin-left: 760px; margin-top: 675px;">
+            <ui:GroupBox name="wrapper" style="background-color: rgb(117, 200, 147); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-left-width: 18px; border-top-width: 7px; width: 350px; height: 401px;">
                 <ui:Label text="Name:" name="Name" class="detailText"/>
                 <ui:Label text="Cost" name="Cost" class="detailText" style="-unity-text-align: upper-center;"/>
                 <ui:GroupBox style="flex-direction: row; margin-top: -9px;">
                     <ui:GroupBox>
                         <ui:Image source="project://database/Assets/UI/Icons/wood.png?fileID=2800000&amp;guid=e04bc7d79851ce14a93c0fbc33976679&amp;type=3#wood" style="width: 50px; height: 50px; background-color: rgb(158, 101, 25); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"/>
                         <ui:Label text="1&#10;" name="WoodAmount" class="detailText" style="-unity-text-align: upper-center; font-size: 25px;"/>
-                    </ui:GroupBox>
-                    <ui:GroupBox>
-                        <ui:Image source="project://database/Assets/UI/Icons/wheat.png?fileID=2800000&amp;guid=e69617eba0fc5ec45bd95bf33f589c4e&amp;type=3#wheat" style="width: 50px; height: 50px; background-color: rgb(158, 101, 25); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"/>
-                        <ui:Label text="1&#10;" name="CropAmount" class="detailText" style="-unity-text-align: upper-center; font-size: 25px;"/>
                     </ui:GroupBox>
                     <ui:GroupBox>
                         <ui:Image source="project://database/Assets/UI/Icons/food.png?fileID=2800000&amp;guid=fc6a262ad452393488052c3226f14095&amp;type=3#food" style="width: 50px; height: 50px; background-color: rgb(158, 101, 25); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"/>
@@ -26,6 +22,18 @@
                         <ui:Image source="project://database/Assets/UI/Icons/fuel.png?fileID=2800000&amp;guid=12569d06a2ed14e419def523157a72f6&amp;type=3#fuel" style="width: 50px; height: 50px; background-color: rgb(158, 101, 25); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"/>
                         <ui:Label text="1&#10;" name="FuelAmount" class="detailText" style="-unity-text-align: upper-center; font-size: 25px;"/>
                     </ui:GroupBox>
+                    <ui:GroupBox name="GroupBox">
+                        <ui:Image source="project://database/Assets/UI/Icons/36682-9-light-bulb-hd.png?fileID=2800000&amp;guid=770aa2e5ee14b8f4bbfe2b69c0effc78&amp;type=3#36682-9-light-bulb-hd" style="width: 50px; height: 50px; background-color: rgb(158, 101, 25); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"/>
+                        <ui:Label text="1&#10;" name="InspirationAmount" class="detailText" style="-unity-text-align: upper-center; font-size: 25px;"/>
+                    </ui:GroupBox>
+                </ui:GroupBox>
+                <ui:GroupBox name="GroupBox" style="flex-direction: row;">
+                    <ui:Label text="SP Mats:" class="detailText"/>
+                    <ui:Label text=" " name="SPMats" class="detailText" style="height: auto; width: 200px; white-space: normal;"/>
+                </ui:GroupBox>
+                <ui:GroupBox name="GroupBox" style="flex-direction: row;">
+                    <ui:Label text="Reqs:" class="detailText"/>
+                    <ui:Label text="" name="requirements" class="detailText"/>
                 </ui:GroupBox>
             </ui:GroupBox>
         </ui:GroupBox>

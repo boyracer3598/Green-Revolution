@@ -11,6 +11,7 @@ public class Lumber : BuildingObject
 
     public override void Placed()
     {
+        base.Placed();
         worldGen = GameObject.FindFirstObjectByType<WorldGen>();
         treeList = worldGen.trees;
         grid = GameObject.FindFirstObjectByType<BuildingGrid>();

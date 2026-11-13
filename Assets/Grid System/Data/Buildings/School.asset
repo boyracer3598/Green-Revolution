@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: School
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: School
-  <Description>k__BackingField: Students learn here, increases insight while happiness
-    is high
+  <Description>k__BackingField: Students learn here, increases inspiration
   <SpMats>k__BackingField: Education
   <SpMatsNeeds>k__BackingField: Bricks
   <WoodCost>k__BackingField: 150

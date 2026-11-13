@@ -15,10 +15,10 @@ MonoBehaviour:
   <Name>k__BackingField: Ash Tree
   <Description>k__BackingField: Its not made of ash, its just the name of the wood
   <PopulationHappiness>k__BackingField: 1
-  <ProduceAmount>k__BackingField: 35
+  <ProduceAmount>k__BackingField: 15
   <ProduceType>k__BackingField: wood
-  <BaseHP>k__BackingField: 35
+  <BaseHP>k__BackingField: 20
   <HPVariableLow>k__BackingField: -5
-  <HPVariableHigh>k__BackingField: 10
-  <Weighting>k__BackingField: 30
+  <HPVariableHigh>k__BackingField: 20
+  <Weighting>k__BackingField: 40
   <Model>k__BackingField: {fileID: 2121956122045666456, guid: b02d55b526f9ecf40ae39a4742f4ecba, type: 3}

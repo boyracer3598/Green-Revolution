@@ -30,12 +30,13 @@ public class BaseObject : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        world = GameObject.FindFirstObjectByType<WorldVariables>();
+        
     }
     public virtual void RemoveObject(bool pos)
     {
         world.HappinessLost += populationHappiness;
         UpdatePollution(pos);
+        world.UpdateInspiration();
         Destroy(this.gameObject);
     }
     void UpdatePollution(bool pos)
@@ -51,6 +52,8 @@ public class BaseObject : MonoBehaviour
                 break;
             case PolProduceTypes.LAND:
                 world.LandPollution += polChange;
+                break;
+            case PolProduceTypes.NONE:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: Spruce Tree
   <Description>k__BackingField: its a tall tree try to climb it
   <PopulationHappiness>k__BackingField: 2
-  <ProduceAmount>k__BackingField: 35
+  <ProduceAmount>k__BackingField: 20
   <ProduceType>k__BackingField: wood
-  <BaseHP>k__BackingField: 35
+  <BaseHP>k__BackingField: 70
   <HPVariableLow>k__BackingField: -5
   <HPVariableHigh>k__BackingField: 10
   <Weighting>k__BackingField: 30

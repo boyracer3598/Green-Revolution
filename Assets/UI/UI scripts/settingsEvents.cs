@@ -11,10 +11,28 @@ public class settingsEvents : MonoBehaviour
     private SliderInt FXVolume;
     private SliderInt MusicVolume;
     private Toggle MuteSounds;
+
+    private Toggle SlowMode;
+    private float DefaultTime;
     public GameObject prevPanel;
     void OnEnable()
     {
+        DefaultTime = GameObject.FindAnyObjectByType<WorldVariables>().DefaultWhenUpdate;
         UIDoc = GetComponent<UIDocument>();
+        
+
+        //slow mode toggle
+        SlowMode = UIDoc.rootVisualElement.Q<Toggle>("SlowMode");
+        SlowMode.RegisterValueChangedCallback(ToggleSlowMode);
+        if(PlayerPrefs.GetFloat("SlowMode") == DefaultTime)
+        {
+            SlowMode.value = false;
+        }
+        else
+        {
+            SlowMode.value = true;
+        }
+        
         
         //button setup
         backButton = UIDoc.rootVisualElement.Q<Button>("backButton");
@@ -69,5 +87,18 @@ public class settingsEvents : MonoBehaviour
         }
         
     }
+
+    private void ToggleSlowMode(ChangeEvent<bool> evt)
+    {
+        if(evt.newValue == true)
+        {
+            PlayerPrefs.SetFloat("SlowMode", DefaultTime * 2);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("SlowMode", DefaultTime);
+        } 
+    }
+
         
 }

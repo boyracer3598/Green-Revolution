@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Farmhouse
   <Description>k__BackingField: It's a house? And a farm?
   <SpMats>k__BackingField: 
-  <SpMatsNeeds>k__BackingField: 
+  <SpMatsNeeds>k__BackingField: Machinery
   <WoodCost>k__BackingField: 0
   <FoodCost>k__BackingField: 0
   <StoneCost>k__BackingField: 0
@@ -29,9 +29,9 @@ MonoBehaviour:
   <ProduceAmount>k__BackingField: 10
   <ProduceType>k__BackingField: food
   <Inspiration>k__BackingField: 
-  <InspirationRequirement>k__BackingField: 35
+  <InspirationRequirement>k__BackingField: 20
   <PopulationAdded>k__BackingField: 4
   <Pollution>k__BackingField: water
   <PollutionAmount>k__BackingField: 2
-  <Model>k__BackingField: {fileID: 0}
+  <Model>k__BackingField: {fileID: 2121956122045666456, guid: 7fdbf62a1507f274aa7cfabf164afaef, type: 3}
   <SpecialBuilding>k__BackingField: {fileID: 2174575048110313571, guid: 5c2233e5dbfa6f04aac8aa77a3bac6c5, type: 3}

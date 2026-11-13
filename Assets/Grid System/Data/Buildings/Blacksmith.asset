@@ -30,7 +30,7 @@ MonoBehaviour:
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <Inspiration>k__BackingField: 0
-  <InspirationRequirement>k__BackingField: 15
+  <InspirationRequirement>k__BackingField: 10
   <PopulationAdded>k__BackingField: -1
   <Pollution>k__BackingField: land
   <PollutionAmount>k__BackingField: 2
