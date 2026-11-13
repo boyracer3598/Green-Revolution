@@ -53,7 +53,7 @@ public class BuildingObject : BaseObject
 
         if (population < 0)
         {
-            world.EmployedPopulation += population;
+            world.EmployedPopulation -= population;
         }
         else
         {
@@ -170,7 +170,22 @@ public class BuildingObject : BaseObject
     }
     public virtual void Placed()
     {
-
+        if (Inspiration.Length > 0)
+        {
+            world.UpdateInspiration();
+        }
+        switch(PolProduceType)
+        {
+            case PolProduceTypes.AIR:
+                world.AirPollution += PolProduce;
+                break;
+            case PolProduceTypes.WATER:
+                world.WaterPollution += PolProduce;
+                break;
+            case PolProduceTypes.LAND:
+                world.LandPollution += PolProduce;
+                break;
+        }
     }
     public virtual void Upkeep()
     {

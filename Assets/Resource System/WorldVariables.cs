@@ -144,7 +144,6 @@ public class WorldVariables : MonoBehaviour
             }
         }
         PopulationHappiness = CalculateHappiness(50 + newHappiness);
-        UpdateInspiration();
     }
     public void CreateChallenge()
     {
@@ -265,8 +264,6 @@ public class WorldVariables : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
-
         if (TimeSinceLastUpkeep >= whenUpdate)
         {
             TriggerUpkeep();

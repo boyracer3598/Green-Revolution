@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Algae Cube
   m_EditorClassIdentifier: Assembly-CSharp::BuildingData
   <Name>k__BackingField: Algae Cube
-  <Description>k__BackingField: Reduces air pollution
+  <Description>k__BackingField: Reduces air pollution with the power of AI (Algae
+    Intelligence)
   <SpMats>k__BackingField: 
   <SpMatsNeeds>k__BackingField: Higher Education
   <WoodCost>k__BackingField: 0
@@ -29,7 +30,7 @@ MonoBehaviour:
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
   <Inspiration>k__BackingField: 
-  <InspirationRequirement>k__BackingField: 25
+  <InspirationRequirement>k__BackingField: 20
   <PopulationAdded>k__BackingField: 0
   <Pollution>k__BackingField: air
   <PollutionAmount>k__BackingField: 5

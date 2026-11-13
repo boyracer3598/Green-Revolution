@@ -25,6 +25,7 @@ public class NewsBuilding : BuildingObject
  
     public override void Placed()
     {
+        base.Placed();
         string filePathJson = Application.streamingAssetsPath + "/ArticleData.json";
         string[] fileText = File.ReadAllLines(filePathJson);
         string fileTextOneLine = "";

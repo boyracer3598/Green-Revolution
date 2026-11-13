@@ -36,6 +36,7 @@ public class BaseObject : MonoBehaviour
     {
         world.HappinessLost += populationHappiness;
         UpdatePollution(pos);
+        world.UpdateInspiration();
         Destroy(this.gameObject);
     }
     void UpdatePollution(bool pos)
