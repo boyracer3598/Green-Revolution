@@ -18,18 +18,18 @@ MonoBehaviour:
   <SpMatsNeeds>k__BackingField: 
   <WoodCost>k__BackingField: 250
   <FoodCost>k__BackingField: 0
-  <StoneCost>k__BackingField: 0
+  <StoneCost>k__BackingField: 50
   <FuelCost>k__BackingField: 0
   <WoodUpkeep>k__BackingField: 0
-  <FoodUpkeep>k__BackingField: 0
+  <FoodUpkeep>k__BackingField: 10
   <StoneUpkeep>k__BackingField: 0
   <FuelUpkeep>k__BackingField: 0
   <CropUpkeep>k__BackingField: 0
-  <PopulationHappiness>k__BackingField: 5
+  <PopulationHappiness>k__BackingField: 2
   <ProduceAmount>k__BackingField: 0
   <ProduceType>k__BackingField: 
-  <Inspiration>k__BackingField: 
-  <InspirationRequirement>k__BackingField: 0
+  <Inspiration>k__BackingField: 0
+  <InspirationRequirement>k__BackingField: 2
   <PopulationAdded>k__BackingField: -1
   <Pollution>k__BackingField: water
   <PollutionAmount>k__BackingField: 1

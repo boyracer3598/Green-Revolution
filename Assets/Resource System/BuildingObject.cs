@@ -20,7 +20,7 @@ public class BuildingObject : BaseObject
     [SerializeField] private int CropUpkeep = 0;
     public int population = 0;
     public bool canProvide = true;
-    public int[] Inspiration = null;
+    public int Inspiration = 0;
 
     public int WoodUpkeep1 { get => WoodUpkeep; set => WoodUpkeep = value; }
     public int StoneUpkeep1 { get => StoneUpkeep; set => StoneUpkeep = value; }
@@ -30,7 +30,7 @@ public class BuildingObject : BaseObject
     public (int x, int y) gridPos;
 
     // This function is used to add data to the building object, it is called from the BuildingSystem script's PlaceBuilding function.
-    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, float popHap, int[] inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population, string pollution, int pollutionAmount)
+    public void addData(string name, string description, int wood, int stone, int food, int fuel, int produceAmt, string prodType, float popHap, int inspiration, int upkeepWood, int upkeepStone, int upkeepFuel, int upkeepFood, int upkeepCrops, string spMatsNeeds, int population, string pollution, int pollutionAmount, string SpMats)
     {
         world = GameObject.FindAnyObjectByType<WorldVariables>();
         this.ObjectName = name;
@@ -50,7 +50,8 @@ public class BuildingObject : BaseObject
         this.CropUpkeep = upkeepCrops; // cropkeep
         this.SpMatsNeeds = spMatsNeeds;
         this.PolProduce = pollutionAmount;
-
+        this.SpMats = SpMats;
+        
         if (population < 0)
         {
             world.EmployedPopulation -= population;
@@ -170,7 +171,7 @@ public class BuildingObject : BaseObject
     }
     public virtual void Placed()
     {
-        if (Inspiration.Length > 0)
+        if (Inspiration > 0)
         {
             world.UpdateInspiration();
         }

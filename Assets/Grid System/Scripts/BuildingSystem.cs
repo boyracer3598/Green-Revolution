@@ -157,15 +157,7 @@ public class BuildingSystem : MonoBehaviour
             Destroy(buildingObject);
             buildingObject = (BuildingObject)building.gameObject.AddComponent(specialBuildingType);
         }
-        int[] imInspiration = new int[0];
-        if (!string.IsNullOrEmpty(preview.Data.Inspiration))
-        {
-            imInspiration = Array.ConvertAll(preview.Data.Inspiration.Split('/'), int.Parse);
-        }
-        else
-        {
-            imInspiration = new int[] {0};
-        }
+
 
         buildingObject.addData(
             preview.Data.Name,
@@ -177,7 +169,7 @@ public class BuildingSystem : MonoBehaviour
             preview.Data.ProduceAmount,
             preview.Data.ProduceType,
             preview.Data.PopulationHappiness,
-            imInspiration,
+            preview.Data.Inspiration,
             preview.Data.WoodUpkeep,
             preview.Data.StoneUpkeep,
             preview.Data.FuelUpkeep,
@@ -186,7 +178,9 @@ public class BuildingSystem : MonoBehaviour
             preview.Data.SpMatsNeeds,
             preview.Data.PopulationAdded,
             preview.Data.Pollution,
-            preview.Data.PollutionAmount); 
+            preview.Data.PollutionAmount,
+            preview.Data.SpMats
+            ); 
         buildingObject.Placed();
         grid.SetBuilding(building, buildingPositions);
         // deducts the resources from the player and destroys the preview object
